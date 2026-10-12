@@ -146,8 +146,8 @@ def main():
         "problem_track": "Quantum Optimization",
         "problem_statement": "PS-O1 Max-Cut",
         "team_metadata": {
-            "team_name": "YOUR_ACTUAL_REGISTERED_TEAM_NAME",
-            "team_id": "YOUR_ACTUAL_REGISTERED_PARTICIPANT_OR_TEAM_ID",
+            "team_name": "VARANASI",
+            "team_id": "AP251100708044",
             "team_leader": {
                 "name": "Ganesh Pirinti",
                 "institution": "SRM University-AP, Andhra Pradesh",

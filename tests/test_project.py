@@ -355,8 +355,8 @@ class TestOutputConsistency(unittest.TestCase):
 
         # Team metadata assertions
         meta = summary.get("team_metadata", {})
-        self.assertEqual(meta.get("team_name"), "YOUR_ACTUAL_REGISTERED_TEAM_NAME")
-        self.assertEqual(meta.get("team_id"), "YOUR_ACTUAL_REGISTERED_PARTICIPANT_OR_TEAM_ID")
+        self.assertEqual(meta.get("team_name"), "VARANASI")
+        self.assertEqual(meta.get("team_id"), "AP251100708044")
         self.assertEqual(meta.get("team_leader", {}).get("name"), "Ganesh Pirinti")
         self.assertEqual(len(meta.get("team_members", [])), 2)
         self.assertEqual(meta.get("team_members", [])[1]["name"], "Mohammed Sadiq")

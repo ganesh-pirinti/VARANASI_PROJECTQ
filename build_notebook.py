@@ -17,15 +17,15 @@ def generate_notebook():
 ### Focus Area: QAOA Circuit Construction & SWAP Bottleneck Analysis on Official Processors A & B
 
 ---
-**Team Name:** YOUR_ACTUAL_REGISTERED_TEAM_NAME  
-**Participant / Team ID:** YOUR_ACTUAL_REGISTERED_PARTICIPANT_OR_TEAM_ID  
-**Team Leader:** Ganesh Pirinti (SRM University-AP, Andhra Pradesh | Email: ganeshpirinti95218@gmail.com)  
-**Additional Team Member:** Mohammed Sadiq (SRM University-AP, Andhra Pradesh | Email: sadiqmohammedkhan12@gmail.com)  
-**Host Institution:** SRM University-AP, Andhra Pradesh | Hackathon & Competitions Cell  
-**GitHub Repository URL:** https://github.com/ganesh-pirinti/VARANASI_PROJECTQ  
-**Submission Scope:** Phase 1 (Online Qualification) — End-to-End Implementation & Architectural Study  
-**Hardware Authority:** Official Processor A (5 Qubits) & Processor B (9 Qubits) per Challenge Kit Consolidation  
-**AI / LLM Use Policy:** Disclosed in Section 8 per Hackathon Guidelines  
+- **Team Name:** VARANASI
+- **Participant / Team ID:** AP251100708044
+- **Team Leader:** Ganesh Pirinti (SRM University-AP, Andhra Pradesh | Email: ganeshpirinti95218@gmail.com)
+- **Additional Team Member:** Mohammed Sadiq (SRM University-AP, Andhra Pradesh | Email: sadiqmohammedkhan12@gmail.com)
+- **Host Institution:** SRM University-AP, Andhra Pradesh | Hackathon & Competitions Cell
+- **GitHub Repository URL:** https://github.com/ganesh-pirinti/VARANASI_PROJECTQ
+- **Submission Scope:** Phase 1 (Online Qualification) — End-to-End Implementation & Architectural Study
+- **Hardware Authority:** Official Processor A (5 Qubits) & Processor B (9 Qubits) per Challenge Kit Consolidation
+- **AI / LLM Use Policy:** Disclosed in Section 8 per Hackathon Guidelines
 
 ---
 
