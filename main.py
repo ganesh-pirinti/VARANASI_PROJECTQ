@@ -145,6 +145,30 @@ def main():
     summary_data = {
         "problem_track": "Quantum Optimization",
         "problem_statement": "PS-O1 Max-Cut",
+        "team_metadata": {
+            "team_name": "<!-- REQUIRED: Fill In Registered Team Name (e.g. Team Quantum Titans) -->",
+            "team_id": "<!-- REQUIRED: Fill In Registration ID (e.g. QFF-2026-XXXX) -->",
+            "team_leader": {
+                "name": "Ganesh Pirinti",
+                "institution": "SRM University-AP, Andhra Pradesh",
+                "email": "ganeshpirinti95218@gmail.com"
+            },
+            "team_members": [
+                {
+                    "name": "Ganesh Pirinti",
+                    "role": "Team Leader",
+                    "institution": "SRM University-AP, Andhra Pradesh",
+                    "email": "ganeshpirinti95218@gmail.com"
+                },
+                {
+                    "name": "Mohammed Sadiq",
+                    "role": "Additional Team Member",
+                    "institution": "SRM University-AP, Andhra Pradesh",
+                    "email": "sadiqmohammedkhan12@gmail.com"
+                }
+            ],
+            "repository_url": "https://github.com/ganesh-pirinti/VARANASI_PROJECTQ"
+        },
         "processors": {
             "processor_a": proc_a,
             "processor_b": proc_b

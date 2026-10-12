@@ -1,0 +1,603 @@
+{
+  "problem_track": "Quantum Optimization",
+  "problem_statement": "PS-O1 Max-Cut",
+  "team_metadata": {
+    "team_name": "<!-- REQUIRED: Fill In Registered Team Name (e.g. Team Quantum Titans) -->",
+    "team_id": "<!-- REQUIRED: Fill In Registration ID (e.g. QFF-2026-XXXX) -->",
+    "team_leader": {
+      "name": "Ganesh Pirinti",
+      "institution": "SRM University-AP, Andhra Pradesh",
+      "email": "ganeshpirinti95218@gmail.com"
+    },
+    "team_members": [
+      {
+        "name": "Ganesh Pirinti",
+        "role": "Team Leader",
+        "institution": "SRM University-AP, Andhra Pradesh",
+        "email": "ganeshpirinti95218@gmail.com"
+      },
+      {
+        "name": "Mohammed Sadiq",
+        "role": "Additional Team Member",
+        "institution": "SRM University-AP, Andhra Pradesh",
+        "email": "sadiqmohammedkhan12@gmail.com"
+      }
+    ],
+    "repository_url": "https://github.com/ganesh-pirinti/VARANASI_PROJECTQ"
+  },
+  "processors": {
+    "processor_a": {
+      "processor_id": "Processor_A",
+      "label": "Official Processor A (5-Qubit Tree / Star Branching Topology)",
+      "source": "Official QFF 2026 Phase 1 Challenge Framework & Processor_AB_Benchmark_Configuration_FINAL.pdf",
+      "num_qubits": 5,
+      "basis_gates": [
+        "rz",
+        "sx",
+        "x",
+        "cx"
+      ],
+      "coupling_edges_undirected": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "coupling_map": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "graph_diameter": 3,
+      "max_degree": 3,
+      "central_node": 1,
+      "notes": "5-qubit branching architecture. Qubit 1 is central (degree 3), qubit 3 has degree 2, qubits 0, 2, 4 are leaves (degree 1)."
+    },
+    "processor_b": {
+      "processor_id": "Processor_B",
+      "label": "Official Processor B (9-Qubit Heavy-Hex Inspired Mesh Lattice)",
+      "source": "Official QFF 2026 Phase 1 Challenge Framework & Processor_AB_Benchmark_Configuration_FINAL.pdf",
+      "num_qubits": 9,
+      "basis_gates": [
+        "rz",
+        "sx",
+        "x",
+        "cx"
+      ],
+      "coupling_edges_undirected": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "coupling_map": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          0,
+          8
+        ]
+      ],
+      "graph_diameter": 4,
+      "max_degree": 5,
+      "notes": "9-qubit heavy-hex inspired lattice. Qubit 6 has degree 5, Qubit 2 has degree 4."
+    }
+  },
+  "canonical_6node": {
+    "total_weight": 23,
+    "classical_optimal_cut": 17.0,
+    "classical_optimal_bitstrings": [
+      "001011",
+      "001101",
+      "010011",
+      "101100",
+      "110010",
+      "110100"
+    ],
+    "random_baseline": 11.5,
+    "qaoa_expected_cut": 13.549106763935919,
+    "approximation_ratio": 0.7970062802315246,
+    "optimal_gamma": [
+      0.48561691221914516
+    ],
+    "optimal_beta": [
+      0.3875001439124988
+    ]
+  },
+  "codesign_5node": {
+    "total_weight": 18,
+    "classical_optimal_cut": 14.0,
+    "classical_optimal_bitstrings": [
+      "00101",
+      "01001",
+      "10110",
+      "11010"
+    ],
+    "random_baseline": 9.0,
+    "qaoa_expected_cut": 10.235697771548866,
+    "approximation_ratio": 0.7311212693963476,
+    "optimal_gamma": [
+      0.4308482665077102
+    ],
+    "optimal_beta": [
+      0.904086494937756
+    ]
+  },
+  "benchmark_records": [
+    {
+      "instance": "6-Node_Canonical",
+      "processor_id": "Processor_A",
+      "processor_qubits": 5,
+      "label": "Official Processor A (5-Qubit Tree / Star Branching Topology)",
+      "opt_level": 1,
+      "status": "INFEASIBLE_CAPACITY_EXCEEDED",
+      "graph_diameter": 3,
+      "routing_pass": null,
+      "logical_cx": null,
+      "physical_cx": null,
+      "cx_overhead": null,
+      "routing_overhead_ratio": null,
+      "routing_swaps": null,
+      "physical_swaps": null,
+      "logical_depth": null,
+      "physical_depth": null,
+      "depth_overhead": null,
+      "total_gates": null,
+      "single_qubit_gates": null,
+      "two_qubit_gates": null,
+      "active_qubits": null,
+      "transpile_time_sec": null,
+      "error_note": "Circuit requires 6 logical qubits, exceeding physical capacity (5)."
+    },
+    {
+      "instance": "6-Node_Canonical",
+      "processor_id": "Processor_A",
+      "processor_qubits": 5,
+      "label": "Official Processor A (5-Qubit Tree / Star Branching Topology)",
+      "opt_level": 2,
+      "status": "INFEASIBLE_CAPACITY_EXCEEDED",
+      "graph_diameter": 3,
+      "routing_pass": null,
+      "logical_cx": null,
+      "physical_cx": null,
+      "cx_overhead": null,
+      "routing_overhead_ratio": null,
+      "routing_swaps": null,
+      "physical_swaps": null,
+      "logical_depth": null,
+      "physical_depth": null,
+      "depth_overhead": null,
+      "total_gates": null,
+      "single_qubit_gates": null,
+      "two_qubit_gates": null,
+      "active_qubits": null,
+      "transpile_time_sec": null,
+      "error_note": "Circuit requires 6 logical qubits, exceeding physical capacity (5)."
+    },
+    {
+      "instance": "6-Node_Canonical",
+      "processor_id": "Processor_A",
+      "processor_qubits": 5,
+      "label": "Official Processor A (5-Qubit Tree / Star Branching Topology)",
+      "opt_level": 3,
+      "status": "INFEASIBLE_CAPACITY_EXCEEDED",
+      "graph_diameter": 3,
+      "routing_pass": null,
+      "logical_cx": null,
+      "physical_cx": null,
+      "cx_overhead": null,
+      "routing_overhead_ratio": null,
+      "routing_swaps": null,
+      "physical_swaps": null,
+      "logical_depth": null,
+      "physical_depth": null,
+      "depth_overhead": null,
+      "total_gates": null,
+      "single_qubit_gates": null,
+      "two_qubit_gates": null,
+      "active_qubits": null,
+      "transpile_time_sec": null,
+      "error_note": "Circuit requires 6 logical qubits, exceeding physical capacity (5)."
+    },
+    {
+      "instance": "6-Node_Canonical",
+      "processor_id": "Processor_B",
+      "processor_qubits": 9,
+      "label": "Official Processor B (9-Qubit Heavy-Hex Inspired Mesh Lattice)",
+      "opt_level": 1,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 4,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 18,
+      "physical_cx": 20,
+      "cx_overhead": 2,
+      "routing_overhead_ratio": 0.1111111111111111,
+      "routing_swaps": 2,
+      "physical_swaps": 0,
+      "logical_depth": 35,
+      "physical_depth": 37,
+      "depth_overhead": 2,
+      "total_gates": 80,
+      "single_qubit_gates": 60,
+      "two_qubit_gates": 20,
+      "active_qubits": 9,
+      "transpile_time_sec": 0.060567617416381836,
+      "error_note": "None"
+    },
+    {
+      "instance": "6-Node_Canonical",
+      "processor_id": "Processor_B",
+      "processor_qubits": 9,
+      "label": "Official Processor B (9-Qubit Heavy-Hex Inspired Mesh Lattice)",
+      "opt_level": 2,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 4,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 18,
+      "physical_cx": 20,
+      "cx_overhead": 2,
+      "routing_overhead_ratio": 0.1111111111111111,
+      "routing_swaps": 2,
+      "physical_swaps": 0,
+      "logical_depth": 35,
+      "physical_depth": 48,
+      "depth_overhead": 13,
+      "total_gates": 101,
+      "single_qubit_gates": 81,
+      "two_qubit_gates": 20,
+      "active_qubits": 9,
+      "transpile_time_sec": 0.027331113815307617,
+      "error_note": "None"
+    },
+    {
+      "instance": "6-Node_Canonical",
+      "processor_id": "Processor_B",
+      "processor_qubits": 9,
+      "label": "Official Processor B (9-Qubit Heavy-Hex Inspired Mesh Lattice)",
+      "opt_level": 3,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 4,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 18,
+      "physical_cx": 19,
+      "cx_overhead": 1,
+      "routing_overhead_ratio": 0.05555555555555555,
+      "routing_swaps": 1,
+      "physical_swaps": 0,
+      "logical_depth": 35,
+      "physical_depth": 42,
+      "depth_overhead": 7,
+      "total_gates": 90,
+      "single_qubit_gates": 71,
+      "two_qubit_gates": 19,
+      "active_qubits": 9,
+      "transpile_time_sec": 0.02270960807800293,
+      "error_note": "None"
+    },
+    {
+      "instance": "5-Node_Subgraph",
+      "processor_id": "Processor_A",
+      "processor_qubits": 5,
+      "label": "Official Processor A (5-Qubit Tree / Star Branching Topology)",
+      "opt_level": 1,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 3,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 14,
+      "physical_cx": 20,
+      "cx_overhead": 6,
+      "routing_overhead_ratio": 0.42857142857142855,
+      "routing_swaps": 2,
+      "physical_swaps": 0,
+      "logical_depth": 26,
+      "physical_depth": 32,
+      "depth_overhead": 6,
+      "total_gates": 70,
+      "single_qubit_gates": 50,
+      "two_qubit_gates": 20,
+      "active_qubits": 5,
+      "transpile_time_sec": 0.010888099670410156,
+      "error_note": "None"
+    },
+    {
+      "instance": "5-Node_Subgraph",
+      "processor_id": "Processor_A",
+      "processor_qubits": 5,
+      "label": "Official Processor A (5-Qubit Tree / Star Branching Topology)",
+      "opt_level": 2,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 3,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 14,
+      "physical_cx": 20,
+      "cx_overhead": 6,
+      "routing_overhead_ratio": 0.42857142857142855,
+      "routing_swaps": 2,
+      "physical_swaps": 0,
+      "logical_depth": 26,
+      "physical_depth": 32,
+      "depth_overhead": 6,
+      "total_gates": 70,
+      "single_qubit_gates": 50,
+      "two_qubit_gates": 20,
+      "active_qubits": 5,
+      "transpile_time_sec": 0.015302896499633789,
+      "error_note": "None"
+    },
+    {
+      "instance": "5-Node_Subgraph",
+      "processor_id": "Processor_A",
+      "processor_qubits": 5,
+      "label": "Official Processor A (5-Qubit Tree / Star Branching Topology)",
+      "opt_level": 3,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 3,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 14,
+      "physical_cx": 20,
+      "cx_overhead": 6,
+      "routing_overhead_ratio": 0.42857142857142855,
+      "routing_swaps": 2,
+      "physical_swaps": 0,
+      "logical_depth": 26,
+      "physical_depth": 32,
+      "depth_overhead": 6,
+      "total_gates": 70,
+      "single_qubit_gates": 50,
+      "two_qubit_gates": 20,
+      "active_qubits": 5,
+      "transpile_time_sec": 0.020822763442993164,
+      "error_note": "None"
+    },
+    {
+      "instance": "5-Node_Subgraph",
+      "processor_id": "Processor_B",
+      "processor_qubits": 9,
+      "label": "Official Processor B (9-Qubit Heavy-Hex Inspired Mesh Lattice)",
+      "opt_level": 1,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 4,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 14,
+      "physical_cx": 17,
+      "cx_overhead": 3,
+      "routing_overhead_ratio": 0.21428571428571427,
+      "routing_swaps": 1,
+      "physical_swaps": 0,
+      "logical_depth": 26,
+      "physical_depth": 32,
+      "depth_overhead": 6,
+      "total_gates": 67,
+      "single_qubit_gates": 50,
+      "two_qubit_gates": 17,
+      "active_qubits": 9,
+      "transpile_time_sec": 0.010967493057250977,
+      "error_note": "None"
+    },
+    {
+      "instance": "5-Node_Subgraph",
+      "processor_id": "Processor_B",
+      "processor_qubits": 9,
+      "label": "Official Processor B (9-Qubit Heavy-Hex Inspired Mesh Lattice)",
+      "opt_level": 2,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 4,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 14,
+      "physical_cx": 17,
+      "cx_overhead": 3,
+      "routing_overhead_ratio": 0.21428571428571427,
+      "routing_swaps": 1,
+      "physical_swaps": 0,
+      "logical_depth": 26,
+      "physical_depth": 32,
+      "depth_overhead": 6,
+      "total_gates": 67,
+      "single_qubit_gates": 50,
+      "two_qubit_gates": 17,
+      "active_qubits": 9,
+      "transpile_time_sec": 0.015265226364135742,
+      "error_note": "None"
+    },
+    {
+      "instance": "5-Node_Subgraph",
+      "processor_id": "Processor_B",
+      "processor_qubits": 9,
+      "label": "Official Processor B (9-Qubit Heavy-Hex Inspired Mesh Lattice)",
+      "opt_level": 3,
+      "status": "COMPILED_SUCCESSFULLY",
+      "graph_diameter": 4,
+      "routing_pass": "SabreLayout",
+      "logical_cx": 14,
+      "physical_cx": 17,
+      "cx_overhead": 3,
+      "routing_overhead_ratio": 0.21428571428571427,
+      "routing_swaps": 1,
+      "physical_swaps": 0,
+      "logical_depth": 26,
+      "physical_depth": 32,
+      "depth_overhead": 6,
+      "total_gates": 67,
+      "single_qubit_gates": 50,
+      "two_qubit_gates": 17,
+      "active_qubits": 9,
+      "transpile_time_sec": 0.018568038940429688,
+      "error_note": "None"
+    }
+  ]
+}

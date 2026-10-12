@@ -55,6 +55,11 @@ class TestGraphAndBaselines(unittest.TestCase):
         for bstr in res["optimal_bitstrings"]:
             self.assertEqual(compute_cut_value(bstr, data["edges"]), 17.0)
 
+        # Ensure JSON-stored values match brute-force calculations strictly
+        self.assertEqual(data["classical_exact_max_cut"], 17)
+        self.assertEqual(set(data["classical_optimal_partitions"]), set(res["optimal_bitstrings"]))
+        self.assertEqual(data["random_cut_expectation"], 11.5)
+
     def test_5node_graph_validity(self):
         data = load_graph_data(self.g5_path)
         self.assertEqual(data["num_nodes"], 5)
@@ -71,6 +76,32 @@ class TestGraphAndBaselines(unittest.TestCase):
         self.assertEqual(set(res["optimal_bitstrings"]), expected_opts)
         for bstr in res["optimal_bitstrings"]:
             self.assertEqual(compute_cut_value(bstr, data["edges"]), 14.0)
+
+        # Ensure JSON-stored values match brute-force calculations strictly
+        self.assertEqual(data["classical_exact_max_cut"], 14)
+        self.assertEqual(set(data["classical_optimal_partitions"]), expected_opts)
+        self.assertEqual(data["random_cut_expectation"], 9.0)
+
+    def test_5node_regression_against_erroneous_partitions(self):
+        """Regression test: verify that previously miscalculated bitstrings are strictly rejected."""
+        data = load_graph_data(self.g5_path)
+        erroneous_bitstrings = ["01011", "01101", "10010", "10100"]
+        stored_opts = set(data["classical_optimal_partitions"])
+        for bstr in erroneous_bitstrings:
+            self.assertNotIn(bstr, stored_opts, f"Erroneous bitstring {bstr} must not be in stored optimal partitions.")
+            val = compute_cut_value(bstr, data["edges"])
+            self.assertLess(val, 14.0, f"Erroneous bitstring {bstr} must have cut < 14.0, got {val}.")
+
+    def test_canonical_graph_file_alias_consistency(self):
+        """Verify that data/benchmark_graph.json matches data/benchmark_graph_6node.json exactly."""
+        alias_path = os.path.join(PROJECT_ROOT, "data", "benchmark_graph.json")
+        data_alias = load_graph_data(alias_path)
+        data_6 = load_graph_data(self.g6_path)
+        self.assertEqual(data_alias["num_nodes"], data_6["num_nodes"])
+        self.assertEqual(data_alias["edges"], data_6["edges"])
+        self.assertEqual(data_alias["total_weight"], data_6["total_weight"])
+        self.assertEqual(data_alias["classical_exact_max_cut"], data_6["classical_exact_max_cut"])
+        self.assertEqual(data_alias["classical_optimal_partitions"], data_6["classical_optimal_partitions"])
 
 
 class TestQAOACircuitAndObjective(unittest.TestCase):

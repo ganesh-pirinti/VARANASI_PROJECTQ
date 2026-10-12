@@ -10,16 +10,12 @@
 - **Problem Statement Code:** PS-O1 (Max-Cut)
 - **Host Institution:** SRM University-AP | Hackathon & Competitions Cell
 - **Stage:** Phase 1 — Online Qualification Stage
-- **Team Name:** `<!-- FILL IN: Registered Team Name -->`
-- **Participant / Team ID:** `AP25110070844`
-- **Team Members:**
-  - **Ganesh pirinti (leader)** — ganeshpirinti95218@gmail.com — **SRM UNIVERSITY AP**
-  - **Abhinav Nemani (member)** — abhinav_nemani@srmap.edu.in — **SRM University-AP**
-  - **Adapa Dhana Lakshmi Varshini (member)** — varshini_adapa@srmap.edu.in — **SRM University-AP**
-  - **Garre Venkata Prudhvi Raj (member)** — venkataprudhviraj2007@gmail.com — **SRM University-AP**
-  - **PRATHURU LOKESH (member)** — prathurulokesh3@gmail.com — **SRM University-AP**
-- **GitHub Repository URL:** `<!-- FILL IN: https://github.com/your-username/your-repo -->`
-- **Hugging Face Space URL:** `<!-- FILL IN IF APPLICABLE, OTHERWISE LEAVE N/A -->`
+- **Team Name:** `<!-- REQUIRED: Fill In Registered Team Name (e.g. Team Quantum Titans) -->`
+- **Participant / Team ID:** `<!-- REQUIRED: Fill In Registration ID (e.g. QFF-2026-XXXX) -->`
+- **Team Leader:** Ganesh Pirinti (SRM University-AP, Andhra Pradesh | Email: ganeshpirinti95218@gmail.com)
+- **Additional Team Member:** Mohammed Sadiq (SRM University-AP, Andhra Pradesh | Email: sadiqmohammedkhan12@gmail.com)
+- **GitHub Repository URL:** https://github.com/ganesh-pirinti/VARANASI_PROJECTQ
+- **Hugging Face Space URL:** N/A (Not Applicable for Phase 1 Python/Notebook Pipeline)
 - **Hardware Source Authority:** Participant challenge brief citing `Processor_AB_Benchmark_Configuration_FINAL.pdf` & `Problem_Statment_Details.pdf`
 
 ---
@@ -117,15 +113,15 @@ Exported directly from `results/benchmark_metrics.csv`:
 | **6-Node_Canonical** | 6 | **Processor_A** | 5 | **INFEASIBLE_CAPACITY_EXCEEDED** | 1 | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | **6-Node_Canonical** | 6 | **Processor_A** | 5 | **INFEASIBLE_CAPACITY_EXCEEDED** | 2 | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | **6-Node_Canonical** | 6 | **Processor_A** | 5 | **INFEASIBLE_CAPACITY_EXCEEDED** | 3 | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
-| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 1 | 37 | 2 | `SabreLayout` | 20 | +2 | 11.1% | 80 | 0.022 s |
-| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 2 | 48 | 2 | `SabreLayout` | 20 | +2 | 11.1% | 101 | 0.016 s |
-| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 3 | 42 | **1** | `SabreLayout` | **19** | **+1** | **5.6%** | 90 | 0.015 s |
-| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 1 | 32 | 2 | `SabreLayout` | 20 | +6 | 42.9% | 70 | 0.009 s |
-| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 2 | 32 | 2 | `SabreLayout` | 20 | +6 | 42.9% | 70 | 0.012 s |
-| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 3 | 32 | **2** | `SabreLayout` | **20** | **+6** | **42.9%** | 70 | 0.016 s |
-| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 1 | 32 | 1 | `SabreLayout` | 17 | +3 | 21.4% | 67 | 0.008 s |
-| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 2 | 32 | 1 | `SabreLayout` | 17 | +3 | 21.4% | 67 | 0.009 s |
-| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 3 | 32 | **1** | `SabreLayout` | **17** | **+3** | **21.4%** | 67 | 0.012 s |
+| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 1 | 37 | 2 | `SabreLayout` | 20 | +2 | 11.1% | 80 | 0.061 s |
+| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 2 | 48 | 2 | `SabreLayout` | 20 | +2 | 11.1% | 101 | 0.027 s |
+| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 3 | 42 | **1** | `SabreLayout` | **19** | **+1** | **5.6%** | 90 | 0.023 s |
+| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 1 | 32 | 2 | `SabreLayout` | 20 | +6 | 42.9% | 70 | 0.011 s |
+| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 2 | 32 | 2 | `SabreLayout` | 20 | +6 | 42.9% | 70 | 0.015 s |
+| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 3 | 32 | **2** | `SabreLayout` | **20** | **+6** | **42.9%** | 70 | 0.021 s |
+| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 1 | 32 | 1 | `SabreLayout` | 17 | +3 | 21.4% | 67 | 0.011 s |
+| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 2 | 32 | 1 | `SabreLayout` | 17 | +3 | 21.4% | 67 | 0.015 s |
+| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 3 | 32 | **1** | `SabreLayout` | **17** | **+3** | **21.4%** | 67 | 0.019 s |
 
 ---
 
@@ -177,18 +173,19 @@ For the QAOA instances, unconstrained baselines produce $\text{Logical CX} = 18$
 
 ## 7. Reproduction Instructions
 
-```powershell
-# 1. Navigate to workspace
-cd c:\Users\GANESH_PIRINTI\Downloads\VARANASI_PROJECT_Q
+```bash
+# 1. Clone repository and navigate to root directory
+git clone https://github.com/ganesh-pirinti/VARANASI_PROJECTQ.git
+cd VARANASI_PROJECTQ
 
-# 2. Install pinned dependencies
-python -m pip install -r requirements.txt
+# 2. Install pinned dependencies in virtual environment
+pip install -r requirements.txt
 
 # 3. Run automated end-to-end CLI workflow
 python main.py
 
-# 4. Run automated test suite
-python -m unittest tests/test_project.py
+# 4. Run automated test suite (18 unit and regression tests)
+python -m unittest tests/test_project.py -v
 
 # 5. (Optional) Run interactive Jupyter Notebook
 jupyter notebook main.ipynb
