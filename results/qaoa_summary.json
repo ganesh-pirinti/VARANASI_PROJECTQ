@@ -2,8 +2,8 @@
   "problem_track": "Quantum Optimization",
   "problem_statement": "PS-O1 Max-Cut",
   "team_metadata": {
-    "team_name": "<!-- REQUIRED: Fill In Registered Team Name (e.g. Team Quantum Titans) -->",
-    "team_id": "<!-- REQUIRED: Fill In Registration ID (e.g. QFF-2026-XXXX) -->",
+    "team_name": "YOUR_ACTUAL_REGISTERED_TEAM_NAME",
+    "team_id": "YOUR_ACTUAL_REGISTERED_PARTICIPANT_OR_TEAM_ID",
     "team_leader": {
       "name": "Ganesh Pirinti",
       "institution": "SRM University-AP, Andhra Pradesh",
@@ -396,7 +396,7 @@
       "single_qubit_gates": 60,
       "two_qubit_gates": 20,
       "active_qubits": 9,
-      "transpile_time_sec": 0.060567617416381836,
+      "transpile_time_sec": 0.0679781436920166,
       "error_note": "None"
     },
     {
@@ -421,7 +421,7 @@
       "single_qubit_gates": 81,
       "two_qubit_gates": 20,
       "active_qubits": 9,
-      "transpile_time_sec": 0.027331113815307617,
+      "transpile_time_sec": 0.04462289810180664,
       "error_note": "None"
     },
     {
@@ -446,7 +446,7 @@
       "single_qubit_gates": 71,
       "two_qubit_gates": 19,
       "active_qubits": 9,
-      "transpile_time_sec": 0.02270960807800293,
+      "transpile_time_sec": 0.028446197509765625,
       "error_note": "None"
     },
     {
@@ -471,7 +471,7 @@
       "single_qubit_gates": 50,
       "two_qubit_gates": 20,
       "active_qubits": 5,
-      "transpile_time_sec": 0.010888099670410156,
+      "transpile_time_sec": 0.015677213668823242,
       "error_note": "None"
     },
     {
@@ -496,7 +496,7 @@
       "single_qubit_gates": 50,
       "two_qubit_gates": 20,
       "active_qubits": 5,
-      "transpile_time_sec": 0.015302896499633789,
+      "transpile_time_sec": 0.02149820327758789,
       "error_note": "None"
     },
     {
@@ -521,7 +521,7 @@
       "single_qubit_gates": 50,
       "two_qubit_gates": 20,
       "active_qubits": 5,
-      "transpile_time_sec": 0.020822763442993164,
+      "transpile_time_sec": 0.025357484817504883,
       "error_note": "None"
     },
     {
@@ -546,7 +546,7 @@
       "single_qubit_gates": 50,
       "two_qubit_gates": 17,
       "active_qubits": 9,
-      "transpile_time_sec": 0.010967493057250977,
+      "transpile_time_sec": 0.013444185256958008,
       "error_note": "None"
     },
     {
@@ -571,7 +571,7 @@
       "single_qubit_gates": 50,
       "two_qubit_gates": 17,
       "active_qubits": 9,
-      "transpile_time_sec": 0.015265226364135742,
+      "transpile_time_sec": 0.018815279006958008,
       "error_note": "None"
     },
     {
@@ -596,7 +596,7 @@
       "single_qubit_gates": 50,
       "two_qubit_gates": 17,
       "active_qubits": 9,
-      "transpile_time_sec": 0.018568038940429688,
+      "transpile_time_sec": 0.022998571395874023,
       "error_note": "None"
     }
   ]

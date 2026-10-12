@@ -17,8 +17,8 @@ def generate_notebook():
 ### Focus Area: QAOA Circuit Construction & SWAP Bottleneck Analysis on Official Processors A & B
 
 ---
-**Team Name:** `<!-- REQUIRED: Fill In Registered Team Name (e.g. Team Quantum Titans) -->`  
-**Participant / Team ID:** `<!-- REQUIRED: Fill In Registration ID (e.g. QFF-2026-XXXX) -->`  
+**Team Name:** YOUR_ACTUAL_REGISTERED_TEAM_NAME  
+**Participant / Team ID:** YOUR_ACTUAL_REGISTERED_PARTICIPANT_OR_TEAM_ID  
 **Team Leader:** Ganesh Pirinti (SRM University-AP, Andhra Pradesh | Email: ganeshpirinti95218@gmail.com)  
 **Additional Team Member:** Mohammed Sadiq (SRM University-AP, Andhra Pradesh | Email: sadiqmohammedkhan12@gmail.com)  
 **Host Institution:** SRM University-AP, Andhra Pradesh | Hackathon & Competitions Cell  

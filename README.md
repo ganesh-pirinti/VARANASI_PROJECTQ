@@ -10,8 +10,8 @@
 - **Problem Statement Code:** PS-O1 (Max-Cut)
 - **Host Institution:** SRM University-AP | Hackathon & Competitions Cell
 - **Stage:** Phase 1 — Online Qualification Stage
-- **Team Name:** `<!-- REQUIRED: Fill In Registered Team Name (e.g. Team Quantum Titans) -->`
-- **Participant / Team ID:** `<!-- REQUIRED: Fill In Registration ID (e.g. QFF-2026-XXXX) -->`
+- **Team Name:** YOUR_ACTUAL_REGISTERED_TEAM_NAME
+- **Participant / Team ID:** YOUR_ACTUAL_REGISTERED_PARTICIPANT_OR_TEAM_ID
 - **Team Leader:** Ganesh Pirinti (SRM University-AP, Andhra Pradesh | Email: ganeshpirinti95218@gmail.com)
 - **Additional Team Member:** Mohammed Sadiq (SRM University-AP, Andhra Pradesh | Email: sadiqmohammedkhan12@gmail.com)
 - **GitHub Repository URL:** https://github.com/ganesh-pirinti/VARANASI_PROJECTQ
@@ -113,15 +113,15 @@ Exported directly from `results/benchmark_metrics.csv`:
 | **6-Node_Canonical** | 6 | **Processor_A** | 5 | **INFEASIBLE_CAPACITY_EXCEEDED** | 1 | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | **6-Node_Canonical** | 6 | **Processor_A** | 5 | **INFEASIBLE_CAPACITY_EXCEEDED** | 2 | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | **6-Node_Canonical** | 6 | **Processor_A** | 5 | **INFEASIBLE_CAPACITY_EXCEEDED** | 3 | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
-| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 1 | 37 | 2 | `SabreLayout` | 20 | +2 | 11.1% | 80 | 0.061 s |
-| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 2 | 48 | 2 | `SabreLayout` | 20 | +2 | 11.1% | 101 | 0.027 s |
-| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 3 | 42 | **1** | `SabreLayout` | **19** | **+1** | **5.6%** | 90 | 0.023 s |
-| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 1 | 32 | 2 | `SabreLayout` | 20 | +6 | 42.9% | 70 | 0.011 s |
-| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 2 | 32 | 2 | `SabreLayout` | 20 | +6 | 42.9% | 70 | 0.015 s |
-| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 3 | 32 | **2** | `SabreLayout` | **20** | **+6** | **42.9%** | 70 | 0.021 s |
-| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 1 | 32 | 1 | `SabreLayout` | 17 | +3 | 21.4% | 67 | 0.011 s |
-| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 2 | 32 | 1 | `SabreLayout` | 17 | +3 | 21.4% | 67 | 0.015 s |
-| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 3 | 32 | **1** | `SabreLayout` | **17** | **+3** | **21.4%** | 67 | 0.019 s |
+| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 1 | 37 | 2 | `SabreLayout` | 20 | +2 | 11.1% | 80 | 0.068 s |
+| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 2 | 48 | 2 | `SabreLayout` | 20 | +2 | 11.1% | 101 | 0.045 s |
+| **6-Node_Canonical** | 6 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 3 | 42 | **1** | `SabreLayout` | **19** | **+1** | **5.6%** | 90 | 0.028 s |
+| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 1 | 32 | 2 | `SabreLayout` | 20 | +6 | 42.9% | 70 | 0.016 s |
+| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 2 | 32 | 2 | `SabreLayout` | 20 | +6 | 42.9% | 70 | 0.021 s |
+| **5-Node_Subgraph** | 5 | **Processor_A** | 5 | **COMPILED_SUCCESSFULLY** | 3 | 32 | **2** | `SabreLayout` | **20** | **+6** | **42.9%** | 70 | 0.025 s |
+| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 1 | 32 | 1 | `SabreLayout` | 17 | +3 | 21.4% | 67 | 0.013 s |
+| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 2 | 32 | 1 | `SabreLayout` | 17 | +3 | 21.4% | 67 | 0.019 s |
+| **5-Node_Subgraph** | 5 | **Processor_B** | 9 | **COMPILED_SUCCESSFULLY** | 3 | 32 | **1** | `SabreLayout` | **17** | **+3** | **21.4%** | 67 | 0.023 s |
 
 ---
 

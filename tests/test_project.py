@@ -353,6 +353,14 @@ class TestOutputConsistency(unittest.TestCase):
         self.assertGreater(summary["codesign_5node"]["qaoa_expected_cut"], 9.0)
         self.assertLessEqual(summary["codesign_5node"]["approximation_ratio"], 1.0)
 
+        # Team metadata assertions
+        meta = summary.get("team_metadata", {})
+        self.assertEqual(meta.get("team_name"), "YOUR_ACTUAL_REGISTERED_TEAM_NAME")
+        self.assertEqual(meta.get("team_id"), "YOUR_ACTUAL_REGISTERED_PARTICIPANT_OR_TEAM_ID")
+        self.assertEqual(meta.get("team_leader", {}).get("name"), "Ganesh Pirinti")
+        self.assertEqual(len(meta.get("team_members", [])), 2)
+        self.assertEqual(meta.get("team_members", [])[1]["name"], "Mohammed Sadiq")
+
 
 if __name__ == "__main__":
     unittest.main()
