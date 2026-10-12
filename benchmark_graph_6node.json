@@ -1,0 +1,21 @@
+{
+  "name": "PS_O1_Canonical_6Node_Weighted_Graph",
+  "description": "Six-node non-bipartite frustrated weighted graph with integer weights 1-5, matching official PS-O1 specifications.",
+  "num_nodes": 6,
+  "nodes": [0, 1, 2, 3, 4, 5],
+  "edges": [
+    {"source": 0, "target": 1, "weight": 2},
+    {"source": 1, "target": 2, "weight": 3},
+    {"source": 2, "target": 3, "weight": 1},
+    {"source": 3, "target": 4, "weight": 4},
+    {"source": 4, "target": 5, "weight": 2},
+    {"source": 5, "target": 0, "weight": 3},
+    {"source": 0, "target": 2, "weight": 3},
+    {"source": 2, "target": 4, "weight": 2},
+    {"source": 0, "target": 4, "weight": 3}
+  ],
+  "total_weight": 23,
+  "classical_exact_max_cut": 17,
+  "classical_optimal_partitions": ["001011", "001101", "010011", "101100", "110010", "110100"],
+  "random_cut_expectation": 11.5
+}

@@ -1,0 +1,19 @@
+{
+  "name": "PS_O1_CoDesign_5Node_Induced_Subgraph",
+  "description": "Five-node induced subgraph of the 6-node benchmark with integer weights 1-5, enabling direct cross-hardware comparison between 5-qubit Processor A and 9-qubit Processor B.",
+  "num_nodes": 5,
+  "nodes": [0, 1, 2, 3, 4],
+  "edges": [
+    {"source": 0, "target": 1, "weight": 2},
+    {"source": 1, "target": 2, "weight": 3},
+    {"source": 2, "target": 3, "weight": 1},
+    {"source": 3, "target": 4, "weight": 4},
+    {"source": 0, "target": 2, "weight": 3},
+    {"source": 2, "target": 4, "weight": 2},
+    {"source": 0, "target": 4, "weight": 3}
+  ],
+  "total_weight": 18,
+  "classical_exact_max_cut": 14,
+  "classical_optimal_partitions": ["00101", "01001", "10110", "11010"],
+  "random_cut_expectation": 9.0
+}

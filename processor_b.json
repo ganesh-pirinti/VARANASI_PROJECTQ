@@ -1,0 +1,38 @@
+{
+  "processor_id": "Processor_B",
+  "label": "Official Processor B (9-Qubit Heavy-Hex Inspired Mesh Lattice)",
+  "source": "Official QFF 2026 Phase 1 Challenge Framework & Processor_AB_Benchmark_Configuration_FINAL.pdf",
+  "num_qubits": 9,
+  "basis_gates": ["rz", "sx", "x", "cx"],
+  "coupling_edges_undirected": [
+    [0, 1],
+    [1, 2],
+    [1, 6],
+    [2, 3],
+    [2, 6],
+    [2, 5],
+    [3, 4],
+    [4, 5],
+    [5, 6],
+    [6, 7],
+    [6, 8],
+    [8, 0]
+  ],
+  "coupling_map": [
+    [0, 1], [1, 0],
+    [1, 2], [2, 1],
+    [1, 6], [6, 1],
+    [2, 3], [3, 2],
+    [2, 6], [6, 2],
+    [2, 5], [5, 2],
+    [3, 4], [4, 3],
+    [4, 5], [5, 4],
+    [5, 6], [6, 5],
+    [6, 7], [7, 6],
+    [6, 8], [8, 6],
+    [8, 0], [0, 8]
+  ],
+  "graph_diameter": 4,
+  "max_degree": 5,
+  "notes": "9-qubit heavy-hex inspired lattice. Qubit 6 has degree 5, Qubit 2 has degree 4."
+}
