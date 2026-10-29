@@ -682,6 +682,13 @@ elNodeChips.forEach(chip => {
     const id = parseInt(chip.dataset.nodeId, 10);
     toggleNode(id);
   });
+  chip.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const id = parseInt(chip.dataset.nodeId, 10);
+      toggleNode(id);
+    }
+  });
 });
 
 // Bind Quick Action Buttons
