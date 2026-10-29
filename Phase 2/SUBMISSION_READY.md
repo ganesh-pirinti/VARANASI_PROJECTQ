@@ -19,6 +19,8 @@
 | **Event Track** | Quantum Optimization (PS-O1) |
 | **Target Problem** | Weighted Network Partitioning via QAOA |
 | **Benchmark Graph** | 6 Vertices, 9 Weighted Edges, Total Weight = 27, Optimal Cut = 22 |
+| **Live Web Studio** | [https://web-delta-seven-31.vercel.app](https://web-delta-seven-31.vercel.app) |
+| **Session 01 3D Explorer** | [https://web-delta-seven-31.vercel.app/mission22.html](https://web-delta-seven-31.vercel.app/mission22.html) |
 | **Git Repository** | [https://github.com/ganesh-pirinti/VARANASI_PROJECTQ](https://github.com/ganesh-pirinti/VARANASI_PROJECTQ) |
 | **Default Branch** | `main` |
 | **Release Archive** | `Phase 2/dist/VARANASI_PS-O1_Phase2_Submission.zip` |
