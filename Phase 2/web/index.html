@@ -4,821 +4,817 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VARANASI — Quantum Optimization Studio • PS-O1</title>
+  <meta name="description" content="Quantum Optimization of Network Partitioning Using QAOA — Qiskit Fall Fest 2026, SRM University-AP. Team VARANASI (AP251100708044)." />
   <link rel="stylesheet" href="styles.css" />
   <!-- Authoritative benchmark data and research report fallback scripts -->
   <script type="module" src="data/benchmark_data.js"></script>
   <script type="module" src="data/report_content.js"></script>
 </head>
 <body>
-  <div class="app-container">
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-      <div class="brand-block">
-        <div class="brand-badge">Qiskit Fall Fest 2026</div>
-        <div class="brand-title">VARANASI</div>
-        <div class="brand-subtitle">Quantum Optimization Studio • PS-O1</div>
-      </div>
 
-      <div class="nav-section-title">Core Stations</div>
-      <ul class="nav-items">
-        <li><button class="nav-btn" data-tab="games"><span class="icon">🎮</span> Interactive Labs (2 Games)</button></li>
-        <li><button class="nav-btn active" data-tab="overview"><span class="icon">🌐</span> Problem & Scenario</button></li>
-        <li><button class="nav-btn" data-tab="graph3d"><span class="icon">🔮</span> Graph Lab (3D / 2D / Matrix)</button></li>
-        <li><button class="nav-btn" data-tab="classical"><span class="icon">⚡</span> Classical Ground Truth</button></li>
-        <li><button class="nav-btn" data-tab="quantum"><span class="icon">⚛️</span> Hybrid QAOA Loop</button></li>
-        <li><button class="nav-btn" data-tab="circuit"><span class="icon">🔌</span> Circuit Explorer</button></li>
-        <li><button class="nav-btn" data-tab="mapping"><span class="icon">🗺️</span> Hardware Co-Design</button></li>
-        <li><button class="nav-btn" data-tab="duallane"><span class="icon">🔄</span> Dual-Lane Studio</button></li>
-        <li><button class="nav-btn" data-tab="results"><span class="icon">📊</span> Results & Stochastic CDF</button></li>
-      </ul>
-
-      <div class="nav-section-title">Research & Deliverables</div>
-      <ul class="nav-items">
-        <li><button class="nav-btn" data-tab="report"><span class="icon">📜</span> Research Report</button></li>
-        <li><button class="nav-btn" data-tab="downloads"><span class="icon">📦</span> Pitch Deck & Archive</button></li>
-      </ul>
-
-      <div class="sidebar-footer">
-        <div class="team-pill"><span>Team:</span> <strong>VARANASI</strong></div>
-        <div class="team-pill"><span>ID:</span> <strong>AP251100708044</strong></div>
-        <div class="team-pill"><span>Host:</span> <span>SRM University-AP</span></div>
-      </div>
-    </aside>
-
-    <!-- Main Viewport -->
-    <main class="main-viewport">
-      <!-- Topbar Header -->
-      <header class="topbar">
-        <div class="topbar-title">
-          <h1 id="current-tab-title">Problem Statement PS-O1: Real-World Scenario & Optimization</h1>
-          <div class="status-badge">
-            <span class="status-dot"></span>
-            <span>Simulated Qiskit AerBackend (Official Noise Model)</span>
-          </div>
+  <!-- ==================================================================== -->
+  <!-- GLOBAL HEADER & TOP NAVIGATION -->
+  <!-- ==================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="site-header-inner">
+      <a href="#home" class="brand-link" id="nav-brand" aria-label="VARANASI Quantum Studio Home">
+        <svg class="brand-emblem" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <ellipse cx="50" cy="50" rx="42" ry="20" transform="rotate(-25 50 50)"/>
+          <ellipse cx="50" cy="50" rx="42" ry="20" transform="rotate(25 50 50)"/>
+          <circle cx="50" cy="50" r="10" fill="currentColor"/>
+          <circle cx="22" cy="36" r="5" fill="currentColor"/>
+          <circle cx="78" cy="64" r="5" fill="currentColor"/>
+        </svg>
+        <div class="brand-titles">
+          <span class="brand-title">VARANASI</span>
+          <span class="brand-subtitle">PS-O1 • Quantum Optimization</span>
         </div>
-        <div class="topbar-actions">
-          <a href="assets/VARANASI_Pitch_Deck.pdf" target="_blank" class="btn-secondary" id="topbar-pdf-link">📑 Open Slide Deck (PDF)</a>
-          <button id="topbar-games-btn" class="btn-primary" style="background: linear-gradient(135deg, #00e5ff 0%, #0077b6 100%); color: #050a17; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">🎮 Interactive Labs</button>
-          <button id="btn-run-tests" class="btn-primary">🧪 Run Verification Tests</button>
-        </div>
-      </header>
+      </a>
 
-      <!-- Content Body -->
-      <div class="content-body">
+      <!-- Primary Nav Menu -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="main-nav-links">
+          <li><button type="button" class="nav-link-btn active" data-tab="home">Home</button></li>
+          <li><button type="button" class="nav-link-btn" data-tab="project">Project</button></li>
+          <li><button type="button" class="nav-link-btn" data-tab="labs">Interactive Labs</button></li>
+          <li><button type="button" class="nav-link-btn" data-tab="results">Results</button></li>
+          <li><button type="button" class="nav-link-btn" data-tab="resources">Resources</button></li>
+          <li><button type="button" class="nav-link-btn" data-tab="about">About</button></li>
+        </ul>
+      </nav>
 
-        <!-- Data Loading Error Banner (Hidden by default, shown if data fails) -->
-        <div id="data-error-banner" class="data-error-banner">
-          <h4>⚠️ Benchmark Data Normalization Error</h4>
-          <p id="data-error-message">Unable to load or parse authoritative benchmark data. Please check connection and console logs.</p>
-        </div>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 1: OVERVIEW & SCENARIO -->
-        <!-- ==================================================================== -->
-        <section id="pane-overview" class="tab-pane active">
-          <!-- Top Stat Grid -->
-          <div class="stat-grid">
-            <div class="stat-box highlight">
-              <div class="stat-label">Locked Graph Size</div>
-              <div class="stat-value cyan">6 Nodes • 9 Edges</div>
-              <div class="stat-subtext">Total Graph Weight W = 27</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-label">Exact Maximum Cut (C*)</div>
-              <div class="stat-value emerald">22 / 27</div>
-              <div class="stat-subtext">81.48% Total Weight Cut (7 of 9 edges)</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-label">Processor D Routing SWAPs</div>
-              <div class="stat-value emerald">0 SWAPs</div>
-              <div class="stat-subtext">-100% Routing Overhead (B requires 1 SWAP)</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-label">Optimal Sampling Enhancement</div>
-              <div class="stat-value coral">4.0x vs Random</div>
-              <div class="stat-subtext">P(opt) = 12.50% (512 shots) vs 3.125%</div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">🗼 Scenario: Interference-Aware Frequency Channel Planning</div>
-                <div class="card-subtitle">Mapping Real-World Wireless Co-Channel Isolation to Binary Network Partitioning</div>
-              </div>
-              <span class="brand-badge">Official PS-O1 Instance</span>
-            </div>
-            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
-              In dense cellular networks (such as 5G microcells and university campus layouts), adjacent cell towers transmitting on overlapping radio frequencies create mutual <strong>co-channel interference</strong>. This degrades the Signal-to-Interference-plus-Noise Ratio (SINR) and causes packet drops. Telecommunication engineers must partition base stations across available orthogonal frequency bands to isolate interference.
-            </p>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
-              <div style="background: #0d1527; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                <h4 style="color: var(--cyan-primary); font-size: 0.88rem; margin-bottom: 0.4rem;">1. Physical Entities & Interference Graph</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">
-                  The 6 communication towers form vertices $V=\{0..5\}$. The 9 weighted links represent interference severity $w_{uv}$ incurred if both towers share a frequency band. Total interference weight = 27.
-                </p>
-              </div>
-              <div style="background: #0d1527; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                <h4 style="color: var(--emerald-accent); font-size: 0.88rem; margin-bottom: 0.4rem;">2. Two-Channel Max-Cut Formulation</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">
-                  We allocate Channel $A$ ($x_i=1$) and Channel $B$ ($x_i=0$). Maximizing cut weight isolates neighboring towers onto orthogonal frequencies, achieving 81.48% (22/27) weighted cut fraction on the synthetic benchmark.
-                </p>
-              </div>
-              <div style="background: #0d1527; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                <h4 style="color: var(--coral-accent); font-size: 0.88rem; margin-bottom: 0.4rem;">3. Illustrative Mapping Scope & Disclosure</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">
-                  <em>Scientific Disclosure:</em> This scenario provides an illustrative domain interpretation for the locked synthetic PS-O1 instance. Commercial radio planning requires multi-channel coloring ($K > 2$), power control, and dynamic scheduling.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB: INTERACTIVE LABS & GAME SESSIONS (2 SESSIONS) -->
-        <!-- ==================================================================== -->
-        <section id="pane-games" class="tab-pane">
-          <!-- Hub View: Two Session Cards -->
-          <div id="games-hub-view">
-            <div class="games-header-banner">
-              <div>
-                <h2>🎮 Interactive Labs & Educational Game Sessions</h2>
-                <p>Explore the PS-O1 6-node weighted network partitioning problem through two distinct interactive learning experiences. Both environments use the official benchmark graph (6 nodes, 9 edges, total weight 27, optimal cut 22).</p>
-              </div>
-              <div class="games-status-badge">
-                <span class="status-dot"></span>
-                <span>Simulated Benchmark Environments • Pure Classical WebGL & Algorithmic Engines</span>
-              </div>
-            </div>
-
-            <div class="games-grid">
-              <!-- Card 1: Session 01 — Network Architect: 3D Explorer -->
-              <div class="game-card">
-                <div class="game-card-header">
-                  <span class="game-badge badge-cyan">SESSION 01 • 3D SPATIAL EXPLORER</span>
-                  <span class="game-tech-pill">Three.js WebGL</span>
-                </div>
-                <h3>Network Architect: 3D Concept Explorer</h3>
-                <p class="game-card-desc">
-                  A high-fidelity spatial exploration of the 6-node network arena, the 6-qubit logical QAOA p=1 circuit workbench (H, UC(γ), UM(β), M), and the simulated 9-qubit Processor D coupling topology.
-                </p>
-
-                <div class="game-features-list">
-                  <div class="game-feature-item">
-                    <span class="feature-icon">🌐</span>
-                    <div>
-                      <strong>6 Spherical Nodes & 9 Weighted Edges:</strong>
-                      <span>node_0 .. node_5 connected by edge_0_2 .. edge_3_5 with real-time billboarded weight badges.</span>
-                    </div>
-                  </div>
-                  <div class="game-feature-item">
-                    <span class="feature-icon">⚡</span>
-                    <div>
-                      <strong>Partition Geometry & Severed Edges:</strong>
-                      <span>Group S (Cyan) vs Group S̄ (Blue/Gray), with severed cut edges glowing orange (22 / 27 weighted cut score).</span>
-                    </div>
-                  </div>
-                  <div class="game-feature-item">
-                    <span class="feature-icon">⚛️</span>
-                    <div>
-                      <strong>Quantum Circuit & Hardware Stations:</strong>
-                      <span>Adjacent 6-wire QAOA circuit and simulated Processor D topology showing zero-SWAP direct embedding.</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="game-card-actions">
-                  <button id="btn-open-session01" class="btn-primary" style="flex: 1;">
-                    <span>🔭 Launch 3D Explorer</span>
-                  </button>
-                  <a href="mission22.html" target="_blank" class="btn-secondary" title="Open full page in new window">
-                    <span>↗ Fullscreen</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Card 2: Session 02 — Mission 22: Playable Challenge -->
-              <div class="game-card game-card-orange">
-                <div class="game-card-header">
-                  <span class="game-badge badge-orange">SESSION 02 • PLAYABLE CHALLENGE</span>
-                  <span class="game-tech-pill">Interactive Puzzle</span>
-                </div>
-                <h3>Mission 22: Playable Network Challenge</h3>
-                <p class="game-card-desc">
-                  An active educational puzzle challenge. Toggle nodes between Group A and Group B, watch live cut scores update, request intelligent hints to escape local plateaus, and explore 5 in-depth learning stations.
-                </p>
-
-                <div class="game-features-list">
-                  <div class="game-feature-item">
-                    <span class="feature-icon">🎯</span>
-                    <div>
-                      <strong>Playable Optimization Objective:</strong>
-                      <span>Move nodes to maximize weighted cut score from 20 to the mathematical maximum of 22 out of 27.</span>
-                    </div>
-                  </div>
-                  <div class="game-feature-item">
-                    <span class="feature-icon">💡</span>
-                    <div>
-                      <strong>Intelligent Search Hint:</strong>
-                      <span>Computes the shortest improving multi-node coordinated move to escape suboptimal local traps.</span>
-                    </div>
-                  </div>
-                  <div class="game-feature-item">
-                    <span class="feature-icon">📚</span>
-                    <div>
-                      <strong>5 Learning Stations:</strong>
-                      <span>Network Lab, Random Baseline (mean 13.5), QAOA Circuit Synthesis, Processor Routing, and Noise Models.</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="game-card-actions">
-                  <button id="btn-open-session02" class="btn-primary" style="flex: 1; background: linear-gradient(135deg, #ffa45c 0%, #ff5722 100%);">
-                    <span>⚡ Play Mission 22 Challenge</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Scientific Guidelines Banner -->
-            <div class="games-guidelines-banner">
-              <strong>🔬 Scientific Rigor & Benchmark Notice:</strong>
-              <span>
-                Both game sessions adhere strictly to Problem Statement <strong>PS-O1</strong> (Quantum Optimization of Network Partitioning Using QAOA) on the locked 6-vertex, 9-edge benchmark. All cut scores, bitstrings, and metrics reflect verified classical and simulated quantum benchmarks. Processor topologies represent simulated connectivity and noise models without claiming unverified physical hardware runs.
-              </span>
-            </div>
-          </div>
-
-          <!-- Session 01 Embedded Container (Initially Hidden) -->
-          <div id="session01-container" class="session-view-container" style="display: none;">
-            <div class="session-nav-bar">
-              <button id="btn-back-hub-1" class="btn-secondary">
-                <span>← Back to Interactive Labs</span>
-              </button>
-              <div class="session-title-block">
-                <h3>Session 01: Network Architect — 3D Concept Explorer</h3>
-                <span class="status-badge"><span class="status-dot"></span> Three.js WebGL Spatial Environment</span>
-              </div>
-              <a href="mission22.html" target="_blank" class="btn-secondary">
-                <span>↗ Open Standalone Window</span>
-              </a>
-            </div>
-            <div class="session-frame-wrap">
-              <iframe id="session01-iframe" src="mission22.html" title="Session 01: 3D Network Architect Explorer" class="session-iframe"></iframe>
-            </div>
-          </div>
-
-          <!-- Session 02 Playable Mount Point (Initially Hidden) -->
-          <div id="session02-container" class="session-view-container" style="display: none;">
-            <div class="session-nav-bar">
-              <button id="btn-back-hub-2" class="btn-secondary">
-                <span>← Back to Interactive Labs</span>
-              </button>
-              <div class="session-title-block">
-                <h3>Session 02: Mission 22 — Playable Network Challenge</h3>
-                <span class="status-badge" style="border-color: rgba(255, 164, 92, 0.4); color: #ffa45c;"><span class="status-dot" style="background: #ffa45c;"></span> Playable Module Active</span>
-              </div>
-              <button id="btn-session02-restart" class="btn-secondary">
-                <span>↺ Restart Mission</span>
-              </button>
-            </div>
-            <div id="mission22-game-mount" class="session-game-mount"></div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 2: GRAPH LAB (3D / 2D / MATRIX) -->
-        <!-- ==================================================================== -->
-        <section id="pane-graph3d" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">🔮 Interactive Network Partitioning Graph Lab</div>
-                <div class="card-subtitle">Three Synchronized Representations of the Locked 6-Vertex, 9-Edge PS-O1 Graph</div>
-              </div>
-              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                <button id="btn-mode-3d" class="btn-secondary active">🔮 3D View</button>
-                <button id="btn-mode-2d" class="btn-secondary">📐 2D SVG View</button>
-                <button id="btn-mode-matrix" class="btn-secondary">🔢 Adjacency Matrix</button>
-                <button id="btn-toggle-partition" class="btn-primary">Toggle Optimal Partition Cut</button>
-                <button id="btn-reset-view" class="btn-secondary">Reset View</button>
-              </div>
-            </div>
-
-            <div class="canvas-container">
-              <!-- 3D Three.js View -->
-              <div id="graph3d-canvas"></div>
-
-              <!-- 2D SVG View -->
-              <div id="graph2d-view"></div>
-
-              <!-- Weighted Adjacency Matrix View -->
-              <div id="matrix-view"></div>
-
-              <div class="canvas-overlay-controls">
-                <span class="status-badge" id="lbl-partition-status">Viewing: Optimal Partition Cut (C* = 22)</span>
-              </div>
-
-              <div class="canvas-inspect-panel" id="graph-inspect-card">
-                <h4 style="color: var(--cyan-primary); margin-bottom: 0.35rem;">Element Inspector</h4>
-                <div id="inspect-content" style="color: var(--text-muted); font-size: 0.78rem;">
-                  Click any vertex or edge to inspect properties, incident weights, or QAOA Hamiltonian terms.
-                </div>
-              </div>
-
-              <div class="canvas-legend">
-                <div class="legend-item"><span class="legend-dot" style="background: var(--cyan-primary);"></span> <span>Subset $S$: Towers {0, 1, 3} (Channel A)</span></div>
-                <div class="legend-item"><span class="legend-dot" style="background: #334155;"></span> <span>Subset $\bar{S}$: Towers {2, 4, 5} (Channel B)</span></div>
-                <div class="legend-item"><span style="width: 14px; height: 2px; background: var(--coral-accent); display: inline-block;"></span> <span>Cut Edges (Weight = 22, 7 edges)</span></div>
-                <div class="legend-item"><span style="width: 14px; height: 2px; background: #64748b; display: inline-block;"></span> <span>Internal Edges (Weight = 5, 2 edges)</span></div>
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
-              <div class="stat-box">
-                <div class="stat-label">Total Cut Weight</div>
-                <div class="stat-value emerald" id="val-cut-weight">22 / 27</div>
-                <div class="stat-subtext">81.48% weighted cut fraction on synthetic benchmark</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">Cut Edge Fraction</div>
-                <div class="stat-value cyan">7 / 9 (77.78%)</div>
-                <div class="stat-subtext">Links crossing orthogonal channels</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">Residual Internal Weight</div>
-                <div class="stat-value coral">5 / 27 (18.52%)</div>
-                <div class="stat-subtext">Edges (0,3) [w=4] and (2,4) [w=1]</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 3: CLASSICAL GROUND TRUTH -->
-        <!-- ==================================================================== -->
-        <section id="pane-classical" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">⚡ Classical Optimization Station: Exhaustive 64-State Enumeration</div>
-                <div class="card-subtitle">Evaluating All $2^6 = 64$ Binary Configurations to Establish Immutable Ground Truth</div>
-              </div>
-              <div style="display: flex; gap: 0.5rem;">
-                <input type="text" id="state-search-box" placeholder="Filter bitstring (e.g. 110100)..." style="background: #0f172a; border: 1px solid var(--border-subtle); color: #fff; padding: 0.35rem 0.65rem; border-radius: 4px; font-size: 0.8rem;" />
-                <button id="btn-filter-optimal" class="btn-secondary">Show Optimal Only</button>
-                <button id="btn-filter-all" class="btn-secondary">Show All 64</button>
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.5rem;">
-              <div class="state-matrix-wrapper">
-                <table class="state-table" id="table-states-64">
-                  <thead>
-                    <tr>
-                      <th>Idx</th>
-                      <th>Logical Assignment $(x_0..x_5)$</th>
-                      <th>Qiskit Bitstring</th>
-                      <th>Cut Weight</th>
-                      <th>Ratio ($C/C^*$)</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- Populated dynamically -->
-                  </tbody>
-                </table>
-              </div>
-
-              <div>
-                <div class="stat-box highlight" style="margin-bottom: 1rem;">
-                  <div class="stat-label">Classical Optimum Verification</div>
-                  <div class="stat-value emerald">$C^* = 22$</div>
-                  <div class="stat-subtext">Exactly 2 complementary states reach $C^* = 22$:</div>
-                  <div style="font-family: var(--font-mono); font-size: 0.82rem; margin-top: 0.5rem; color: var(--text-main);">
-                    • State 52: (1, 1, 0, 1, 0, 0) -> S={0,1,3}, S'={2,4,5} (Qiskit: <code>001011</code>)<br/>
-                    • State 11: (0, 0, 1, 0, 1, 1) -> S={2,4,5}, S'={0,1,3} (Qiskit: <code>110100</code>)
-                  </div>
-                </div>
-
-                <div class="stat-box" style="margin-bottom: 1rem;">
-                  <div class="stat-label">Uniform Random Baseline</div>
-                  <div class="stat-value coral">$\mu = 13.50$ ($r = 0.6136$)</div>
-                  <div class="stat-subtext">Hitting optimum by uniform random guessing:</div>
-                  <div style="font-size: 0.82rem; margin-top: 0.3rem; color: var(--text-muted);">
-                    $P_{\text{opt}} = 2 / 64 = 0.03125$ (<strong>3.125%</strong> per shot).
-                  </div>
-                </div>
-
-                <div style="background: #0d1527; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle); font-size: 0.82rem; color: var(--text-muted);">
-                  <strong style="color: var(--cyan-primary);">Why Classical Enumeration Matters:</strong><br/>
-                  On a 6-variable problem, classical search requires only 64 evaluations (&lt; 1 ms). This establishes immutable ground truth before evaluating quantum variational approximations.
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 4: HYBRID QAOA LOOP -->
-        <!-- ==================================================================== -->
-        <section id="pane-quantum" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">⚛️ Hybrid Quantum Approximate Optimization Algorithm (QAOA) Station</div>
-                <div class="card-subtitle">Statevector Energy Landscape $\langle C \rangle(\gamma, \beta)$ and Multi-Seed Convergence</div>
-              </div>
-              <span class="status-badge">Depth p = 1 Locked</span>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-              <div>
-                <h4 style="color: var(--cyan-primary); margin-bottom: 0.75rem; font-size: 0.95rem;">Interactive Variational Parameter Tuner</h4>
-                <div class="slider-group">
-                  <div class="slider-label">
-                    <span>Cost Angle $\gamma$ (Hamiltonian Duration)</span>
-                    <span id="lbl-gamma" style="font-family: var(--font-mono); color: var(--cyan-primary);">-0.1680 rad</span>
-                  </div>
-                  <input type="range" id="slider-gamma" min="-0.6" max="3.2" step="0.01" value="-0.168" />
-                </div>
-
-                <div class="slider-group">
-                  <div class="slider-label">
-                    <span>Mixer Angle $\beta$ (Transverse Field Duration)</span>
-                    <span id="lbl-beta" style="font-family: var(--font-mono); color: var(--cyan-primary);">+0.3327 rad</span>
-                  </div>
-                  <input type="range" id="slider-beta" min="-0.2" max="3.2" step="0.01" value="0.333" />
-                </div>
-
-                <div class="stat-grid" style="grid-template-columns: 1fr 1fr; margin-top: 1rem;">
-                  <div class="stat-box">
-                    <div class="stat-label">Theoretical Expectation $\langle C \rangle$</div>
-                    <div class="stat-value cyan" id="dyn-expected-cut">17.7128</div>
-                    <div class="stat-subtext" id="dyn-expected-subtext">Max possible = 22.0000</div>
-                  </div>
-                  <div class="stat-box">
-                    <div class="stat-label">Theoretical Approx Ratio</div>
-                    <div class="stat-value emerald" id="dyn-approx-ratio">0.8051</div>
-                    <div class="stat-subtext" id="dyn-ratio-subtext">Surpasses random (0.6136) by +31.2%</div>
-                  </div>
-                </div>
-
-                <div style="margin-top: 0.5rem;">
-                  <span class="status-badge" id="dyn-provenance-tag" style="font-size: 0.75rem;">Selected: Raw Optimizer Result (Seed 3)</span>
-                </div>
-
-                <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                  <button id="btn-snap-opt" class="btn-primary" title="COBYLA multi-start best result">Raw Optimizer (Seed 3: γ=-0.168, β=0.333)</button>
-                  <button id="btn-snap-canon" class="btn-secondary" title="Equivalent in-domain point via symmetry F(-γ, π-β) = F(γ, β)">In-Domain Canonical (γ=+0.168, β=2.809)</button>
-                  <button id="btn-snap-grid" class="btn-secondary" title="Best point sampled on discrete 25x25 grid">Best Finite Grid Point (γ=0.131, β=1.178)</button>
-                  <button id="btn-snap-rand" class="btn-secondary">Reset to Zero</button>
-                </div>
-                <div style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.4;">
-                  <strong>Symmetry &amp; Provenance Note:</strong> COBYLA multi-start across 5 initializations identified Seed 3 as the best result ($\gamma = -0.1680, \beta = +0.3327$ yielding $\langle C \rangle = 17.7128, r = 0.8051$). Under QAOA reflection symmetry $F(-\gamma, \pi - \beta) = F(\gamma, \beta)$, this is mathematically identical to canonical in-domain coordinates $\gamma = +0.1680, \beta = +2.8089 \in [0, \pi]$. Discrete grid lookup retrieves precomputed statevector evaluations; adjusting sliders queries the lookup surface and does not dispatch a physical quantum job.
-                </div>
-              </div>
-
-              <div>
-                <h4 style="color: var(--cyan-primary); margin-bottom: 0.75rem; font-size: 0.95rem;">Exact 2D Parameter Landscape Map</h4>
-                <div style="border-radius: 6px; overflow: hidden; border: 1px solid var(--border-subtle); text-align: center; background: #0c1220;">
-                  <img src="../results/figures/qaoa_parameter_landscape.png" alt="QAOA Landscape" style="width: 100%; max-height: 320px; object-fit: contain;" />
-                </div>
-                <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.4rem; text-align: center;">
-                  Exact 2D surface computed via statevector expectation. Red star marks optimizer best point ($\gamma^* = -0.1680, \beta^* = 0.3327$).
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 5: CIRCUIT EXPLORER -->
-        <!-- ==================================================================== -->
-        <section id="pane-circuit" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">🔌 Gate-Level Circuit Explorer & Edge Interaction Tracing</div>
-                <div class="card-subtitle">Click an Interaction Edge to Trace its Logical Wire Assignment and Cost Hamiltonian Term</div>
-              </div>
-              <span class="status-badge">Official Basis: ['rz', 'sx', 'x', 'cx']</span>
-            </div>
-
-            <!-- Edge selector buttons -->
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem;">
-              <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center;">Trace Edge:</span>
-              <button class="btn-secondary edge-btn active" data-edge="0-2" data-weight="1">(0, 2) [w=1]</button>
-              <button class="btn-secondary edge-btn" data-edge="0-3" data-weight="4">(0, 3) [w=4]</button>
-              <button class="btn-secondary edge-btn" data-edge="0-4" data-weight="4">(0, 4) [w=4]</button>
-              <button class="btn-secondary edge-btn" data-edge="1-4" data-weight="3">(1, 4) [w=3]</button>
-              <button class="btn-secondary edge-btn" data-edge="1-5" data-weight="3">(1, 5) [w=3]</button>
-              <button class="btn-secondary edge-btn" data-edge="2-3" data-weight="5">(2, 3) [w=5]</button>
-              <button class="btn-secondary edge-btn" data-edge="2-4" data-weight="1">(2, 4) [w=1]</button>
-              <button class="btn-secondary edge-btn" data-edge="3-4" data-weight="4">(3, 4) [w=4]</button>
-              <button class="btn-secondary edge-btn" data-edge="3-5" data-weight="2">(3, 5) [w=2]</button>
-            </div>
-
-            <div class="circuit-wire-container">
-              <!-- Wires for Q0 to Q5 -->
-              <div class="wire-row" id="wire-q0"><span class="qubit-label">q[0]</span><div class="gate-slot hadamard">H</div><div class="gate-slot cx-control e-0-2"></div><div class="gate-slot cx-control e-0-3"></div><div class="gate-slot cx-control e-0-4"></div><div class="gate-slot rx" style="margin-left: 120px;">Rx(2β)</div><div class="gate-slot measure" style="margin-left: 20px;">M</div></div>
-              <div class="wire-row" id="wire-q1"><span class="qubit-label">q[1]</span><div class="gate-slot hadamard">H</div><div class="gate-slot cx-control e-1-4" style="margin-left: 70px;"></div><div class="gate-slot cx-control e-1-5"></div><div class="gate-slot rx" style="margin-left: 150px;">Rx(2β)</div><div class="gate-slot measure" style="margin-left: 20px;">M</div></div>
-              <div class="wire-row" id="wire-q2"><span class="qubit-label">q[2]</span><div class="gate-slot hadamard">H</div><div class="gate-slot cx-target e-0-2"><span class="gate-label">⊕</span></div><div class="gate-slot rz e-0-2">Rz(1γ)</div><div class="gate-slot cx-control e-2-3"></div><div class="gate-slot cx-control e-2-4"></div><div class="gate-slot rx" style="margin-left: 80px;">Rx(2β)</div><div class="gate-slot measure" style="margin-left: 20px;">M</div></div>
-              <div class="wire-row" id="wire-q3"><span class="qubit-label">q[3]</span><div class="gate-slot hadamard">H</div><div class="gate-slot cx-target e-0-3" style="margin-left: 45px;"><span class="gate-label">⊕</span></div><div class="gate-slot rz e-0-3">Rz(4γ)</div><div class="gate-slot cx-target e-2-3"><span class="gate-label">⊕</span></div><div class="gate-slot cx-control e-3-4"></div><div class="gate-slot cx-control e-3-5"></div><div class="gate-slot rx" style="margin-left: 40px;">Rx(2β)</div><div class="gate-slot measure" style="margin-left: 20px;">M</div></div>
-              <div class="wire-row" id="wire-q4"><span class="qubit-label">q[4]</span><div class="gate-slot hadamard">H</div><div class="gate-slot cx-target e-0-4" style="margin-left: 60px;"><span class="gate-label">⊕</span></div><div class="gate-slot cx-target e-1-4"><span class="gate-label">⊕</span></div><div class="gate-slot cx-target e-2-4"><span class="gate-label">⊕</span></div><div class="gate-slot cx-target e-3-4"><span class="gate-label">⊕</span></div><div class="gate-slot rx" style="margin-left: 30px;">Rx(2β)</div><div class="gate-slot measure" style="margin-left: 20px;">M</div></div>
-              <div class="wire-row" id="wire-q5"><span class="qubit-label">q[5]</span><div class="gate-slot hadamard">H</div><div class="gate-slot cx-target e-1-5" style="margin-left: 80px;"><span class="gate-label">⊕</span></div><div class="gate-slot cx-target e-3-5"><span class="gate-label">⊕</span></div><div class="gate-slot rx" style="margin-left: 120px;">Rx(2β)</div><div class="gate-slot measure" style="margin-left: 20px;">M</div></div>
-            </div>
-
-            <!-- Trace info box -->
-            <div id="circuit-trace-panel" style="margin-top: 1rem; background: #0f1628; border: 1px solid var(--border-subtle); padding: 1rem; border-radius: 6px;">
-              <h4 style="color: var(--cyan-primary); font-size: 0.9rem;" id="trace-title">Traced Interaction: Edge (0, 2) [Weight = 1]</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;" id="trace-desc">
-                Minimized Hamiltonian Term: $\frac{1}{2} Z_0 Z_2$. Gate Unitary Block: $\text{CX}(0, 2) \to R_Z(1 \cdot \gamma) \to \text{CX}(0, 2)$. Directly embedded on Processor D with zero SWAP routing overhead.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 6: HARDWARE CO-DESIGN -->
-        <!-- ==================================================================== -->
-        <section id="pane-mapping" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">🗺️ Hardware Mapping Station: Transpilation Efficiency (Processor B vs D)</div>
-                <div class="card-subtitle">Problem-Matched Co-Design Completely Eliminates Routing SWAPs</div>
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-              <div style="background: #0f172a; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-subtle);">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                  <h4 style="color: var(--indigo-accent); font-size: 1.05rem;">Processor B (9 Qubits, Generic Grid)</h4>
-                  <span class="status-badge" style="color: var(--indigo-accent); border-color: var(--indigo-accent);">1 SWAP Required</span>
-                </div>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem;">
-                  Lacks a direct coupling edge between physical qubits corresponding to logical edge $(1, 4)$. The transpiler inserts 1 SWAP (+3 CX gates), inflating CX count to 21 and depth to 37.
-                </p>
-                <div class="stat-grid" style="grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem;">
-                  <div class="stat-box" style="padding: 0.6rem 0.8rem;"><div class="stat-label">Physical CX</div><div class="stat-value indigo">21</div></div>
-                  <div class="stat-box" style="padding: 0.6rem 0.8rem;"><div class="stat-label">Total Depth</div><div class="stat-value indigo">37</div></div>
-                  <div class="stat-box" style="padding: 0.6rem 0.8rem;"><div class="stat-label">2Q Depth</div><div class="stat-value indigo">17</div></div>
-                  <div class="stat-box" style="padding: 0.6rem 0.8rem;"><div class="stat-label">SWAPs</div><div class="stat-value indigo">1 (+3 CX)</div></div>
-                </div>
-              </div>
-
-              <div style="background: #091a18; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--teal-accent);">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                  <h4 style="color: var(--teal-accent); font-size: 1.05rem;">Processor D (9 Qubits, VARANASI Co-Design)</h4>
-                  <span class="status-badge" style="color: var(--emerald-accent); border-color: var(--emerald-accent);">0 SWAPs (Optimal)</span>
-                </div>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem;">
-                  Natively embeds all 9 PS-O1 interaction edges on nodes 0–5 with a degree-4 ancillary ring on 6–8. Zero routing SWAPs required, compiling with theoretical minimum 18 CX gates.
-                </p>
-                <div class="stat-grid" style="grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem;">
-                  <div class="stat-box" style="padding: 0.6rem 0.8rem;"><div class="stat-label">Physical CX</div><div class="stat-value emerald">18 (-14.3%)</div></div>
-                  <div class="stat-box" style="padding: 0.6rem 0.8rem;"><div class="stat-label">Total Depth</div><div class="stat-value emerald">29 (-21.6%)</div></div>
-                  <div class="stat-box" style="padding: 0.6rem 0.8rem;"><div class="stat-label">2Q Depth</div><div class="stat-value emerald">14 (-17.6%)</div></div>
-                  <div class="stat-box" style="padding: 0.6rem 0.8rem;"><div class="stat-label">SWAPs</div><div class="stat-value emerald">0 (-100%)</div></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Connected Dot dumbbell figure embed -->
-            <div style="margin-top: 1.5rem; text-align: center;">
-              <h4 style="color: var(--text-main); font-size: 0.95rem; margin-bottom: 0.5rem;">Connected-Dot Hardware Resource Reduction (Dumbbell Plot)</h4>
-              <img src="../results/figures/processor_resource_comparison.png" alt="Resource Comparison" style="max-width: 900px; width: 100%; border-radius: 6px; border: 1px solid var(--border-subtle);" />
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 7: DUAL-LANE STUDIO -->
-        <!-- ==================================================================== -->
-        <section id="pane-duallane" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">🔄 Dual-Lane Studio: Software Lane vs Quantum Execution Lane</div>
-                <div class="card-subtitle">Explicit Separation of Classical Compilation & Tuning from Quantum Simulation & Measurement</div>
-              </div>
-              <span class="status-badge">Transparent Scientific Provenance</span>
-            </div>
-
-            <div class="dual-lane-container">
-              <!-- Lane 1: Software Lane -->
-              <div class="lane">
-                <div class="lane-header">
-                  <span style="font-size: 1.25rem;">💻</span>
-                  <div class="lane-title" style="color: var(--cyan-primary);">Software & Optimization Lane</div>
-                </div>
-                <div class="step-flow">
-                  <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                      <h4>Input Graph Ingestion & Validation</h4>
-                      <p>Parses locked 6-node instance from <code>data/instance.json</code>. SHA-256 integrity verification.</p>
-                    </div>
-                  </div>
-                  <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                      <h4>Exhaustive Classical Enumeration</h4>
-                      <p>Evaluates all 64 bit assignments to establish exact ground truth ($C^* = 22$).</p>
-                    </div>
-                  </div>
-                  <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                      <h4>Parameterized QAOA Circuit Construction</h4>
-                      <p>Synthesizes cost unitary from graph edges and mixer rotations using basis <code>['rz', 'sx', 'x', 'cx']</code>.</p>
-                    </div>
-                  </div>
-                  <div class="step-card">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                      <h4>COBYLA Classical Parameter Updates</h4>
-                      <p>Multi-seed optimization across seeds 0..4 converging to $(\gamma^*, \beta^*) = (-0.1680, 0.3327)$.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Lane 2: Quantum Execution Lane -->
-              <div class="lane">
-                <div class="lane-header">
-                  <span style="font-size: 1.25rem;">⚛️</span>
-                  <div class="lane-title" style="color: var(--emerald-accent);">Quantum Simulation / Execution Lane</div>
-                </div>
-                <div class="step-flow">
-                  <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                      <h4>Processor Coupling & Transpilation</h4>
-                      <p>Maps logical circuits onto Processor B (1 SWAP) and Processor D (0 SWAPs, SABRE level 1).</p>
-                    </div>
-                  </div>
-                  <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                      <h4>Hardware Noise Modeling</h4>
-                      <p>Injects official depolarizing rates ($p_1=0.001, p_2=0.005$) and readout bit-flip noise ($p=0.01$).</p>
-                    </div>
-                  </div>
-                  <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                      <h4>Quantum Measurement Sampling (4,096 Shots)</h4>
-                      <p>Executes AerSimulator at seed 42 to collect discrete 64-bitstring shot histograms.</p>
-                    </div>
-                  </div>
-                  <div class="step-card">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                      <h4>Statistical Provenance & Decoding</h4>
-                      <p>Decodes via <code>counts_to_x()</code>, verifies $P_{\text{opt}} = 12.50\%$ (4.0x random), and writes <code>qaoa_counts.json</code>.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 8: RESULTS & STOCHASTIC CDF -->
-        <!-- ==================================================================== -->
-        <section id="pane-results" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">📊 Sampled Cut Distribution & Complementary CDF ($P(C \ge c)$)</div>
-                <div class="card-subtitle">Stochastic Dominance Over Classical Uniform Random Baseline for High-Value Thresholds (14 through 22)</div>
-              </div>
-            </div>
-
-            <!-- Figures embed -->
-            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
-              <div style="text-align: center;">
-                <img src="../results/figures/qaoa_cut_distribution.png" alt="Cut Distribution" style="width: 100%; max-width: 950px; border-radius: 6px; border: 1px solid var(--border-subtle);" />
-              </div>
-              <div style="text-align: center;">
-                <img src="../results/figures/architecture_tradeoff_map.png" alt="Tradeoff Map" style="width: 100%; max-width: 800px; border-radius: 6px; border: 1px solid var(--border-subtle);" />
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-              <div class="stat-box highlight">
-                <div class="stat-label">Optimal Cut Hits ($C^* = 22$)</div>
-                <div class="stat-value emerald">512 / 4096 Shots</div>
-                <div class="stat-subtext">Sampling probability $P_{\text{opt}} = 12.50\%$ (D Noisy)</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">Uniform Random Optimum Hits</div>
-                <div class="stat-value coral">2 / 64 States (3.125%)</div>
-                <div class="stat-subtext">QAOA delivers exactly $4.0\times$ probability concentration</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">Noisy Approx Ratio ($r$)</div>
-                <div class="stat-value cyan">0.7862 (D) vs 0.7874 (B)</div>
-                <div class="stat-subtext">Numerically similar within finite-shot SE ($\Delta r = -0.0012$)</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 9: RESEARCH REPORT -->
-        <!-- ==================================================================== -->
-        <section id="pane-report" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">📜 VARANASI Research & Implementation Report</div>
-                <div class="card-subtitle">Comprehensive Technical Document with Mathematical Derivations and Benchmark Evidence</div>
-              </div>
-              <a href="assets/VARANASI_RESEARCH_AND_IMPLEMENTATION_REPORT.md" target="_blank" class="btn-secondary">Open Raw Markdown</a>
-            </div>
-
-            <div class="report-prose" id="report-rendered-container">
-              <!-- Rendered markdown content -->
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 10: DOWNLOADS & DELIVERABLES -->
-        <!-- ==================================================================== -->
-        <section id="pane-downloads" class="tab-pane">
-          <div class="card">
-            <div class="card-title">📦 Submission Assets, Pitch Presentation & Verification Archive</div>
-            <div class="card-subtitle">All Deliverables Built According to QFF 2026 Phase 2 Challenge Kit Rules</div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.25rem;">
-              <div class="stat-box">
-                <h4 style="color: var(--cyan-primary); margin-bottom: 0.5rem;">📊 Presentation Slide Deck</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-                  16:9 dark-slate publication pitch deck with embedded high-res scientific figures and backup defense slides.
-                </p>
-                <div style="display: flex; gap: 0.5rem;">
-                  <a href="assets/VARANASI_Pitch_Deck.pptx" download="VARANASI_Pitch_Deck.pptx" class="btn-secondary">Download PPTX</a>
-                  <a href="assets/VARANASI_Pitch_Deck.pdf" target="_blank" class="btn-primary">View PDF</a>
-                </div>
-              </div>
-
-              <div class="stat-box">
-                <h4 style="color: var(--emerald-accent); margin-bottom: 0.5rem;">📦 Submission ZIP Package</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-                  Audited clean package with top-level <code>VARANASI_PROJECTQ/</code> root, SHA-256 manifests, and 0 bytecode. The standalone ZIP is preserved locally for portal submission.
-                </p>
-                <a href="https://github.com/ganesh-pirinti/VARANASI_PROJECTQ/tree/main/Phase%202" target="_blank" class="btn-primary">Browse Release on GitHub →</a>
-              </div>
-
-              <div class="stat-box">
-                <h4 style="color: var(--coral-accent); margin-bottom: 0.5rem;">📑 Official Benchmark Tables</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-                  Validated CSV tables containing QAOA cross-processor metrics and Bell state tomography fidelities.
-                </p>
-                <div style="display: flex; gap: 0.5rem;">
-                  <a href="assets/results.csv" download="results.csv" class="btn-secondary">results.csv</a>
-                  <a href="assets/bell.csv" download="bell.csv" class="btn-secondary">bell.csv</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    </main>
-  </div>
-
-  <!-- Verification Results Modal -->
-  <div id="verification-modal" class="modal-overlay" style="display: none;">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div>
-          <h3 style="color: var(--text-main); font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
-            <span>🧪</span> Browser Data-Integrity Verification Suite
-          </h3>
-          <span style="font-size: 0.78rem; color: var(--text-muted);">Real-time client validation against authoritative PS-O1 benchmark schemas</span>
-        </div>
-        <button id="btn-close-modal" class="btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;">✕ Close</button>
-      </div>
-
-      <div class="modal-body" id="modal-checks-container">
-        <!-- Populated dynamically -->
-      </div>
-
-      <div class="modal-footer">
-        <div style="font-size: 0.78rem; color: var(--text-muted);">
-          <em>Notice:</em> Client data-integrity checks confirm browser synchronization; they do not replace Python unit tests or complete notebook execution.
-        </div>
-        <span class="status-badge" id="modal-summary-badge" style="font-size: 0.82rem; font-weight: 700;">12 / 12 Verified</span>
+      <!-- Action Button -->
+      <div class="header-actions">
+        <button type="button" id="btn-top-launch-labs" class="btn-launch-labs">
+          <span>Launch Labs</span>
+          <span aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="mobile-nav-toggle" id="btn-mobile-nav" aria-label="Toggle Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
     </div>
-  </div>
+  </header>
+
+  <!-- ==================================================================== -->
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <!-- ==================================================================== -->
+  <main class="main-wrapper" id="main-content">
+
+    <!-- Global Data Error Diagnostic Banner (hidden by default) -->
+    <div id="data-error-banner" class="data-error-banner" style="display: none; background: #FFEBEE; border: 1px solid #EF9A9A; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+      <h4 style="color: #C62828;">⚠️ Benchmark Data Diagnostic</h4>
+      <p id="data-error-message" style="color: #424242; font-size: 0.9rem;">Authoritative data normalized from local fallback cache.</p>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- 1. HOMEPAGE PANE (HOME) -->
+    <!-- ================================================================== -->
+    <section id="pane-home" class="page-pane active">
+      <div class="hero-section">
+        <!-- Hero Left Column -->
+        <div class="hero-content">
+          <div class="pill-badge">PS-01 • QUANTUM OPTIMIZATION</div>
+          <h1 class="hero-title">Quantum Optimization of Network Partitioning Using QAOA</h1>
+          <p class="hero-subtitle">
+            Explore a real benchmark. Play interactive games. Understand QAOA, routing and hardware mapping through a hands-on visual experience.
+          </p>
+
+          <div class="hero-actions">
+            <button type="button" id="hero-btn-labs" class="btn-primary-dark">
+              <span>Explore Interactive Labs</span>
+              <span aria-hidden="true">→</span>
+            </button>
+            <button type="button" id="hero-btn-project" class="btn-outline-dark">
+              <span>View Project Details</span>
+            </button>
+          </div>
+
+          <!-- Key Metrics Counter Strip -->
+          <div class="metric-strip">
+            <div class="metric-strip-item">
+              <svg class="metric-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+              <div class="metric-strip-info">
+                <span class="metric-strip-value" id="val-nodes-count">6</span>
+                <span class="metric-strip-label">Nodes</span>
+              </div>
+            </div>
+            <div class="metric-strip-item">
+              <svg class="metric-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M12 4v16"/></svg>
+              <div class="metric-strip-info">
+                <span class="metric-strip-value" id="val-edges-count">9</span>
+                <span class="metric-strip-label">Edges</span>
+              </div>
+            </div>
+            <div class="metric-strip-item">
+              <svg class="metric-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <div class="metric-strip-info">
+                <span class="metric-strip-value" id="val-opt-cut">22 / 27</span>
+                <span class="metric-strip-label">Optimal Cut</span>
+              </div>
+            </div>
+            <div class="metric-strip-item">
+              <svg class="metric-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <div class="metric-strip-info">
+                <span class="metric-strip-value">5</span>
+                <span class="metric-strip-label">Learning Modules</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: 3D Pedestal Stage -->
+        <div class="hero-stage-container">
+          <div class="hero-3d-wrapper">
+            <canvas id="hero-pedestal-canvas" aria-label="3D Interactive Network Sculpture"></canvas>
+          </div>
+          <p class="hero-stage-caption">“A modern engineering approach to real network optimization.”</p>
+        </div>
+      </div>
+
+      <!-- Feature Highlight Cards -->
+      <div class="home-highlights-grid">
+        <div class="highlight-card">
+          <div class="highlight-card-num">01 / FIRST-PRINCIPLES TRUTH</div>
+          <h3>Mathematical Ground Truth</h3>
+          <p>Exhaustively enumerated across all 64 classical bitstrings: global optimum is 22.0 (81.48% cut fraction) with exactly 2 complementary partitions, compared to a random baseline of 13.5.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-card-num">02 / HARDWARE CO-DESIGN</div>
+          <h3>Zero Routing SWAPs</h3>
+          <p>Processor D ring-core topology embeds the 6-qubit benchmark natively, eliminating 100% of routing SWAPs (0 vs 1) and saving 14.3% physical CX gates compared to heavy-hex Processor B.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-card-num">03 / REALISTIC NOISE MODEL</div>
+          <h3>4.0x Sampling Enhancement</h3>
+          <p>Under IBM FakeKyoto thermal relaxation and gate depolarization noise, QAOA samples the exact optimal partition with 12.50% probability (512 / 4096 shots), a 4.0x gain over random guessing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- 2. PROJECT OVERVIEW PANE (PROJECT) -->
+    <!-- ================================================================== -->
+    <section id="pane-project" class="page-pane">
+      <div class="section-eyebrow">PROBLEM STATEMENT & MATHEMATICAL FORMULATION</div>
+      <h2 class="section-title">The PS-O1 Network Partitioning Challenge</h2>
+      <p class="section-subtitle">
+        Bridging combinatorial graph theory, QUBO formulations, and hardware-aware quantum circuits.
+      </p>
+
+      <!-- Technical Architecture Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+        <div style="background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.75rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">1. Dual-Channel Max-Cut Formulation</h3>
+          <p style="font-size: 0.92rem; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            Given graph $G = (V, E, w)$ with 6 nodes and 9 weighted links totaling weight 27, we assign each node to Group $S$ ($x_i=1$) or Group $\bar{S}$ ($x_i=0$).
+            The weighted cut objective to maximize is:
+          </p>
+          <div style="background: var(--card-bg-warm); padding: 0.8rem; border-radius: var(--radius-xs); font-family: var(--font-mono); font-size: 0.88rem; margin-bottom: 1rem;">
+            C(x) = ∑_{(u,v) ∈ E} w_{uv} [x_u(1 - x_v) + x_v(1 - x_u)]
+          </div>
+          <p style="font-size: 0.88rem; color: var(--ink-muted);">
+            Separating crossing links achieves 81.48% (22/27) weighted cut score on the synthetic benchmark.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.75rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">2. QUBO & Ising Spin Hamiltonian</h3>
+          <p style="font-size: 0.92rem; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            Minimizing $-C(x) = x^T Q x$ with diagonal $Q_{ii} = -\text{deg}_w(i)$ and upper-triangular $Q_{ij} = 2 w_{ij}$.
+            Mapping $x_i = (I - Z_i)/2$ yields the cost Hamiltonian:
+          </p>
+          <div style="background: var(--card-bg-warm); padding: 0.8rem; border-radius: var(--radius-xs); font-family: var(--font-mono); font-size: 0.88rem; margin-bottom: 1rem;">
+            H_min = ∑_{(u,v) ∈ E} (w_{uv} / 2) Z_u Z_v - (27 / 2) I
+          </div>
+          <p style="font-size: 0.88rem; color: var(--ink-muted);">
+            Implemented with basis gate block $CX(u,v) \to R_Z(\gamma \cdot w_{uv}) \to CX(u,v)$ using positive angle $\theta = \gamma w_{uv}$.
+          </p>
+        </div>
+      </div>
+
+      <!-- Integrated Graph Lab (3D / 2D / Matrix) -->
+      <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm); margin-bottom: 3rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.4rem;">Interactive Graph Lab</h3>
+            <p style="font-size: 0.88rem; color: var(--ink-secondary);">Explore the 6-vertex, 9-edge topology across multiple scientific representations.</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button type="button" class="btn-subnav active" id="btn-mode-3d">3D Spatial View</button>
+            <button type="button" class="btn-subnav" id="btn-mode-2d">2D SVG View</button>
+            <button type="button" class="btn-subnav" id="btn-mode-matrix">Adjacency Matrix</button>
+          </div>
+        </div>
+
+        <!-- 3D Canvas Container -->
+        <div id="graph-lab-3d-wrap" style="width: 100%; height: 420px; background: #0B1420; border-radius: var(--radius-md); overflow: hidden; position: relative;">
+          <canvas id="graph-lab-canvas" style="width: 100%; height: 100%;"></canvas>
+          <div style="position: absolute; bottom: 10px; left: 15px; color: #94A3B8; font-size: 0.75rem; background: rgba(11,20,32,0.8); padding: 4px 10px; border-radius: 4px;">
+            Drag to rotate • Scroll to zoom • Click node to toggle partition
+          </div>
+        </div>
+
+        <!-- 2D SVG View (hidden by default) -->
+        <div id="graph-lab-2d-wrap" style="display: none; width: 100%; height: 420px; background: var(--card-bg-warm); border-radius: var(--radius-md); align-items: center; justify-content: center;">
+          <svg id="svg-graph-2d" style="width: 100%; height: 100%; max-width: 600px;"></svg>
+        </div>
+
+        <!-- Adjacency Matrix View (hidden by default) -->
+        <div id="graph-lab-matrix-wrap" style="display: none; width: 100%; padding: 1.5rem; background: var(--card-bg-warm); border-radius: var(--radius-md); overflow-x: auto;">
+          <table class="heritage-table" id="matrix-table" style="text-align: center;"></table>
+        </div>
+
+        <!-- Live Cut Stats Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
+            <span>Current Cut: <strong id="lab-cut-score" style="color: var(--orange-cut); font-family: var(--font-mono); font-size: 1.1rem;">22 / 27</strong></span>
+            <span>Cut Fraction: <strong id="lab-cut-fraction" style="font-family: var(--font-mono);">81.48%</strong></span>
+            <span>Crossing Edges: <strong id="lab-cut-edges" style="font-family: var(--font-mono);">7 / 9</strong></span>
+          </div>
+          <button type="button" id="btn-lab-toggle-optimal" class="btn-outline-dark" style="font-size: 0.82rem; padding: 0.4rem 0.9rem;">
+            Toggle Optimal Partition (22)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- 3. INTERACTIVE LABS PANE (LABS / GAMES) -->
+    <!-- ================================================================== -->
+    <section id="pane-labs" class="page-pane">
+      
+      <!-- Hub View: Two Prominent Experience Cards (Matching Reference Top Right) -->
+      <div id="labs-hub-view">
+        <div class="section-eyebrow">→ INTERACTIVE LABS •</div>
+        <h2 class="section-title">Two hands-on experiences</h2>
+        <p class="section-subtitle">
+          Explore, understand and solve the VARANASI benchmark through 3D visualization and interactive gameplay.
+        </p>
+
+        <div class="labs-cards-grid">
+          <!-- Card 01: 3D Explorer -->
+          <div class="lab-card-dark">
+            <span class="lab-card-tag">01</span>
+            <h3>Network Architect<br>3D Explorer</h3>
+            <p>Explore the weighted network, QAOA circuit and simulated processor topology in an interactive 3D environment.</p>
+
+            <ul class="lab-features-list">
+              <li><span class="lab-feature-bullet">✦</span> 3D Network Visualization</li>
+              <li><span class="lab-feature-bullet">✦</span> Quantum Circuit Workbench</li>
+              <li><span class="lab-feature-bullet">✦</span> Hardware Topology View</li>
+              <li><span class="lab-feature-bullet">✦</span> Interactive Node Exploration</li>
+            </ul>
+
+            <button type="button" id="btn-launch-explorer" class="btn-card-light">
+              <span>Start Explorer</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+
+          <!-- Card 02: Mission 22 Challenge -->
+          <div class="lab-card-light">
+            <span class="lab-card-light-tag">02</span>
+            <h3>Mission 22<br>Playable Challenge</h3>
+            <p>Solve the Max-Cut benchmark, find the optimal partition (22/27) and learn through guided interactive sessions.</p>
+
+            <ul class="lab-features-list">
+              <li><span class="lab-feature-bullet">✦</span> Interactive Node Toggling</li>
+              <li><span class="lab-feature-bullet">✦</span> Live Cut Weight Calculation</li>
+              <li><span class="lab-feature-bullet">✦</span> Hints & Optimal Solution</li>
+              <li><span class="lab-feature-bullet">✦</span> 5 Learning Modules</li>
+            </ul>
+
+            <button type="button" id="btn-launch-challenge" class="btn-card-dark">
+              <span>Start Challenge</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 5 Learning Modules Strip (Matching Reference Bottom Left) -->
+        <div class="modules-section">
+          <div class="section-eyebrow">GUIDED CURRICULUM</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 0.4rem;">Learning Modules</h3>
+          <p style="font-size: 0.92rem; color: var(--ink-secondary);">Understand the quantum optimization workflow step by step.</p>
+
+          <div class="modules-grid">
+            <div class="module-card" data-module="1">
+              <div>
+                <div class="module-card-tag">01</div>
+                <h4>Network Lab</h4>
+                <p>Understand the graph, weights and partitions.</p>
+              </div>
+              <span class="module-card-arrow">→</span>
+            </div>
+            <div class="module-card" data-module="2">
+              <div>
+                <div class="module-card-tag">02</div>
+                <h4>Random Baseline</h4>
+                <p>Classical random partition analysis.</p>
+              </div>
+              <span class="module-card-arrow">→</span>
+            </div>
+            <div class="module-card" data-module="3">
+              <div>
+                <div class="module-card-tag">03</div>
+                <h4>QAOA Circuit</h4>
+                <p>Build and understand the QAOA circuit.</p>
+              </div>
+              <span class="module-card-arrow">→</span>
+            </div>
+            <div class="module-card" data-module="4">
+              <div>
+                <div class="module-card-tag">04</div>
+                <h4>Processor Mapping</h4>
+                <p>Map logical qubits to physical topology.</p>
+              </div>
+              <span class="module-card-arrow">→</span>
+            </div>
+            <div class="module-card" data-module="5">
+              <div>
+                <div class="module-card-tag">05</div>
+                <h4>Noise & Results</h4>
+                <p>Compare ideal and noisy simulations.</p>
+              </div>
+              <span class="module-card-arrow">→</span>
+            </div>
+          </div>
+
+          <!-- Expandable Module Detail Container -->
+          <div id="module-detail-panel" style="display: none; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.75rem; margin-top: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <h4 id="module-detail-title" style="font-family: var(--font-serif); font-size: 1.3rem;">Module Title</h4>
+              <button type="button" id="btn-close-module" style="background: transparent; border: none; font-size: 1.2rem; cursor: pointer;">✕</button>
+            </div>
+            <div id="module-detail-content" style="font-size: 0.92rem; color: var(--ink-secondary); line-height: 1.6;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- SESSION 01 CONTAINER: 3D EXPLORER (Matching Reference Middle Left) -->
+      <!-- ============================================================== -->
+      <div id="session-01-container" class="session-container">
+        <div class="session-header-bar">
+          <div class="session-header-title">
+            <span class="session-badge cyan">Session 01</span>
+            <div>
+              <h2>Network Arena</h2>
+              <p>Explore the weighted network and identify the optimal partition.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-back-labs" id="btn-back-hub-1">
+            <span>← Back to Labs</span>
+          </button>
+        </div>
+
+        <div class="explorer-console-layout">
+          <!-- Left Sidebar -->
+          <aside class="explorer-sidebar-left">
+            <div class="sidebar-group-title">3D EXPLORER</div>
+            <div class="preset-btns-list">
+              <button type="button" class="btn-preset active" data-preset="arena">
+                <span>🌐</span> <span>Network Arena</span>
+              </button>
+              <button type="button" class="btn-preset" data-preset="workbench">
+                <span>⚡</span> <span>Quantum Workbench</span>
+              </button>
+              <button type="button" class="btn-preset" data-preset="hardware">
+                <span>🔬</span> <span>Hardware Station</span>
+              </button>
+              <button type="button" class="btn-preset" data-preset="overview">
+                <span>🔭</span> <span>Wide Overview</span>
+              </button>
+            </div>
+
+            <div class="sidebar-group-title">Display Options</div>
+            <div class="display-options-list">
+              <label class="toggle-option">
+                <span>Show Weights</span>
+                <span class="switch"><input type="checkbox" id="chk-show-weights" checked><span class="slider"></span></span>
+              </label>
+              <label class="toggle-option">
+                <span>Show Labels</span>
+                <span class="switch"><input type="checkbox" id="chk-show-labels" checked><span class="slider"></span></span>
+              </label>
+              <label class="toggle-option">
+                <span>Animate</span>
+                <span class="switch"><input type="checkbox" id="chk-animate-nodes" checked><span class="slider"></span></span>
+              </label>
+              <label class="toggle-option">
+                <span>Dark Theme</span>
+                <span class="switch"><input type="checkbox" id="chk-dark-theme" checked><span class="slider"></span></span>
+              </label>
+            </div>
+          </aside>
+
+          <!-- Center 3D Viewport -->
+          <div class="explorer-center-viewport">
+            <canvas id="explorer-3d-canvas"></canvas>
+            <div class="explorer-bottom-hint">
+              <span>ⓘ Click a node to toggle its group. Cut edges are highlighted in <strong>orange</strong>.</span>
+            </div>
+          </div>
+
+          <!-- Right HUD -->
+          <aside class="explorer-hud-right">
+            <div class="hud-tab-switcher">
+              <button type="button" class="hud-tab-btn active" id="tab-btn-netinfo">Network Info</button>
+              <button type="button" class="hud-tab-btn" id="tab-btn-partition">Partition</button>
+            </div>
+
+            <div class="hud-group-block">
+              <div class="hud-group-label">Current Partition</div>
+              <div style="margin-bottom: 0.4rem;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">Group S:</span>
+                <span class="hud-group-nodes cyan" id="hud-nodes-s">{ 0, 1, 3 }</span>
+              </div>
+              <div>
+                <span style="font-size: 0.78rem; color: #94A3B8;">Group S̄:</span>
+                <span class="hud-group-nodes blue-gray" id="hud-nodes-sbar">{ 2, 4, 5 }</span>
+              </div>
+            </div>
+
+            <div class="hud-score-card">
+              <div class="hud-score-title">Cut Weight</div>
+              <div class="hud-score-value" id="hud-cut-val">22 / 27</div>
+              <div style="font-size: 0.72rem; color: #CBD5E1; margin-top: 0.2rem;">81.48% Weighted Cut Score</div>
+            </div>
+
+            <div class="hud-stats-list">
+              <div class="hud-stat-item"><span>Total Edges</span><strong id="hud-stat-total">9</strong></div>
+              <div class="hud-stat-item"><span>Internal Edges</span><strong id="hud-stat-internal">2</strong></div>
+              <div class="hud-stat-item"><span>Cut Edges</span><strong id="hud-stat-cut">7</strong></div>
+            </div>
+
+            <div class="hud-actions">
+              <button type="button" class="btn-hud-action" id="btn-hud-reset">Reset View</button>
+              <button type="button" class="btn-hud-action" id="btn-hud-rotate">Auto Rotate: ON</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- SESSION 02 CONTAINER: MISSION 22 CHALLENGE (Matching Reference Middle Right) -->
+      <!-- ============================================================== -->
+      <div id="session-02-container" class="session-container">
+        <div class="session-challenge-wrapper">
+          <div class="challenge-topbar">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span class="session-badge" style="background: rgba(152, 97, 44, 0.12); color: var(--bronze); border: 1px solid rgba(152, 97, 44, 0.3);">Session 02</span>
+              <div>
+                <h2 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--ink);">Mission 22 Challenge</h2>
+                <p style="font-size: 0.8rem; color: var(--ink-secondary);">Toggle nodes between groups to maximize the cut weight.</p>
+              </div>
+            </div>
+
+            <div class="challenge-stats-strip">
+              <div class="challenge-stat">
+                <span class="challenge-stat-label">Attempts</span>
+                <span class="challenge-stat-value" id="m22-stat-attempts">0</span>
+              </div>
+              <div class="challenge-stat">
+                <span class="challenge-stat-label">Best Score</span>
+                <span class="challenge-stat-value" id="m22-stat-best">22 / 27</span>
+              </div>
+              <div class="challenge-stat">
+                <span class="challenge-stat-label">Current Score</span>
+                <span class="challenge-stat-value highlight-cut" id="m22-stat-current">20 / 27</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn-back-labs" id="btn-back-hub-2" style="background: var(--card-bg); border-color: var(--border); color: var(--ink);">
+              <span>← Back to Labs</span>
+            </button>
+          </div>
+
+          <div class="challenge-body-grid">
+            <!-- Left Sidebar -->
+            <aside class="challenge-sidebar-left">
+              <div class="sidebar-group-title" style="color: var(--bronze);">MISSION 22</div>
+              <button type="button" class="btn-challenge-nav active" data-action="play"><span>🎮</span> <span>Play Challenge</span></button>
+              <button type="button" class="btn-challenge-nav" data-action="modules"><span>📚</span> <span>Learning Modules</span></button>
+              <button type="button" class="btn-challenge-nav" data-action="hint"><span>💡</span> <span>Hint System</span></button>
+              <button type="button" class="btn-challenge-nav" data-action="reveal"><span>👁️</span> <span>Reveal Solution</span></button>
+              <button type="button" class="btn-challenge-nav" data-action="about"><span>ℹ️</span> <span>About Benchmark</span></button>
+            </aside>
+
+            <!-- Center Interactive Playable Stage -->
+            <div class="challenge-center-stage">
+              <div class="challenge-interactive-svg-container" id="challenge-svg-mount">
+                <!-- Interactive Playable Graph rendered dynamically by game engine -->
+              </div>
+              <div style="font-size: 0.82rem; color: var(--ink-muted); margin-top: 0.5rem;">
+                Click any node (or press 0–5 on keyboard) to flip between Group S and Group S̄.
+              </div>
+            </div>
+
+            <!-- Right HUD -->
+            <aside class="challenge-hud-right">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--bronze); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem;">
+                Current Partition
+              </div>
+              <div style="font-size: 0.82rem; color: var(--ink); margin-bottom: 0.25rem;">
+                <span style="color: var(--teal); font-weight: 700;">●</span> Group S: <strong id="m22-group-s" style="font-family: var(--font-mono);">{ 0, 1, 3 }</strong>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--ink); margin-bottom: 1.25rem;">
+                <span style="color: var(--blue-gray); font-weight: 700;">●</span> Group S̄: <strong id="m22-group-sbar" style="font-family: var(--font-mono);">{ 2, 4, 5 }</strong>
+              </div>
+
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em;">
+                Cut Weight
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 2rem; font-weight: 800; color: var(--ink); line-height: 1.1;" id="m22-score-big">
+                20 / 27
+              </div>
+              <div class="challenge-progress-bar">
+                <div class="challenge-progress-fill" id="m22-progress-fill" style="width: 74.07%;"></div>
+              </div>
+
+              <div id="m22-hint-box" style="display: none; background: #FFF3E0; border: 1px solid #FFE0B2; padding: 0.6rem; border-radius: var(--radius-xs); font-size: 0.8rem; color: #E65100; margin-bottom: 1rem;">
+                <strong>Hint:</strong> <span id="m22-hint-text">Flip node 1 to increase cut score to 22.</span>
+              </div>
+
+              <div style="margin-top: auto; display: flex; flex-direction: column;">
+                <button type="button" class="btn-action-gold" id="btn-m22-hint">
+                  <span>💡</span> <span>Hint</span>
+                </button>
+                <button type="button" class="btn-action-navy" id="btn-m22-reveal">
+                  <span>Reveal Optimal</span>
+                </button>
+                <button type="button" class="btn-action-outline" id="btn-m22-reset">
+                  <span>Reset</span>
+                </button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- 4. RESULTS & ANALYSIS PANE (RESULTS) -->
+    <!-- ================================================================== -->
+    <section id="pane-results" class="page-pane">
+      <div class="section-eyebrow">EMPIRICAL BENCHMARK & SIMULATION METRICS</div>
+      <h2 class="section-title">Results & Analysis</h2>
+      <p class="section-subtitle">
+        Comparing ideal statevector and IBM FakeKyoto noisy simulations against classical ground truth.
+      </p>
+
+      <!-- Subnav Filter Tabs -->
+      <div class="results-subnav">
+        <button type="button" class="btn-subnav active" data-rtab="summary">Summary</button>
+        <button type="button" class="btn-subnav" data-rtab="landscape">Optimal Solution</button>
+        <button type="button" class="btn-subnav" data-rtab="simulation">Simulation Results</button>
+        <button type="button" class="btn-subnav" data-rtab="processors">Processor Comparison</button>
+        <button type="button" class="btn-subnav" data-rtab="tables">Data Tables</button>
+      </div>
+
+      <!-- Top Results Metric Cards (Matching Reference Bottom Center) -->
+      <div class="results-metrics-strip">
+        <div class="result-metric-card">
+          <div class="result-metric-label">Total Edge Weight</div>
+          <div class="result-metric-value">27</div>
+        </div>
+        <div class="result-metric-card">
+          <div class="result-metric-label">Optimal Cut Weight</div>
+          <div class="result-metric-value" style="color: var(--emerald);">22</div>
+        </div>
+        <div class="result-metric-card">
+          <div class="result-metric-label">Cut Ratio</div>
+          <div class="result-metric-value" style="color: var(--bronze);">81.48%</div>
+        </div>
+        <div class="result-metric-card">
+          <div class="result-metric-label">Optimal Partitions</div>
+          <div class="result-metric-value">2</div>
+        </div>
+      </div>
+
+      <!-- Cut Weight Distribution Histogram -->
+      <div class="chart-container-box" id="section-chart-histogram">
+        <div class="chart-header">
+          <h3>Cut Weight Distribution (All 64 Assignments)</h3>
+          <span style="font-size: 0.8rem; color: var(--ink-muted); font-family: var(--font-mono);">Mean E[C] = 13.5 • Mode = 14</span>
+        </div>
+        <div id="cut-distribution-chart" style="width: 100%; height: 260px; display: flex; align-items: flex-end; gap: 6px; padding-top: 1.5rem;">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- Results Data Tables View (hidden by default) -->
+      <div id="results-tables-view" class="data-table-wrapper" style="display: none;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; padding: 1.25rem 1.25rem 0.5rem 1.25rem;">QAOA Benchmark Execution (4,096 Shots)</h3>
+        <table class="heritage-table">
+          <thead>
+            <tr>
+              <th>Processor</th>
+              <th>Simulation Condition</th>
+              <th>Mean Cut ⟨C⟩</th>
+              <th>Approx Ratio (r)</th>
+              <th>Optimal Shots (C=22)</th>
+              <th>Sampling Prob P(opt)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Uniform Random Baseline</strong></td>
+              <td>Classical Guessing</td>
+              <td>13.5000</td>
+              <td>0.6136</td>
+              <td>128 / 4096</td>
+              <td>3.125% (1.0x)</td>
+            </tr>
+            <tr>
+              <td><strong>Processor B</strong></td>
+              <td>Ideal Aer Simulation</td>
+              <td>17.7620</td>
+              <td>0.8074</td>
+              <td>572 / 4096</td>
+              <td>13.96% (4.47x)</td>
+            </tr>
+            <tr>
+              <td><strong>Processor B</strong></td>
+              <td>FakeKyoto Noise Model</td>
+              <td>17.3220</td>
+              <td>0.7874</td>
+              <td>516 / 4096</td>
+              <td>12.60% (4.03x)</td>
+            </tr>
+            <tr>
+              <td><strong>Processor D (Co-Design)</strong></td>
+              <td>Ideal Aer Simulation</td>
+              <td>17.7134</td>
+              <td>0.8052</td>
+              <td>567 / 4096</td>
+              <td>13.84% (4.43x)</td>
+            </tr>
+            <tr>
+              <td><strong>Processor D (Co-Design)</strong></td>
+              <td>FakeKyoto Noise Model</td>
+              <td>17.2971</td>
+              <td>0.7862</td>
+              <td>512 / 4096</td>
+              <td><strong>12.50% (4.00x)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Processor Topology Comparison Table -->
+      <div id="processor-comparison-view" class="data-table-wrapper" style="display: none;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; padding: 1.25rem 1.25rem 0.5rem 1.25rem;">Hardware Topology & Transpilation Routing</h3>
+        <table class="heritage-table">
+          <thead>
+            <tr>
+              <th>Hardware Architecture</th>
+              <th>Physical Qubits</th>
+              <th>Routability</th>
+              <th>Routing SWAPs</th>
+              <th>Physical CX Gates</th>
+              <th>2-Qubit Depth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Processor A</strong> (5Q Linear)</td>
+              <td>5</td>
+              <td>❌ Unroutable (5 &lt; 6)</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td><strong>Processor B</strong> (Heavy-Hex Subgrid)</td>
+              <td>9</td>
+              <td>✅ Routable via SWAPs</td>
+              <td>1 SWAP</td>
+              <td>21 CX</td>
+              <td>17</td>
+            </tr>
+            <tr>
+              <td><strong>Processor D</strong> (Ring-Core Co-Design)</td>
+              <td>9</td>
+              <td>✅ Native Embedding</td>
+              <td><strong style="color: var(--emerald);">0 SWAPs (-100%)</strong></td>
+              <td><strong style="color: var(--emerald);">18 CX (-14.3%)</strong></td>
+              <td><strong style="color: var(--emerald);">14 (-21.6%)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- 5. RESOURCES & DOCUMENTATION PANE (RESOURCES) -->
+    <!-- ================================================================== -->
+    <section id="pane-resources" class="page-pane">
+      <div class="section-eyebrow">PROJECT DOCUMENTATION & REPRODUCIBILITY</div>
+      <h2 class="section-title">Project Documentation</h2>
+      <p class="section-subtitle">
+        Reports, presentation slides, source code, and release deliverables.
+      </p>
+
+      <!-- Download Cards (Matching Reference Bottom Right) -->
+      <div class="docs-cards-grid">
+        <div class="doc-download-card">
+          <svg class="doc-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <h3>Final Report</h3>
+          <p>Comprehensive research report detailing the mathematical formulation, simulation methodology, and empirical analysis.</p>
+          <a href="assets/VARANASI_Pitch_Deck.pdf" target="_blank" class="btn-card-dark">
+            <span>Download PDF</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="doc-download-card">
+          <svg class="doc-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <h3>Presentation</h3>
+          <p>10-slide 16:9 pitch deck covering problem motivation, hardware co-design, noise comparisons, and demo scripts.</p>
+          <a href="assets/VARANASI_Pitch_Deck.pptx" download class="btn-card-dark">
+            <span>Download PPTX</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="doc-download-card">
+          <svg class="doc-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <h3>Source Code</h3>
+          <p>Complete open-source repository including QAOA solver, transpilation pipelines, automated tests, and Vite web studio.</p>
+          <a href="https://github.com/ganesh-pirinti/VARANASI_PROJECTQ" target="_blank" rel="noopener noreferrer" class="btn-card-dark">
+            <span>View on GitHub</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Research Report Viewer -->
+      <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.25rem;">Technical Implementation Report</h3>
+        <div id="report-rendered-markdown" style="font-size: 0.95rem; line-height: 1.7; color: var(--ink-secondary);">
+          <p>Loading authoritative research documentation...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- 6. ABOUT PANE (ABOUT) -->
+    <!-- ================================================================== -->
+    <section id="pane-about" class="page-pane">
+      <div class="section-eyebrow">ORGANIZATION & VERIFICATION</div>
+      <h2 class="section-title">About Team VARANASI</h2>
+      <p class="section-subtitle">
+        Official entry for Qiskit Fall Fest 2026 — SRM University-AP.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+        <div style="background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 1rem;">Team Identification</h3>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.92rem;">
+            <div><strong>Team Name:</strong> VARANASI</div>
+            <div><strong>Team ID:</strong> AP251100708044</div>
+            <div><strong>Team Leader:</strong> Ganesh Pirinti (ganeshpirinti95218@gmail.com)</div>
+            <div><strong>Institution:</strong> SRM University-AP</div>
+            <div><strong>Challenge Track:</strong> Quantum Optimization</div>
+            <div><strong>Problem Statement:</strong> PS-O1 (Network Partitioning via QAOA)</div>
+          </div>
+        </div>
+
+        <div style="background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">Scientific Integrity Notice</h3>
+          <p style="font-size: 0.9rem; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            All quantum simulations were executed using Qiskit Aer's statevector and FakeKyoto noisy backends. No unverified claims of physical hardware execution, quantum speedup, or commercial telecom interference elimination are made.
+          </p>
+          <button type="button" id="btn-run-tests" class="btn-action-gold" style="width: auto; padding: 0.6rem 1.4rem;">
+            <span>🔬</span> <span>Run Client-Side Verification Tests</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Test Output Box -->
+      <div id="test-results-box" style="display: none; background: #0B1420; color: #E2E8F0; padding: 1.5rem; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; overflow-x: auto;"></div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================================== -->
+  <!-- SITE FOOTER -->
+  <!-- ==================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>VARANASI</strong>
+        <span>Quantum Optimization Studio • Problem Statement PS-O1</span>
+      </div>
+      <div class="footer-meta">
+        <span>Team ID: <strong>AP251100708044</strong></span>
+        <span>SRM University-AP</span>
+        <span>Qiskit Fall Fest 2026</span>
+      </div>
+    </div>
+  </footer>
 
   <script type="module" src="app.js"></script>
 </body>

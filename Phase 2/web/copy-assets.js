@@ -35,6 +35,10 @@ const filesToCopy = [
   {
     src: path.join(projectRoot, 'results', 'tables', 'bell.csv'),
     destName: 'bell.csv'
+  },
+  {
+    src: path.join(projectRoot, 'dist', 'VARANASI_PS-O1_Phase2_Submission.zip'),
+    destName: 'VARANASI_PS-O1_Phase2_Submission.zip'
   }
 ];
 
