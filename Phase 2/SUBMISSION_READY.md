@@ -24,8 +24,8 @@
 | **Git Repository** | [https://github.com/ganesh-pirinti/VARANASI_PROJECTQ](https://github.com/ganesh-pirinti/VARANASI_PROJECTQ) |
 | **Default Branch** | `main` |
 | **Release Archive** | `Phase 2/dist/VARANASI_PS-O1_Phase2_Submission.zip` |
-| **Release Archive Size** | `21,512,434 bytes` |
-| **Release SHA-256** | `57DA34B28E43F8C88D66475D583C12206AF63710D6346F81CD883C982F552B4C` |
+| **Release Archive Size** | `10,761,227 bytes` |
+| **Release SHA-256** | `6865A60174AAD873F3408644B394D49967B492C43C65F4E75D55B71C1969A0B7` |
 
 ---
 

@@ -32,6 +32,7 @@ EXCLUDED_PATTERNS = [
     ".mypy_cache",
     ".coverage",
     ".gemini",
+    "evidence",
 ]
 
 EXCLUDED_EXTENSIONS = {
@@ -39,6 +40,7 @@ EXCLUDED_EXTENSIONS = {
     ".pyo",
     ".pyd",
     ".bak",
+    ".zip",
 }
 
 def should_exclude(rel_path: str) -> bool:

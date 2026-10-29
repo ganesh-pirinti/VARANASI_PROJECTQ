@@ -230,6 +230,8 @@ Phase 2/
 ## 6. Release Verification & OneDrive Parity
 
 - **Submission ZIP:** `Phase 2/dist/VARANASI_PS-O1_Phase2_Submission.zip`
+- **Archive Size:** `10,761,227 bytes`
+- **SHA-256 Checksum:** `6865A60174AAD873F3408644B394D49967B492C43C65F4E75D55B71C1969A0B7`
 - **Integrity Check:** Extractability tested in temporary directory with full SHA-256 manifest verification passing without error.
 - **Delivery Sync:** Safely mirrored to `C:\Users\GANESH_PIRINTI\OneDrive\desktop\PROJECTQ_VARANASI\Phase 2` using `copy_to_onedrive.py`.
 - **Phase One Isolation:** `PHASE_1` folder in OneDrive was strictly untouched and preserved with zero byte changes.

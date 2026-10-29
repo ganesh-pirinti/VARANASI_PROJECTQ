@@ -224,7 +224,7 @@ function setupHeroPedestal() {
   });
 
   // Connecting Struts (Edges)
-  EDGES.forEach(([u, v, w]) => {
+  EDGES.forEach(({ u, v, w }) => {
     const p1 = NODE_COORDINATES[u].clone().multiplyScalar(0.7);
     const p2 = NODE_COORDINATES[v].clone().multiplyScalar(0.7);
     p1.y += 0.2;
@@ -400,7 +400,7 @@ function initLab3D() {
     labNodeMeshes.push(mesh);
   });
 
-  EDGES.forEach(([u, v, w]) => {
+  EDGES.forEach(({ u, v, w }) => {
     const p1 = NODE_COORDINATES[u];
     const p2 = NODE_COORDINATES[v];
     const isCut = labCurrentPartition[u] !== labCurrentPartition[v];
@@ -522,7 +522,7 @@ function renderLab2DSVG() {
   let html = `<g>`;
 
   // Edges
-  EDGES.forEach(([u, v, w]) => {
+  EDGES.forEach(({ u, v, w }) => {
     const p1 = coords2D[u];
     const p2 = coords2D[v];
     const isCut = labCurrentPartition[u] !== labCurrentPartition[v];
@@ -588,9 +588,9 @@ function renderLabMatrix() {
       if (i === j) {
         html += `<td style="color: #CBD5E1;">—</td>`;
       } else {
-        const edge = EDGES.find(([u, v]) => (u === i && v === j) || (u === j && v === i));
+        const edge = EDGES.find(({ u, v }) => (u === i && v === j) || (u === j && v === i));
         if (edge) {
-          const w = edge[2];
+          const w = edge.w;
           const isCut = labCurrentPartition[i] !== labCurrentPartition[j];
           const bg = isCut ? 'rgba(231, 111, 81, 0.15)' : 'transparent';
           const fg = isCut ? 'var(--orange-cut)' : 'var(--ink)';
@@ -695,7 +695,7 @@ function initSession01Explorer() {
     s1NodeMeshes.push(mesh);
   });
 
-  EDGES.forEach(([u, v, w]) => {
+  EDGES.forEach(({ u, v, w }) => {
     const p1 = NODE_COORDINATES[u];
     const p2 = NODE_COORDINATES[v];
     const isCut = s1Partition[u] !== s1Partition[v];
@@ -871,7 +871,8 @@ function initSession02Challenge() {
       const move = findImprovingMove(s2Partition);
       if (move !== null && hintBox && hintText) {
         hintBox.style.display = 'block';
-        hintText.textContent = `Suggested move: Flip Node ${move} to escape the local plateau and increase cut score.`;
+        const changed = move.changedNodes.map(n => `Node ${n}`).join(' & ');
+        hintText.textContent = `Suggested move: Flip ${changed} to increase cut weight to ${move.score}/27.`;
       } else if (hintBox && hintText) {
         hintBox.style.display = 'block';
         hintText.textContent = `You are already at an optimal partition (Cut score 22 / 27)!`;
@@ -883,6 +884,8 @@ function initSession02Challenge() {
     btnReveal.addEventListener('click', () => {
       s2Partition = [...OPTIMAL_BITS];
       s2Attempts++;
+      const score = cutScore(s2Partition);
+      if (score > s2BestScore) s2BestScore = score;
       if (hintBox) hintBox.style.display = 'none';
       renderChallengeSVG();
       updateChallengeUI();
@@ -898,6 +901,17 @@ function initSession02Challenge() {
       updateChallengeUI();
     });
   }
+
+  // Keyboard Hotkeys 0-5 for node toggling
+  window.addEventListener('keydown', (e) => {
+    const session2 = document.getElementById('session-02-container');
+    if (session2 && session2.style.display !== 'none') {
+      const num = parseInt(e.key, 10);
+      if (!isNaN(num) && num >= 0 && num <= 5) {
+        toggleChallengeNode(num);
+      }
+    }
+  });
 }
 
 function renderChallengeSVG() {
@@ -916,7 +930,7 @@ function renderChallengeSVG() {
   let svg = `<svg viewBox="0 0 620 440" style="width: 100%; height: 100%;">`;
 
   // Edges
-  EDGES.forEach(([u, v, w]) => {
+  EDGES.forEach(({ u, v, w }) => {
     const p1 = coords[u];
     const p2 = coords[v];
     const isCut = s2Partition[u] !== s2Partition[v];
@@ -940,7 +954,7 @@ function renderChallengeSVG() {
     const fill = isS ? '#32C5C1' : '#8FA7BD';
 
     svg += `
-      <g style="cursor: pointer;" onclick="window.challengeToggleNode(${n.id})">
+      <g class="challenge-node" data-node="${n.id}" style="cursor: pointer;" onclick="window.challengeToggleNode(${n.id})">
         <circle cx="${n.x}" cy="${n.y}" r="22" fill="${fill}" stroke="#FFFFFF" stroke-width="3" />
         <text x="${n.x}" y="${n.y + 5}" font-size="12" font-weight="700" font-family="sans-serif" text-anchor="middle" fill="#FFFFFF">n${n.id}</text>
       </g>

@@ -15,7 +15,8 @@ EXCLUDED = {
     ".backups",
     ".venv",
     "venv",
-    ".pytest_cache"
+    ".pytest_cache",
+    "evidence",
 }
 
 def should_skip(rel_p):
