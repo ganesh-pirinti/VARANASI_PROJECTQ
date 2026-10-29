@@ -200,16 +200,32 @@ class QAOASolver:
         best_cut_weight = 0
         optimal_shots = 0
         sampled_distribution: Dict[int, int] = {}
+        raw_histogram: Dict[str, Dict[str, Any]] = {}
         
-        for bitstring, count in counts.items():
+        for bitstring, count in sorted(counts.items()):
             x = counts_to_x(bitstring)
             c = compute_cut_weight(x, self.weighted_edges)
             total_cut_weight += c * count
             sampled_distribution[c] = sampled_distribution.get(c, 0) + count
+            is_opt = x in optimal_partitions
             if c > best_cut_weight:
                 best_cut_weight = c
-            if x in optimal_partitions:
+            if is_opt:
                 optimal_shots += count
+
+        # Complete 2^num_qubits histogram across full state space
+        for state_idx in range(1 << self.num_qubits):
+            bs = "".join(str((state_idx >> bit) & 1) for bit in reversed(range(self.num_qubits)))
+            count = counts.get(bs, 0)
+            x = counts_to_x(bs)
+            c = compute_cut_weight(x, self.weighted_edges)
+            is_opt = x in optimal_partitions
+            raw_histogram[bs] = {
+                "count": count,
+                "decoded_assignment": list(x),
+                "cut_weight": c,
+                "is_optimal": is_opt,
+            }
                 
         mean_cut = total_cut_weight / float(total_shots)
         approx_ratio = mean_cut / float(c_star)
@@ -230,4 +246,5 @@ class QAOASolver:
             "optimal_shots": optimal_shots,
             "sampled_distribution": sampled_distribution,
             "counts": counts,
+            "raw_histogram": raw_histogram,
         }

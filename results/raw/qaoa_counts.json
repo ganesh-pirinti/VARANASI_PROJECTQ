@@ -1,0 +1,3455 @@
+{
+  "metadata": {
+    "description": "Complete raw QAOA bitstring-to-count histograms and per-bitstring metrics for VARANASI PS-O1",
+    "problem_id": "PS-O1",
+    "team": "VARANASI",
+    "shots_per_run": 4096,
+    "classical_optimum": 22
+  },
+  "runs": {
+    "Processor_B_ideal": {
+      "processor": "Processor B",
+      "condition": "ideal",
+      "noisy": false,
+      "shots": 4096,
+      "total_counts": 4096,
+      "num_distinct_bitstrings": 64,
+      "mean_cut": 17.761962890625,
+      "approx_ratio": 0.8073619495738636,
+      "best_sampled_cut": 22,
+      "best_sampled_cut_ratio": 1.0,
+      "optimal_sample_count": 572,
+      "optimal_sample_probability": 0.1396484375,
+      "metrics": {
+        "processor": "Processor B",
+        "executable": true,
+        "logical_qubits": 6,
+        "physical_qubits": 9,
+        "logical_cx": 18,
+        "cx": 21,
+        "one_q_gates": 57,
+        "depth": 37,
+        "two_q_depth": 17,
+        "swaps": 1,
+        "cx_overhead": 3
+      },
+      "histogram": {
+        "000000": {
+          "count": 11,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 0,
+          "is_optimal": false
+        },
+        "000001": {
+          "count": 2,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 9,
+          "is_optimal": false
+        },
+        "000010": {
+          "count": 21,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 6,
+          "is_optimal": false
+        },
+        "000011": {
+          "count": 29,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "000100": {
+          "count": 4,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 7,
+          "is_optimal": false
+        },
+        "000101": {
+          "count": 25,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "000110": {
+          "count": 8,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "000111": {
+          "count": 238,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 20,
+          "is_optimal": false
+        },
+        "001000": {
+          "count": 27,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "001001": {
+          "count": 68,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "001010": {
+          "count": 187,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 21,
+          "is_optimal": false
+        },
+        "001011": {
+          "count": 284,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 22,
+          "is_optimal": true
+        },
+        "001100": {
+          "count": 23,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "001101": {
+          "count": 18,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 11,
+          "is_optimal": false
+        },
+        "001110": {
+          "count": 145,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 18,
+          "is_optimal": false
+        },
+        "001111": {
+          "count": 36,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010000": {
+          "count": 6,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "010001": {
+          "count": 34,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "010010": {
+          "count": 14,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "010011": {
+          "count": 63,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "010100": {
+          "count": 70,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010101": {
+          "count": 57,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "010110": {
+          "count": 163,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010111": {
+          "count": 57,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "011000": {
+          "count": 179,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "011001": {
+          "count": 16,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "011010": {
+          "count": 155,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "011011": {
+          "count": 0,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "011100": {
+          "count": 34,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "011101": {
+          "count": 0,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "011110": {
+          "count": 26,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "011111": {
+          "count": 23,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100000": {
+          "count": 16,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100001": {
+          "count": 25,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "100010": {
+          "count": 3,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100011": {
+          "count": 48,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "100100": {
+          "count": 1,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "100101": {
+          "count": 169,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "100110": {
+          "count": 15,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "100111": {
+          "count": 182,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "101000": {
+          "count": 54,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "101001": {
+          "count": 149,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "101010": {
+          "count": 57,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "101011": {
+          "count": 99,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "101100": {
+          "count": 55,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "101101": {
+          "count": 18,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "101110": {
+          "count": 53,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "101111": {
+          "count": 12,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "110000": {
+          "count": 43,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "110001": {
+          "count": 144,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 18,
+          "is_optimal": false
+        },
+        "110010": {
+          "count": 16,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 11,
+          "is_optimal": false
+        },
+        "110011": {
+          "count": 26,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "110100": {
+          "count": 288,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 22,
+          "is_optimal": true
+        },
+        "110101": {
+          "count": 177,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 21,
+          "is_optimal": false
+        },
+        "110110": {
+          "count": 60,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "110111": {
+          "count": 33,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "111000": {
+          "count": 236,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 20,
+          "is_optimal": false
+        },
+        "111001": {
+          "count": 9,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "111010": {
+          "count": 27,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "111011": {
+          "count": 2,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 7,
+          "is_optimal": false
+        },
+        "111100": {
+          "count": 21,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "111101": {
+          "count": 26,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 6,
+          "is_optimal": false
+        },
+        "111110": {
+          "count": 4,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 9,
+          "is_optimal": false
+        },
+        "111111": {
+          "count": 5,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 0,
+          "is_optimal": false
+        }
+      }
+    },
+    "Processor_B_noisy": {
+      "processor": "Processor B",
+      "condition": "noisy",
+      "noisy": true,
+      "shots": 4096,
+      "total_counts": 4096,
+      "num_distinct_bitstrings": 64,
+      "mean_cut": 17.322021484375,
+      "approx_ratio": 0.7873646129261364,
+      "best_sampled_cut": 22,
+      "best_sampled_cut_ratio": 1.0,
+      "optimal_sample_count": 516,
+      "optimal_sample_probability": 0.1259765625,
+      "metrics": {
+        "processor": "Processor B",
+        "executable": true,
+        "logical_qubits": 6,
+        "physical_qubits": 9,
+        "logical_cx": 18,
+        "cx": 21,
+        "one_q_gates": 57,
+        "depth": 37,
+        "two_q_depth": 17,
+        "swaps": 1,
+        "cx_overhead": 3
+      },
+      "histogram": {
+        "000000": {
+          "count": 12,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 0,
+          "is_optimal": false
+        },
+        "000001": {
+          "count": 4,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 9,
+          "is_optimal": false
+        },
+        "000010": {
+          "count": 19,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 6,
+          "is_optimal": false
+        },
+        "000011": {
+          "count": 34,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "000100": {
+          "count": 5,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 7,
+          "is_optimal": false
+        },
+        "000101": {
+          "count": 28,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "000110": {
+          "count": 19,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "000111": {
+          "count": 212,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 20,
+          "is_optimal": false
+        },
+        "001000": {
+          "count": 32,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "001001": {
+          "count": 66,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "001010": {
+          "count": 179,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 21,
+          "is_optimal": false
+        },
+        "001011": {
+          "count": 260,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 22,
+          "is_optimal": true
+        },
+        "001100": {
+          "count": 29,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "001101": {
+          "count": 26,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 11,
+          "is_optimal": false
+        },
+        "001110": {
+          "count": 133,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 18,
+          "is_optimal": false
+        },
+        "001111": {
+          "count": 50,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010000": {
+          "count": 19,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "010001": {
+          "count": 43,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "010010": {
+          "count": 17,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "010011": {
+          "count": 64,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "010100": {
+          "count": 72,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010101": {
+          "count": 62,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "010110": {
+          "count": 150,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010111": {
+          "count": 55,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "011000": {
+          "count": 166,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "011001": {
+          "count": 19,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "011010": {
+          "count": 140,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "011011": {
+          "count": 8,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "011100": {
+          "count": 40,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "011101": {
+          "count": 6,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "011110": {
+          "count": 31,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "011111": {
+          "count": 29,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100000": {
+          "count": 18,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100001": {
+          "count": 33,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "100010": {
+          "count": 4,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100011": {
+          "count": 48,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "100100": {
+          "count": 17,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "100101": {
+          "count": 152,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "100110": {
+          "count": 20,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "100111": {
+          "count": 166,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "101000": {
+          "count": 61,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "101001": {
+          "count": 133,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "101010": {
+          "count": 63,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "101011": {
+          "count": 91,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "101100": {
+          "count": 55,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "101101": {
+          "count": 25,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "101110": {
+          "count": 50,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "101111": {
+          "count": 18,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "110000": {
+          "count": 55,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "110001": {
+          "count": 143,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 18,
+          "is_optimal": false
+        },
+        "110010": {
+          "count": 20,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 11,
+          "is_optimal": false
+        },
+        "110011": {
+          "count": 30,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "110100": {
+          "count": 256,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 22,
+          "is_optimal": true
+        },
+        "110101": {
+          "count": 157,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 21,
+          "is_optimal": false
+        },
+        "110110": {
+          "count": 63,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "110111": {
+          "count": 44,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "111000": {
+          "count": 209,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 20,
+          "is_optimal": false
+        },
+        "111001": {
+          "count": 16,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "111010": {
+          "count": 31,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "111011": {
+          "count": 8,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 7,
+          "is_optimal": false
+        },
+        "111100": {
+          "count": 28,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "111101": {
+          "count": 37,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 6,
+          "is_optimal": false
+        },
+        "111110": {
+          "count": 11,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 9,
+          "is_optimal": false
+        },
+        "111111": {
+          "count": 5,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 0,
+          "is_optimal": false
+        }
+      }
+    },
+    "Processor_D_ideal": {
+      "processor": "Processor D",
+      "condition": "ideal",
+      "noisy": false,
+      "shots": 4096,
+      "total_counts": 4096,
+      "num_distinct_bitstrings": 64,
+      "mean_cut": 17.71337890625,
+      "approx_ratio": 0.8051535866477273,
+      "best_sampled_cut": 22,
+      "best_sampled_cut_ratio": 1.0,
+      "optimal_sample_count": 567,
+      "optimal_sample_probability": 0.138427734375,
+      "metrics": {
+        "processor": "Processor D",
+        "executable": true,
+        "logical_qubits": 6,
+        "physical_qubits": 9,
+        "logical_cx": 18,
+        "cx": 18,
+        "one_q_gates": 57,
+        "depth": 29,
+        "two_q_depth": 14,
+        "swaps": 0,
+        "cx_overhead": 0
+      },
+      "histogram": {
+        "000000": {
+          "count": 11,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 0,
+          "is_optimal": false
+        },
+        "000001": {
+          "count": 3,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 9,
+          "is_optimal": false
+        },
+        "000010": {
+          "count": 27,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 6,
+          "is_optimal": false
+        },
+        "000011": {
+          "count": 15,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "000100": {
+          "count": 2,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 7,
+          "is_optimal": false
+        },
+        "000101": {
+          "count": 14,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "000110": {
+          "count": 10,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "000111": {
+          "count": 222,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 20,
+          "is_optimal": false
+        },
+        "001000": {
+          "count": 21,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "001001": {
+          "count": 71,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "001010": {
+          "count": 184,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 21,
+          "is_optimal": false
+        },
+        "001011": {
+          "count": 282,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 22,
+          "is_optimal": true
+        },
+        "001100": {
+          "count": 28,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "001101": {
+          "count": 18,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 11,
+          "is_optimal": false
+        },
+        "001110": {
+          "count": 140,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 18,
+          "is_optimal": false
+        },
+        "001111": {
+          "count": 47,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010000": {
+          "count": 6,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "010001": {
+          "count": 33,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "010010": {
+          "count": 17,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "010011": {
+          "count": 70,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "010100": {
+          "count": 78,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010101": {
+          "count": 64,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "010110": {
+          "count": 142,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010111": {
+          "count": 58,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "011000": {
+          "count": 181,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "011001": {
+          "count": 18,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "011010": {
+          "count": 173,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "011011": {
+          "count": 1,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "011100": {
+          "count": 35,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "011101": {
+          "count": 2,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "011110": {
+          "count": 22,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "011111": {
+          "count": 27,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100000": {
+          "count": 22,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100001": {
+          "count": 16,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "100010": {
+          "count": 6,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100011": {
+          "count": 46,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "100100": {
+          "count": 1,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "100101": {
+          "count": 167,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "100110": {
+          "count": 20,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "100111": {
+          "count": 180,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "101000": {
+          "count": 62,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "101001": {
+          "count": 175,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "101010": {
+          "count": 50,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "101011": {
+          "count": 76,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "101100": {
+          "count": 71,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "101101": {
+          "count": 15,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "101110": {
+          "count": 39,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "101111": {
+          "count": 6,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "110000": {
+          "count": 50,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "110001": {
+          "count": 165,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 18,
+          "is_optimal": false
+        },
+        "110010": {
+          "count": 11,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 11,
+          "is_optimal": false
+        },
+        "110011": {
+          "count": 20,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "110100": {
+          "count": 285,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 22,
+          "is_optimal": true
+        },
+        "110101": {
+          "count": 193,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 21,
+          "is_optimal": false
+        },
+        "110110": {
+          "count": 70,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "110111": {
+          "count": 15,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "111000": {
+          "count": 218,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 20,
+          "is_optimal": false
+        },
+        "111001": {
+          "count": 5,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "111010": {
+          "count": 18,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "111011": {
+          "count": 4,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 7,
+          "is_optimal": false
+        },
+        "111100": {
+          "count": 28,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "111101": {
+          "count": 33,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 6,
+          "is_optimal": false
+        },
+        "111110": {
+          "count": 2,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 9,
+          "is_optimal": false
+        },
+        "111111": {
+          "count": 5,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 0,
+          "is_optimal": false
+        }
+      }
+    },
+    "Processor_D_noisy": {
+      "processor": "Processor D",
+      "condition": "noisy",
+      "noisy": true,
+      "shots": 4096,
+      "total_counts": 4096,
+      "num_distinct_bitstrings": 64,
+      "mean_cut": 17.297119140625,
+      "approx_ratio": 0.7862326882102273,
+      "best_sampled_cut": 22,
+      "best_sampled_cut_ratio": 1.0,
+      "optimal_sample_count": 512,
+      "optimal_sample_probability": 0.125,
+      "metrics": {
+        "processor": "Processor D",
+        "executable": true,
+        "logical_qubits": 6,
+        "physical_qubits": 9,
+        "logical_cx": 18,
+        "cx": 18,
+        "one_q_gates": 57,
+        "depth": 29,
+        "two_q_depth": 14,
+        "swaps": 0,
+        "cx_overhead": 0
+      },
+      "histogram": {
+        "000000": {
+          "count": 14,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 0,
+          "is_optimal": false
+        },
+        "000001": {
+          "count": 5,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 9,
+          "is_optimal": false
+        },
+        "000010": {
+          "count": 28,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 6,
+          "is_optimal": false
+        },
+        "000011": {
+          "count": 25,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "000100": {
+          "count": 6,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 7,
+          "is_optimal": false
+        },
+        "000101": {
+          "count": 25,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "000110": {
+          "count": 15,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "000111": {
+          "count": 205,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "cut_weight": 20,
+          "is_optimal": false
+        },
+        "001000": {
+          "count": 23,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "001001": {
+          "count": 73,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "001010": {
+          "count": 172,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 21,
+          "is_optimal": false
+        },
+        "001011": {
+          "count": 254,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 22,
+          "is_optimal": true
+        },
+        "001100": {
+          "count": 28,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "001101": {
+          "count": 24,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 11,
+          "is_optimal": false
+        },
+        "001110": {
+          "count": 122,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 18,
+          "is_optimal": false
+        },
+        "001111": {
+          "count": 64,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010000": {
+          "count": 12,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "010001": {
+          "count": 34,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "010010": {
+          "count": 28,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "010011": {
+          "count": 62,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "010100": {
+          "count": 74,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010101": {
+          "count": 59,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "010110": {
+          "count": 136,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "010111": {
+          "count": 64,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "011000": {
+          "count": 164,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "011001": {
+          "count": 22,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "011010": {
+          "count": 161,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "011011": {
+          "count": 10,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "011100": {
+          "count": 42,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "011101": {
+          "count": 5,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "011110": {
+          "count": 31,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "011111": {
+          "count": 26,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100000": {
+          "count": 22,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100001": {
+          "count": 22,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "100010": {
+          "count": 8,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 5,
+          "is_optimal": false
+        },
+        "100011": {
+          "count": 54,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "100100": {
+          "count": 25,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "100101": {
+          "count": 141,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "100110": {
+          "count": 23,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "100111": {
+          "count": 176,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "cut_weight": 19,
+          "is_optimal": false
+        },
+        "101000": {
+          "count": 68,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "101001": {
+          "count": 157,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "101010": {
+          "count": 49,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "101011": {
+          "count": 69,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "101100": {
+          "count": 61,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "101101": {
+          "count": 31,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "101110": {
+          "count": 38,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "101111": {
+          "count": 14,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "110000": {
+          "count": 60,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 17,
+          "is_optimal": false
+        },
+        "110001": {
+          "count": 144,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 18,
+          "is_optimal": false
+        },
+        "110010": {
+          "count": 14,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 11,
+          "is_optimal": false
+        },
+        "110011": {
+          "count": 32,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 12,
+          "is_optimal": false
+        },
+        "110100": {
+          "count": 258,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 22,
+          "is_optimal": true
+        },
+        "110101": {
+          "count": 184,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 21,
+          "is_optimal": false
+        },
+        "110110": {
+          "count": 68,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 16,
+          "is_optimal": false
+        },
+        "110111": {
+          "count": 19,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "111000": {
+          "count": 198,
+          "decoded_assignment": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 20,
+          "is_optimal": false
+        },
+        "111001": {
+          "count": 21,
+          "decoded_assignment": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 13,
+          "is_optimal": false
+        },
+        "111010": {
+          "count": 30,
+          "decoded_assignment": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 14,
+          "is_optimal": false
+        },
+        "111011": {
+          "count": 5,
+          "decoded_assignment": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 7,
+          "is_optimal": false
+        },
+        "111100": {
+          "count": 37,
+          "decoded_assignment": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 15,
+          "is_optimal": false
+        },
+        "111101": {
+          "count": 42,
+          "decoded_assignment": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 6,
+          "is_optimal": false
+        },
+        "111110": {
+          "count": 7,
+          "decoded_assignment": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 9,
+          "is_optimal": false
+        },
+        "111111": {
+          "count": 6,
+          "decoded_assignment": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cut_weight": 0,
+          "is_optimal": false
+        }
+      }
+    }
+  }
+}

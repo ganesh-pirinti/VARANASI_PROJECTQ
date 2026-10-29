@@ -20,7 +20,7 @@ def verify_all():
     ]
     assert fieldnames == expected_fields, f"Fieldnames mismatch: {fieldnames}"
     assert len(rows) == 6, f"Expected 6 rows, got {len(rows)}"
-    
+
     # Check processor rows
     for r in rows:
         assert r["problem_id"] == "PS-O1"
@@ -116,6 +116,30 @@ def verify_all():
         assert p["num_qubits"] == exp_n
         assert p["basis_gates"] == ["rz", "sx", "x", "cx"]
         print(f"  {p_name} ({p_file}): PASS")
+
+    print("\n=== Step 5: Raw QAOA Histograms & Metadata Audit ===")
+    counts_path = "results/raw/qaoa_counts.json"
+    meta_path = "results/raw/benchmark_metadata.json"
+    assert os.path.exists(counts_path), f"{counts_path} missing"
+    assert os.path.exists(meta_path), f"{meta_path} missing"
+
+    with open(counts_path, "r", encoding="utf-8") as f:
+        raw_data = json.load(f)
+    assert "runs" in raw_data
+    assert len(raw_data["runs"]) == 4
+    for r_key, r_val in raw_data["runs"].items():
+        assert r_val["shots"] == 4096
+        assert r_val["total_counts"] == 4096
+        assert len(r_val["histogram"]) == 64
+        assert r_val["best_sampled_cut"] == 22
+
+    with open(meta_path, "r", encoding="utf-8") as f:
+        meta_data = json.load(f)
+    assert meta_data["problem"]["problem_id"] == "PS-O1"
+    assert meta_data["problem"]["graph"]["total_graph_weight"] == 27
+    assert meta_data["classical_ground_truth"]["exact_maximum_cut"] == 22
+    print("  results/raw/qaoa_counts.json: PASS")
+    print("  results/raw/benchmark_metadata.json: PASS")
 
 if __name__ == "__main__":
     verify_all()

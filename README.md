@@ -20,6 +20,8 @@ This repository contains the verified Phase 2 solution for **PS-O1: Network Part
 
 We evaluate performance against the exact classical ground truth ($C^* = 22$) and the uniform random baseline ($r_{\text{random}} = 0.6136, P_{\text{opt, random}} = 0.03125$), benchmarking across reference **Processor A** (5 qubits), **Processor B** (9 qubits), and our co-designed **Processor D** (9 qubits).
 
+> **Judge & Evaluator Quick Reference:** See [docs/JUDGE_GUIDE.md](docs/JUDGE_GUIDE.md) for a 30-second technical overview, verified benchmarks, and evidence-backed answers to 14 judge defense questions.
+
 ---
 
 ## Key Benchmark Results
@@ -67,23 +69,22 @@ While our core submission strictly addresses the locked **PS-O1: Quantum Optimiz
 
 ### 1. Interference-Aware Channel Assignment (5G/6G Frequency Planning)
 - **Real-World Problem:** In dense 5G/6G cellular deployments, adjacent cell towers sharing identical frequency carriers create severe co-channel interference, degrading user Signal-to-Interference-plus-Noise Ratio (SINR), precipitating call drops, and constraining throughput. Network operations require dynamic frequency reallocation across clusters as traffic distributions evolve.
-- **Quantum Mapping:** Neighboring cell towers are modeled as vertices in an interference graph, where weighted edges denote the co-channel interference penalty incurred if two towers are assigned the same channel. For a two-channel frequency allocation, maximizing inter-channel isolation maps identically to the Max-Cut objective:
-  \max_{x \in \{0, 1\}^n} \sum_{(u, v) \in E} w_{uv} (x_u + x_v - 2 x_u x_v)
-  where binary variable  \in \{0, 1\}$ assigns cell $ to Frequency Band $ (=1$) or $ (=0$). Edges intersected by the partition cut connect neighboring cells operating on mutually orthogonal channels.
-- **Why It Fits VARANASI:** The locked 6-vertex PS-O1 instance directly provides a two-channel frequency assignment model for a 6-cell cluster without modifying the official competition problem. *(Note: This demonstrates the conceptual domain mapping of our abstract Max-Cut formulation; production-grade radio frequency planning requires multi-channel chromatic coloring with  > 2$ and dynamic power control).*
+- **Quantum Mapping:** Neighboring cell towers are modeled as vertices in an interference graph $G = (V, E)$, where weighted edges $w_{uv}$ denote the co-channel interference penalty incurred if two towers are assigned the same channel. For a two-channel frequency allocation, maximizing inter-channel isolation maps identically to the Max-Cut objective:
+  $$\max_{x \in \{0, 1\}^n} \sum_{(u, v) \in E} w_{uv} (x_u + x_v - 2 x_u x_v)$$
+  where binary decision variable $x_i \in \{0, 1\}$ assigns cell $i$ to Frequency Band $A$ ($x_i = 1$) or Band $B$ ($x_i = 0$). Edges intersected by the partition cut connect neighboring cells operating on mutually orthogonal channels.
+- **Why It Fits VARANASI:** The locked 6-vertex PS-O1 instance directly provides a two-channel frequency assignment model for a 6-cell cluster without modifying the official competition problem. *(Note: This demonstrates the conceptual domain mapping of our abstract Max-Cut formulation; production-grade radio frequency planning requires multi-channel chromatic coloring with $K > 2$ and dynamic power control).*
 - **Mathematical Metrics & Physical Interpretation:**
-  - **Exact Optimum Cut Weight (^*$):** ^* = 22$ (maximum achievable cut weight out of total graph weight  = 27$).
-  - **Approximation Ratio ($):** Defined as achieved cut weight divided by exact optimum ( / C^*$). For the optimal partition, {\text{best}} = 22/22 = 1.0000$ (\%$). Under official noisy simulation on Processor D, the mean sampled cut weight is $\langle C \rangle = 17.297$, achieving a mean approximation ratio of  = 0.7862$ (.62\%$).
-  - **Fraction of Total Edge Weight Cut:** ^* / W = 22 / 27 \approx 81.48\%$. In the interference mapping, this corresponds to isolating .48\%$ of the total potential co-channel interference weight onto orthogonal channels, leaving /27 \approx 18.52\%$ residual co-channel interference on internal uncut links (0 3$ with weight 4, 2 4$ with weight 1).
-  - **Fraction of Edge Count Cut:**  / 9 \approx 77.78\%$ (7 of the 9 interference edges are cut).
-- **Demonstration Status (Directly Supported by Repository Results):** In our 4096-shot noisy simulation on Processor D, the two optimal complementary partitions—1 1 0 1 0 0$ (=\{0, 1, 3\}$, $\bar{S}=\{2, 4, 5\}$) and 0 0 1 0 1 1$ (=\{2, 4, 5\}$, $\bar{S}=\{0, 1, 3\}$)—are the two highest-probability states sampled (254 and 258 counts respectively), combining for {\text{opt}} = 12.50\%$ (.0\times$ random baseline). The partition cut is directly visualized in 
-esults/figures/network_partitioning_graph.png.
+  - **Exact Optimum Cut Weight ($C^*$):** $C^* = 22$ (maximum achievable cut weight out of total graph weight $W = 27$).
+  - **Approximation Ratio ($r$):** Defined as achieved cut weight divided by exact optimum ($C / C^*$). For the optimal partition, $r_{\text{best}} = 22/22 = 1.0000$ ($100.00\%$). Under official noisy simulation on Processor D, the mean sampled cut weight is $\langle C \rangle = 17.297$, achieving a mean approximation ratio of $r = 0.7862$ ($78.62\%$).
+  - **Fraction of Total Edge Weight Cut:** $C^* / W = 22 / 27 \approx 81.48\%$. In the interference mapping, this corresponds to assigning $81.48\%$ of the total potential co-channel interference weight between cells onto orthogonal channels, leaving $5/27 \approx 18.52\%$ residual co-channel interference on internal uncut links: $(0, 3)$ with weight 4 and $(2, 4)$ with weight 1. *(Note: This is the theoretical weighted fraction of the benchmark graph crossing the optimal cut, not an empirical measurement of physical radio interference).*
+  - **Fraction of Edge Count Cut:** $7 / 9 \approx 77.78\%$ (7 of the 9 interference edges are cut).
+- **Demonstration Status (Directly Supported by Repository Results):** In our 4096-shot noisy simulation on Processor D, the two optimal complementary partitions—logical vector $x = (1, 1, 0, 1, 0, 0)$ ($S=\{0, 1, 3\}, \bar{S}=\{2, 4, 5\}$, Qiskit little-endian bitstring `001011`) and $x = (0, 0, 1, 0, 1, 1)$ ($S=\{2, 4, 5\}, \bar{S}=\{0, 1, 3\}$, Qiskit little-endian bitstring `110100`)—are the two highest-probability states sampled (254 and 258 counts respectively, 512 total), combining for $P_{\text{opt}} = 12.50\%$ ($4.0\times$ the uniform random baseline of $3.125\%$). The partition cut is directly visualized in `results/figures/network_partitioning_graph.png`.
 
 ### 2. Traffic Engineering (Load-Balanced Routing)
 - **Real-World Problem:** Telecommunications transport and data-center networks route high-volume traffic flows across capacity-constrained links. Inefficient routing leads to link saturation, buffer queue build-up, latency spikes, and packet loss while alternate parallel links remain underutilized.
-- **Quantum Mapping (Simplified Two-Path Load Balancing):** The formulation models the simplified problem of balancing scalar traffic demands across two parallel paths (equivalent to binary number partitioning). For a set of traffic demands $ partitioned across two redundant paths, binary decision variables  \in \{0, 1\}$ minimize the squared link load differential:
-  \min_{y} \left( \sum_{k} d_k (2 y_k - 1) \right)^2
-  Expanding this expression yields all-to-all quadratic interaction terms  d_k (2 y_j - 1)(2 y_k - 1)$, producing an Ising Hamiltonian with dense two-qubit couplings. *(Note: This simplified model illustrates path balancing only and does not solve general multi-commodity flow routing, which requires multi-hop path variables, link capacity inequalities, and flow conservation constraints).*
+- **Quantum Mapping (Simplified Two-Path Load Balancing):** The formulation models the simplified problem of balancing scalar traffic demands across two parallel paths (equivalent to binary number partitioning). For a set of traffic demands $d_k$ partitioned across two redundant paths, binary decision variables $y_k \in \{0, 1\}$ minimize the squared link load differential:
+  $$\min_{y} \left( \sum_{k} d_k (2 y_k - 1) \right)^2$$
+  Expanding this expression yields all-to-all quadratic interaction terms $d_j d_k (2 y_j - 1)(2 y_k - 1)$, producing an Ising Hamiltonian with dense two-qubit couplings. *(Note: This simplified model illustrates two-path load balancing only and does not solve general multi-commodity flow routing, which requires multi-hop path variables, link capacity inequalities, and flow conservation constraints).*
 - **Why It Fits VARANASI:** Dense interaction topologies in load-balancing QUBOs illustrate why hardware architecture co-design is essential: generic sparse coupling graphs suffer extensive SWAP overhead, whereas problem-informed topologies (like Processor D) highlight how native embeddings preserve quantum circuit fidelity by minimizing two-qubit gate depth.
 - **Demonstration Status (Proposed Architectural Extension):** This application represents a proposed architectural demonstration showing how two-path load balancing maps to QAOA; the benchmark results in this repository remain dedicated to the locked PS-O1 network partitioning instance.
 
@@ -97,6 +98,8 @@ VARANASI_PROJECTQ/
 ├── main.ipynb                # End-to-end reproducible notebook (runs in < 30 minutes)
 ├── requirements.txt          # Pinned dependency versions
 ├── qff_phase2.py             # Official organizer starter module (unchanged)
+├── docs/
+│   └── JUDGE_GUIDE.md        # Technical defense guide and answers to 14 judge questions
 ├── data/
 │   └── instance.json         # Locked PS-O1 graph instance (copied from instances.json)
 ├── processors/
@@ -114,12 +117,18 @@ VARANASI_PROJECTQ/
 │   ├── tables/
 │   │   ├── results.csv       # Section 9 official benchmark results
 │   │   └── bell.csv          # Section 4 Bell-state verification results
+│   ├── raw/
+│   │   ├── qaoa_counts.json  # Complete 64-bitstring histograms and per-bitstring metrics
+│   │   └── benchmark_metadata.json # Complete provenance, environment, seeds, and hashes
 │   └── figures/
 │       ├── network_partitioning_graph.png
 │       ├── processor_topologies.png
 │       ├── bell_fidelity_comparison.png
 │       ├── qaoa_cut_distribution.png
 │       └── processor_resource_comparison.png
+├── scripts/
+│   └── create_submission_zip.py # Deterministic delivery zip packager and manifest auditor
+├── requirements-lock.txt     # Exact pinned reproducible environment specification
 ├── report.md                 # Comprehensive 6-page technical report
 ├── Phase One/                # Preserved Phase One qualification archive
 ├── instances.json            # Locked organizer instances file

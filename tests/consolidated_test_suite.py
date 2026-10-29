@@ -15,7 +15,7 @@ def run_consolidated_suite():
     print("=" * 70)
     
     # 1. Python Syntax Compilation
-    print("\n[Check 1/7] Python Syntax Compilation...")
+    print("\n[Check 1/8] Python Syntax Compilation...")
     py_files = [
         "qff_phase2.py",
         "example_usage.py",
@@ -27,6 +27,7 @@ def run_consolidated_suite():
         "src/visualizations.py",
         "src/benchmark_runner.py",
         "tests/test_phase2.py",
+        "tests/test_raw_results.py",
         "tests/verify_data.py",
     ]
     for pf in py_files:
@@ -35,7 +36,7 @@ def run_consolidated_suite():
     print("-> Python syntax compilation: PASS")
 
     # 2. Processor D Validation
-    print("\n[Check 2/7] Processor D Official Validation...")
+    print("\n[Check 2/8] Processor D Official Validation...")
     proc_d = load_processor("processors/processor_D.json")
     errs = validate_processor_d(proc_d, required_qubits=6)
     if errs:
@@ -45,12 +46,12 @@ def run_consolidated_suite():
     print("-> Processor D validation: PASS")
 
     # 3. Official Starter Example Check
-    print("\n[Check 3/7] Official Starter Pack Example Script...")
+    print("\n[Check 3/8] Official Starter Pack Example Script...")
     import example_usage
     print("-> example_usage.py execution: PASS")
 
     # 4. Phase 2 Unit Tests
-    print("\n[Check 4/7] Phase 2 Automated Unit Tests (tests/test_phase2.py)...")
+    print("\n[Check 4/8] Phase 2 Automated Unit Tests (tests/test_phase2.py)...")
     suite_p2 = unittest.defaultTestLoader.loadTestsFromName("tests.test_phase2")
     runner = unittest.TextTestRunner(verbosity=1)
     res_p2 = runner.run(suite_p2)
@@ -59,7 +60,7 @@ def run_consolidated_suite():
     print(f"-> Phase 2 unit tests: PASS ({res_p2.testsRun} tests)")
 
     # 5. Phase One Regression Test Suite
-    print("\n[Check 5/7] Phase One Regression Test Suite...")
+    print("\n[Check 5/8] Phase One Regression Test Suite...")
     import subprocess
     proc_res = subprocess.run(
         [sys.executable, "-m", "unittest", "discover", "tests"],
@@ -74,7 +75,7 @@ def run_consolidated_suite():
     print("-> Phase One tests: PASS (18 tests)")
 
     # 6. Notebook Structural and Execution Validation
-    print("\n[Check 6/7] main.ipynb Structural & Execution Check...")
+    print("\n[Check 6/8] main.ipynb Structural & Execution Check...")
     with open("main.ipynb", "r", encoding="utf-8") as f:
         nb = nbformat.read(f, as_version=4)
     print(f"  Notebook contains {len(nb.cells)} cells")
@@ -91,12 +92,20 @@ def run_consolidated_suite():
     print("-> main.ipynb structural & execution check: PASS")
 
     # 7. CSV and Output Deliverables Integrity
-    print("\n[Check 7/7] CSV and Output Deliverables Integrity...")
+    print("\n[Check 7/8] CSV and Output Deliverables Integrity...")
     verify_all()
     print("-> Deliverables integrity: PASS")
 
+    # 8. Raw Results & Cross-Validation Tests
+    print("\n[Check 8/8] Raw Results & Reproducibility Tests (tests/test_raw_results.py)...")
+    suite_raw = unittest.defaultTestLoader.loadTestsFromName("tests.test_raw_results")
+    res_raw = runner.run(suite_raw)
+    if not res_raw.wasSuccessful():
+        raise RuntimeError("Raw results verification tests failed")
+    print(f"-> Raw results reproducibility tests: PASS ({res_raw.testsRun} tests)")
+
     print("\n" + "=" * 70)
-    print("ALL 7 CONSOLIDATED CHECKS PASSED WITH ZERO ERRORS!")
+    print("ALL 8 CONSOLIDATED CHECKS PASSED WITH ZERO ERRORS!")
     print("=" * 70)
 
 if __name__ == "__main__":

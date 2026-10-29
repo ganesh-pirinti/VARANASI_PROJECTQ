@@ -1,8 +1,14 @@
-# QFF 2026 Phase 2 - Optimization Track (tested 25 Oct 2026)
-qiskit>=1.4,<3          # tested on 1.4.6 and 2.6.1
-qiskit-aer>=0.17        # tested on 0.18.0
-numpy>=1.26
-scipy>=1.11
-networkx>=3.0
-matplotlib>=3.7
+# QFF 2026 Phase 2 - Optimization Track (VARANASI Submission Environment)
+# Verified and executed under Python 3.14.6
+# For exact pinned versions used to generate published results, see requirements-lock.txt
+
+qiskit>=1.4.0,<3.0.0
+qiskit-aer>=0.17.0
+numpy>=1.26.0
+scipy>=1.11.0
+networkx>=3.0.0
+matplotlib>=3.7.0
+pandas>=2.0.0
 jupyter
+nbclient>=0.10.0
+nbformat>=5.9.0
