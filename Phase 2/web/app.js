@@ -810,7 +810,7 @@ function inspectVertex(nodeId) {
       <div style="font-weight: 700; color: var(--text-main); font-size: 0.9rem;">Cell Tower Vertex: Node ${nodeId}</div>
       <div style="margin-top: 0.25rem;">Partition Group: <strong style="color: ${isS ? 'var(--cyan-primary)' : '#94A3B8'}">${isS ? 'Subset S (Channel A)' : 'Subset S\' (Channel B)'}</strong></div>
       <div style="margin-top: 0.2rem;">Physical Degree: <strong>${degree} incident links</strong></div>
-      <div style="margin-top: 0.2rem;">Incident Interference: <strong>${incidentWeight} total weight</strong></div>
+      <div style="margin-top: 0.2rem;">Incident Edge Weight: <strong>${incidentWeight} total weight</strong></div>
       <div style="margin-top: 0.25rem; font-size: 0.74rem; color: var(--text-dim);">Links: ${connectedEdges.join(", ")}</div>
     `;
   }
