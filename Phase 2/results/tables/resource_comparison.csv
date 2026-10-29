@@ -1,0 +1,4 @@
+processor,qubits,executable,reason,logical_cx,physical_cx,cx_overhead,cx_overhead_pct,total_depth,two_q_depth,swaps,depth_reduction_pct,two_q_depth_reduction_pct
+Processor A,5,False,"needs 6 qubits, has 5",,,,,,,,,
+Processor B,9,True,baseline reference,18,21,3,16.67%,37,17,1,0.00%,0.00%
+Processor D,9,True,VARANASI co-design,18,18,0,0.00%,29,14,0,-21.62%,-17.65%

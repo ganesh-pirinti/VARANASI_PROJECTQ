@@ -1,0 +1,12 @@
+# Pinned Core Environment Specification for VARANASI Phase 2 PS-O1
+# Note: Pins the 9 primary direct dependencies genuinely verified and executed under Python 3.14.6.
+# Transitive sub-dependencies (e.g. rustworkx, dill) are resolved automatically by pip.
+qiskit==2.5.2
+qiskit-aer==0.17.2
+numpy==2.5.2
+scipy==1.18.1
+networkx==3.7
+matplotlib==3.11.2
+pandas==3.0.6
+nbclient==0.11.0
+nbformat==5.11.1
