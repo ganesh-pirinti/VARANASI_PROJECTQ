@@ -4,7 +4,9 @@
   "description": "VARANASI Quantum Optimization Studio — Qiskit Fall Fest 2026",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "copy-assets": "node copy-assets.js",
+    "prebuild": "node copy-assets.js",
+    "build": "node copy-assets.js && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

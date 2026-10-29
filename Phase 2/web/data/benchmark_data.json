@@ -174,6 +174,7 @@
     {
       "index": 0,
       "bitstring": "000000",
+      "qiskit_bitstring": "000000",
       "partition": [
         0,
         0,
@@ -189,6 +190,7 @@
     {
       "index": 1,
       "bitstring": "100000",
+      "qiskit_bitstring": "000001",
       "partition": [
         1,
         0,
@@ -204,6 +206,7 @@
     {
       "index": 2,
       "bitstring": "010000",
+      "qiskit_bitstring": "000010",
       "partition": [
         0,
         1,
@@ -219,6 +222,7 @@
     {
       "index": 3,
       "bitstring": "110000",
+      "qiskit_bitstring": "000011",
       "partition": [
         1,
         1,
@@ -234,6 +238,7 @@
     {
       "index": 4,
       "bitstring": "001000",
+      "qiskit_bitstring": "000100",
       "partition": [
         0,
         0,
@@ -249,6 +254,7 @@
     {
       "index": 5,
       "bitstring": "101000",
+      "qiskit_bitstring": "000101",
       "partition": [
         1,
         0,
@@ -264,6 +270,7 @@
     {
       "index": 6,
       "bitstring": "011000",
+      "qiskit_bitstring": "000110",
       "partition": [
         0,
         1,
@@ -279,6 +286,7 @@
     {
       "index": 7,
       "bitstring": "111000",
+      "qiskit_bitstring": "000111",
       "partition": [
         1,
         1,
@@ -294,6 +302,7 @@
     {
       "index": 8,
       "bitstring": "000100",
+      "qiskit_bitstring": "001000",
       "partition": [
         0,
         0,
@@ -309,6 +318,7 @@
     {
       "index": 9,
       "bitstring": "100100",
+      "qiskit_bitstring": "001001",
       "partition": [
         1,
         0,
@@ -324,6 +334,7 @@
     {
       "index": 10,
       "bitstring": "010100",
+      "qiskit_bitstring": "001010",
       "partition": [
         0,
         1,
@@ -339,6 +350,7 @@
     {
       "index": 11,
       "bitstring": "110100",
+      "qiskit_bitstring": "001011",
       "partition": [
         1,
         1,
@@ -354,6 +366,7 @@
     {
       "index": 12,
       "bitstring": "001100",
+      "qiskit_bitstring": "001100",
       "partition": [
         0,
         0,
@@ -369,6 +382,7 @@
     {
       "index": 13,
       "bitstring": "101100",
+      "qiskit_bitstring": "001101",
       "partition": [
         1,
         0,
@@ -384,6 +398,7 @@
     {
       "index": 14,
       "bitstring": "011100",
+      "qiskit_bitstring": "001110",
       "partition": [
         0,
         1,
@@ -399,6 +414,7 @@
     {
       "index": 15,
       "bitstring": "111100",
+      "qiskit_bitstring": "001111",
       "partition": [
         1,
         1,
@@ -414,6 +430,7 @@
     {
       "index": 16,
       "bitstring": "000010",
+      "qiskit_bitstring": "010000",
       "partition": [
         0,
         0,
@@ -429,6 +446,7 @@
     {
       "index": 17,
       "bitstring": "100010",
+      "qiskit_bitstring": "010001",
       "partition": [
         1,
         0,
@@ -444,6 +462,7 @@
     {
       "index": 18,
       "bitstring": "010010",
+      "qiskit_bitstring": "010010",
       "partition": [
         0,
         1,
@@ -459,6 +478,7 @@
     {
       "index": 19,
       "bitstring": "110010",
+      "qiskit_bitstring": "010011",
       "partition": [
         1,
         1,
@@ -474,6 +494,7 @@
     {
       "index": 20,
       "bitstring": "001010",
+      "qiskit_bitstring": "010100",
       "partition": [
         0,
         0,
@@ -489,6 +510,7 @@
     {
       "index": 21,
       "bitstring": "101010",
+      "qiskit_bitstring": "010101",
       "partition": [
         1,
         0,
@@ -504,6 +526,7 @@
     {
       "index": 22,
       "bitstring": "011010",
+      "qiskit_bitstring": "010110",
       "partition": [
         0,
         1,
@@ -519,6 +542,7 @@
     {
       "index": 23,
       "bitstring": "111010",
+      "qiskit_bitstring": "010111",
       "partition": [
         1,
         1,
@@ -534,6 +558,7 @@
     {
       "index": 24,
       "bitstring": "000110",
+      "qiskit_bitstring": "011000",
       "partition": [
         0,
         0,
@@ -549,6 +574,7 @@
     {
       "index": 25,
       "bitstring": "100110",
+      "qiskit_bitstring": "011001",
       "partition": [
         1,
         0,
@@ -564,6 +590,7 @@
     {
       "index": 26,
       "bitstring": "010110",
+      "qiskit_bitstring": "011010",
       "partition": [
         0,
         1,
@@ -579,6 +606,7 @@
     {
       "index": 27,
       "bitstring": "110110",
+      "qiskit_bitstring": "011011",
       "partition": [
         1,
         1,
@@ -594,6 +622,7 @@
     {
       "index": 28,
       "bitstring": "001110",
+      "qiskit_bitstring": "011100",
       "partition": [
         0,
         0,
@@ -609,6 +638,7 @@
     {
       "index": 29,
       "bitstring": "101110",
+      "qiskit_bitstring": "011101",
       "partition": [
         1,
         0,
@@ -624,6 +654,7 @@
     {
       "index": 30,
       "bitstring": "011110",
+      "qiskit_bitstring": "011110",
       "partition": [
         0,
         1,
@@ -639,6 +670,7 @@
     {
       "index": 31,
       "bitstring": "111110",
+      "qiskit_bitstring": "011111",
       "partition": [
         1,
         1,
@@ -654,6 +686,7 @@
     {
       "index": 32,
       "bitstring": "000001",
+      "qiskit_bitstring": "100000",
       "partition": [
         0,
         0,
@@ -669,6 +702,7 @@
     {
       "index": 33,
       "bitstring": "100001",
+      "qiskit_bitstring": "100001",
       "partition": [
         1,
         0,
@@ -684,6 +718,7 @@
     {
       "index": 34,
       "bitstring": "010001",
+      "qiskit_bitstring": "100010",
       "partition": [
         0,
         1,
@@ -699,6 +734,7 @@
     {
       "index": 35,
       "bitstring": "110001",
+      "qiskit_bitstring": "100011",
       "partition": [
         1,
         1,
@@ -714,6 +750,7 @@
     {
       "index": 36,
       "bitstring": "001001",
+      "qiskit_bitstring": "100100",
       "partition": [
         0,
         0,
@@ -729,6 +766,7 @@
     {
       "index": 37,
       "bitstring": "101001",
+      "qiskit_bitstring": "100101",
       "partition": [
         1,
         0,
@@ -744,6 +782,7 @@
     {
       "index": 38,
       "bitstring": "011001",
+      "qiskit_bitstring": "100110",
       "partition": [
         0,
         1,
@@ -759,6 +798,7 @@
     {
       "index": 39,
       "bitstring": "111001",
+      "qiskit_bitstring": "100111",
       "partition": [
         1,
         1,
@@ -774,6 +814,7 @@
     {
       "index": 40,
       "bitstring": "000101",
+      "qiskit_bitstring": "101000",
       "partition": [
         0,
         0,
@@ -789,6 +830,7 @@
     {
       "index": 41,
       "bitstring": "100101",
+      "qiskit_bitstring": "101001",
       "partition": [
         1,
         0,
@@ -804,6 +846,7 @@
     {
       "index": 42,
       "bitstring": "010101",
+      "qiskit_bitstring": "101010",
       "partition": [
         0,
         1,
@@ -819,6 +862,7 @@
     {
       "index": 43,
       "bitstring": "110101",
+      "qiskit_bitstring": "101011",
       "partition": [
         1,
         1,
@@ -834,6 +878,7 @@
     {
       "index": 44,
       "bitstring": "001101",
+      "qiskit_bitstring": "101100",
       "partition": [
         0,
         0,
@@ -849,6 +894,7 @@
     {
       "index": 45,
       "bitstring": "101101",
+      "qiskit_bitstring": "101101",
       "partition": [
         1,
         0,
@@ -864,6 +910,7 @@
     {
       "index": 46,
       "bitstring": "011101",
+      "qiskit_bitstring": "101110",
       "partition": [
         0,
         1,
@@ -879,6 +926,7 @@
     {
       "index": 47,
       "bitstring": "111101",
+      "qiskit_bitstring": "101111",
       "partition": [
         1,
         1,
@@ -894,6 +942,7 @@
     {
       "index": 48,
       "bitstring": "000011",
+      "qiskit_bitstring": "110000",
       "partition": [
         0,
         0,
@@ -909,6 +958,7 @@
     {
       "index": 49,
       "bitstring": "100011",
+      "qiskit_bitstring": "110001",
       "partition": [
         1,
         0,
@@ -924,6 +974,7 @@
     {
       "index": 50,
       "bitstring": "010011",
+      "qiskit_bitstring": "110010",
       "partition": [
         0,
         1,
@@ -939,6 +990,7 @@
     {
       "index": 51,
       "bitstring": "110011",
+      "qiskit_bitstring": "110011",
       "partition": [
         1,
         1,
@@ -954,6 +1006,7 @@
     {
       "index": 52,
       "bitstring": "001011",
+      "qiskit_bitstring": "110100",
       "partition": [
         0,
         0,
@@ -969,6 +1022,7 @@
     {
       "index": 53,
       "bitstring": "101011",
+      "qiskit_bitstring": "110101",
       "partition": [
         1,
         0,
@@ -984,6 +1038,7 @@
     {
       "index": 54,
       "bitstring": "011011",
+      "qiskit_bitstring": "110110",
       "partition": [
         0,
         1,
@@ -999,6 +1054,7 @@
     {
       "index": 55,
       "bitstring": "111011",
+      "qiskit_bitstring": "110111",
       "partition": [
         1,
         1,
@@ -1014,6 +1070,7 @@
     {
       "index": 56,
       "bitstring": "000111",
+      "qiskit_bitstring": "111000",
       "partition": [
         0,
         0,
@@ -1029,6 +1086,7 @@
     {
       "index": 57,
       "bitstring": "100111",
+      "qiskit_bitstring": "111001",
       "partition": [
         1,
         0,
@@ -1044,6 +1102,7 @@
     {
       "index": 58,
       "bitstring": "010111",
+      "qiskit_bitstring": "111010",
       "partition": [
         0,
         1,
@@ -1059,6 +1118,7 @@
     {
       "index": 59,
       "bitstring": "110111",
+      "qiskit_bitstring": "111011",
       "partition": [
         1,
         1,
@@ -1074,6 +1134,7 @@
     {
       "index": 60,
       "bitstring": "001111",
+      "qiskit_bitstring": "111100",
       "partition": [
         0,
         0,
@@ -1089,6 +1150,7 @@
     {
       "index": 61,
       "bitstring": "101111",
+      "qiskit_bitstring": "111101",
       "partition": [
         1,
         0,
@@ -1104,6 +1166,7 @@
     {
       "index": 62,
       "bitstring": "011111",
+      "qiskit_bitstring": "111110",
       "partition": [
         0,
         1,
@@ -1119,6 +1182,7 @@
     {
       "index": 63,
       "bitstring": "111111",
+      "qiskit_bitstring": "111111",
       "partition": [
         1,
         1,

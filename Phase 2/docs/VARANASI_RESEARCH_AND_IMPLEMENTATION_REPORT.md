@@ -141,7 +141,7 @@ $$\langle C \rangle(\gamma, \beta) = \langle \psi(\gamma, \beta) | \hat{H}_C | \
 - **Classical Optimizer:** COBYLA (Constrained Optimization BY Linear Approximation).
 - **Objective Function:** Negative statevector expectation value $-\langle C \rangle$.
 - **Multi-Seed Restarts:** To avoid local minima, optimization was executed across 5 random initial seeds ($0, 1, 2, 3, 4$), drawing starting angles from $[0, \pi]$.
-- **Convergence:** Seed 3 converged to the global maximum:
+- **Convergence:** Seed 3 converged to the best result among five optimizer initializations:
   $$\gamma^* = -0.16801984, \quad \beta^* = 0.33266185$$
   $$\text{Theoretical Expectation } \langle C \rangle = 17.7128, \quad r_{\text{theoretical}} = 0.805128$$
 - Across all 5 seeds, the mean theoretical ratio was $0.7264 \pm 0.0394$.
@@ -222,7 +222,7 @@ Processor D's genuine, verified scientific contribution is **architectural**: ac
 We state clearly that this experiment does **not** demonstrate quantum algorithmic speedup or quantum supremacy:
 1. On 6 variables ($2^6 = 64$ states), classical enumeration takes less than 1 millisecond.
 2. What QAOA achieves is a **$4.0\times$ optimal-solution sampling probability enhancement**: Processor D samples the optimal cut ($C^* = 22$) with $12.50\%$ probability (512 / 4096 shots), compared to only $3.125\%$ (2 / 64) for uniform random guessing.
-3. The Complementary CDF $P(C \ge c)$ proves that QAOA strictly stochastically dominates the random baseline for all cut thresholds $c \ge 14$.
+3. The Complementary CDF $P(C \ge c)$ proves that QAOA strictly stochastically dominates the uniform-random baseline for cut thresholds 14 through 22 (both tails are zero above the maximum feasible cut of 22).
 
 ---
 

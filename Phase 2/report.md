@@ -188,7 +188,7 @@ In compliance with the official challenge rules, the classical optimizer was exe
 
 **Solution Consistency:**
 - Mean Approximation Ratio across all 5 seeds: $\bar{r} = 0.7223 \pm 0.0422$.
-- The global optimum was identified at **Seed 3**, yielding optimal angles:
+- The best result among five optimizer initializations was identified at **Seed 3**, yielding optimal angles:
   $$
   \gamma^* = -0.1680, \quad \beta^* = 0.3327
   $$
@@ -223,9 +223,9 @@ All figures were programmatically generated in both publication-grade 300 DPI ra
 1. `results/figures/network_partitioning_graph.png` (.svg): Visualizes the 6-vertex graph with edge weights, highlighting the optimal cut partition $S = \{0, 1, 3\}$ and $\bar{S} = \{2, 4, 5\}$, the 7 dashed cut edges ($W_{\text{cut}} = 22$), and 2 internal edges ($W_{\text{internal}} = 5$).
 2. `results/figures/processor_topologies.png` (.svg): Side-by-side architectural layout of Processors A, B, and D, contrasting Processor A's capacity limit, Processor B's routing bottleneck (1 SWAP), and Processor D's problem-matched co-design topology (0 SWAPs, max degree $\le 4$).
 3. `results/figures/bell_fidelity_comparison.png` (.svg): Point-and-whisker plot displaying Bell-state fidelities with exact standard errors across ideal and noisy conditions, accompanied by a Pauli expectation breakdown ($\langle XX \rangle, \langle YY \rangle, \langle ZZ \rangle$) demonstrating error accumulation over distance.
-4. `results/figures/qaoa_cut_distribution.png` (.svg): Dual-panel visualization presenting the sampled cut probability mass function (PMF) and the staircase Complementary CDF ($P(C \ge c)$), illustrating probability concentration at $C^* = 22$ ($12.50\%$ vs $3.125\%$) and strict stochastic dominance.
+4. `results/figures/qaoa_cut_distribution.png` (.svg): Dual-panel visualization presenting the sampled cut probability mass function (PMF) and the staircase Complementary CDF ($P(C \ge c)$), illustrating probability concentration at $C^* = 22$ ($12.50\%$ vs $3.125\%$) and stochastic dominance over the uniform-random baseline for cut thresholds 14 through 22 (both tails are zero above the maximum feasible cut of 22).
 5. `results/figures/processor_resource_comparison.png` (.svg): Connected-dot / dumbbell plot demonstrating quantitative hardware resource savings (CX: -14.29%, depth: -21.62%, 2Q depth: -17.65%, SWAPs: -100%).
-6. `results/figures/qaoa_parameter_landscape.png` (.svg): Exact statevector expectation landscape $\langle C \rangle(\gamma, \beta)$ showing the global optimum $(\gamma^*, \beta^*) = (-0.1680, 0.3327)$ with expectation $17.7128$ ($r = 0.8051$) and the random baseline boundary (13.5).
+6. `results/figures/qaoa_parameter_landscape.png` (.svg): Exact statevector expectation landscape $\langle C \rangle(\gamma, \beta)$ showing the optimizer-selected best parameters $(\gamma^*, \beta^*) = (-0.1680, 0.3327)$ with expectation $17.7128$ ($r = 0.8051$) and the random baseline boundary (13.5).
 7. `results/figures/architecture_tradeoff_map.png` (.svg): Hardware co-design Pareto frontier contrasting physical CX gate count against noisy solution quality, showing that Processor D provides hardware efficiency gains without compromising approximation quality.
 
 ### 5.1 Presentation Materials (`presentation/`)

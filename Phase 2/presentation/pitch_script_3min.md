@@ -44,7 +44,7 @@ The result? Zero SWAPs. Physical CX gates drop from 21 to 18. Two-qubit depth dr
 
 Running QAOA at depth p=1 with 4,096 shots under official depolarizing and readout noise, Processor D achieved an approximation ratio of 0.7862, numerically indistinguishable from Processor B at 0.7874.
 
-Crucially, Processor D concentrated 512 shots onto the exact optimal cut—a 12.5% sampling probability. That is a 4.0x enhancement over random guessing, and our Complementary CDF proves strict stochastic dominance across all high-value cut thresholds."
+Crucially, Processor D concentrated 512 shots onto the exact optimal cut—a 12.5% sampling probability. That is a 4.0x enhancement over random guessing, and our Complementary CDF proves strict stochastic dominance for cut thresholds 14 through 22."
 
 ---
 

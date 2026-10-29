@@ -119,7 +119,7 @@ In the official Phase 2 Challenge Kit (`OPTIMISATION_PS.docx`), depth $p=1$ is *
 We prioritized scientific rigor at $p=1$ for three reasons:
 1. **Noise Isolation:** At $p=1$, the circuit is short enough that physical differences in topology (18 vs 21 CX gates) can be isolated without being overwhelmed by circuit-wide decoherence.
 2. **Optimizer Reliability:** With 2 parameters $(\gamma_1, \beta_1)$, the parameter landscape can be exhaustively visualized via statevector simulation, proving global convergence.
-3. **Multi-Seed Optimization:** We ran multi-seed optimization across 5 random seeds (0 to 4), finding that Seed 3 achieved the global maximum theoretical expectation of $\langle C \rangle = 17.7128$ ($r = 0.8051$).
+3. **Multi-Seed Optimization:** We ran multi-seed optimization across 5 random seeds (0 to 4), finding that Seed 3 achieved the best theoretical expectation among 5 initializations of $\langle C \rangle = 17.7128$ ($r = 0.8051$).
 
 ---
 

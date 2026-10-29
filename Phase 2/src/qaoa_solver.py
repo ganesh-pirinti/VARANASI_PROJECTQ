@@ -33,8 +33,12 @@ def construct_qaoa_circuit(
     
     Unitary operators:
     - Initial state: |+>^{\\otimes n} via Hadamard gates
-    - Cost Hamiltonian evolution: e^{-i \\gamma_k H_C} where H_C = sum_{(u,v)} w_{uv} (I - Z_u Z_v)/2
-      Implemented via CX(u, v) -> Rz(gamma_k * w_{uv}) -> CX(u, v)
+    - Cost Hamiltonian evolution:
+      Corresponds to the non-constant part of the minimized Hamiltonian H_min = -C:
+        H_min_nonconstant = sum_{(u,v)} (w_{uv}/2) * Z_u Z_v
+      (with identity offset -sum w_{uv}/2 = -13.5 acting as an irrelevant global phase).
+      Implemented via standard CX(u, v) -> Rz(gamma_k * w_{uv}) -> CX(u, v) on basis gates.
+      With Rz(theta) = exp(-i * (theta/2) * Z), this directly yields exp(-i * (gamma_k * w_{uv}/2) * Z_u Z_v).
     - Mixer Hamiltonian evolution: e^{-i \\beta_k H_M} where H_M = sum_i X_i
       Implemented via Rx(2 * beta_k) on each qubit
     """

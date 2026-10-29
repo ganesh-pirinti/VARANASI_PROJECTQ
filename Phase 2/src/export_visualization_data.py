@@ -36,18 +36,18 @@ def export_all_studio_data(
             os.path.join(base_dir, "web", "data", "benchmark_data.json"),
             os.path.join(base_dir, "web", "public", "data", "benchmark_data.json"),
         ]
-        
+
     instance_path = os.path.join(base_dir, "data", "instance.json")
     with open(instance_path, "r", encoding="utf-8") as f:
         inst = json.load(f)
-        
+
     weighted_edges = inst["weighted_edges"]
     num_vertices = inst["num_vertices"]
-    
+
     # 1. Classical ground truth
     raw_gt = solve_exact_maxcut(weighted_edges, num_vertices)
     max_c = raw_gt["max_cut_weight"]
-    
+
     # Make ground_truth fully JSON-serializable (convert tuple keys/values)
     ground_truth = {
         "num_vertices": raw_gt["num_vertices"],
@@ -61,23 +61,25 @@ def export_all_studio_data(
         "cut_distribution": {str(k): v for k, v in raw_gt["cut_distribution"].items()},
         "all_cuts": {"".join(str(b) for b in k): v for k, v in raw_gt["all_cuts"].items()},
     }
-    
+
     # 2. 64-state exhaustive landscape
     solution_space = []
     for val in range(2 ** num_vertices):
         x = tuple((val >> i) & 1 for i in range(num_vertices))
         cut = compute_cut_weight(list(x), weighted_edges)
         bitstring = "".join(str(b) for b in x)
+        qiskit_bs = "".join(str(x[num_vertices - 1 - b]) for b in range(num_vertices))
         is_opt = (cut == max_c)
         solution_space.append({
             "index": val,
             "bitstring": bitstring,
+            "qiskit_bitstring": qiskit_bs,
             "partition": list(x),
             "cut_weight": cut,
             "approx_ratio": cut / max_c,
             "is_optimal": is_opt,
         })
-        
+
     # 3. Load processor topologies
     proc_dir = os.path.join(base_dir, "processors")
     processors = {}
@@ -86,7 +88,7 @@ def export_all_studio_data(
         if os.path.exists(p_path):
             with open(p_path, "r", encoding="utf-8") as f:
                 processors[p_name] = json.load(f)
-                
+
     # 4. Load results table
     res_csv = os.path.join(base_dir, "results", "tables", "results.csv")
     results_rows = []
@@ -95,7 +97,7 @@ def export_all_studio_data(
             reader = csv.DictReader(f)
             for row in reader:
                 results_rows.append(row)
-                
+
     # 5. Load Bell table
     bell_csv = os.path.join(base_dir, "results", "tables", "bell.csv")
     bell_rows = []
@@ -104,14 +106,14 @@ def export_all_studio_data(
             reader = csv.DictReader(f)
             for row in reader:
                 bell_rows.append(row)
-                
+
     # 6. Load raw QAOA histograms
     counts_file = os.path.join(base_dir, "results", "raw", "qaoa_counts.json")
     qaoa_counts = {}
     if os.path.exists(counts_file):
         with open(counts_file, "r", encoding="utf-8") as f:
             qaoa_counts = json.load(f)
-            
+
     # 7. Precompute 2D parameter landscape grid
     solver = QAOASolver(weighted_edges, num_vertices)
     grid_size = 25
@@ -121,7 +123,7 @@ def export_all_studio_data(
     best_grid_val = -1.0
     best_grid_g = 0.0
     best_grid_b = 0.0
-    
+
     for i, g in enumerate(gammas):
         row = []
         for j, b in enumerate(betas):
@@ -133,12 +135,12 @@ def export_all_studio_data(
                 best_grid_g = float(g)
                 best_grid_b = float(b)
         landscape_grid.append(row)
-        
+
     raw_opt_g = -0.16801984112040994
     raw_opt_b = 0.332661845215259
     canon_g = -raw_opt_g  # +0.16801984112040994 in [0, pi]
     canon_b = float(np.pi - raw_opt_b)  # +2.808930808374534 in [0, pi]
-        
+
     # 8. Real-world scenario metadata
     real_world_scenario = {
         "title": "Cellular Radio Access Network (RAN) Frequency Reuse Optimization",
@@ -154,7 +156,7 @@ def export_all_studio_data(
         "objective": "Assign adjacent cell towers to alternate frequency bands F1 and F2 to maximize boundary isolation.",
         "interpretation": "Optimal cut of 22 out of 27 total conflict weight yields 81.48% boundary separation across two frequency channels.",
     }
-    
+
     studio_payload = {
         "metadata": {
             "project": "VARANASI",
@@ -203,20 +205,32 @@ def export_all_studio_data(
         },
         "real_world_scenario": real_world_scenario,
     }
-    
+
     # Save to all target files
     for out_path in output_files:
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(studio_payload, f, indent=2)
         print(f"Exported JSON: {out_path} ({os.path.getsize(out_path):,} bytes)")
-        
+
     # Also write benchmark_data.js for direct script tag loading
     js_path = os.path.join(base_dir, "web", "data", "benchmark_data.js")
     with open(js_path, "w", encoding="utf-8") as f:
         f.write("window.BENCHMARK_DATA = " + json.dumps(studio_payload) + ";\n")
     print(f"Exported JS: {js_path} ({os.path.getsize(js_path):,} bytes)")
-    
+
+    # 9. Also export authoritative research report to web/data/report_content.js
+    report_md_path = os.path.join(base_dir, "docs", "VARANASI_RESEARCH_AND_IMPLEMENTATION_REPORT.md")
+    if not os.path.exists(report_md_path):
+        report_md_path = os.path.join(base_dir, "report.md")
+    if os.path.exists(report_md_path):
+        with open(report_md_path, "r", encoding="utf-8") as rf:
+            report_text = rf.read()
+        report_js_path = os.path.join(base_dir, "web", "data", "report_content.js")
+        with open(report_js_path, "w", encoding="utf-8") as rf_out:
+            rf_out.write("window.RESEARCH_REPORT_MD = " + json.dumps(report_text) + ";\n")
+        print(f"Exported Report JS: {report_js_path} ({os.path.getsize(report_js_path):,} bytes)")
+
     return studio_payload
 
 if __name__ == "__main__":

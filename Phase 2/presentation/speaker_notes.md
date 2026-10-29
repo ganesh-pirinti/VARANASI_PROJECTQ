@@ -79,7 +79,7 @@
 ---
 
 ### Slide 7: Algorithmic Landscape & Hardware Co-Design Conclusion
-- **Visual Cue:** Point out the global optimum star on the 2D energy landscape and the Pareto trade-off map.
+- **Visual Cue:** Point out the optimizer best-parameters star on the 2D energy landscape and the Pareto trade-off map.
 - **Talking Points:**
   - Using statevector simulation, we mapped the exact energy expectation $\langle C \rangle(\gamma, \beta)$ across parameter space.
   - Multi-seed classical optimization converges to the global minimum at $\gamma^* = -0.1680$ and $\beta^* = 0.3327$, yielding a theoretical expectation of $17.7128$ ($r = 0.8051$).

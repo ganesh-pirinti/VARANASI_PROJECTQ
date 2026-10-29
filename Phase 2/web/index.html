@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VARANASI — Quantum Optimization Studio</title>
+  <title>VARANASI — Quantum Optimization Studio • PS-O1</title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- Three.js from unpkg/local fallback for 3D Graph -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <!-- Authoritative benchmark data and research report fallbacks -->
+  <!-- Authoritative benchmark data and research report fallback scripts -->
   <script type="module" src="data/benchmark_data.js"></script>
   <script type="module" src="data/report_content.js"></script>
 </head>
@@ -24,7 +22,7 @@
       <div class="nav-section-title">Core Stations</div>
       <ul class="nav-items">
         <li><button class="nav-btn active" data-tab="overview"><span class="icon">🌐</span> Problem & Scenario</button></li>
-        <li><button class="nav-btn" data-tab="graph3d"><span class="icon">🔮</span> 3D Graph Lab</button></li>
+        <li><button class="nav-btn" data-tab="graph3d"><span class="icon">🔮</span> Graph Lab (3D / 2D / Matrix)</button></li>
         <li><button class="nav-btn" data-tab="classical"><span class="icon">⚡</span> Classical Ground Truth</button></li>
         <li><button class="nav-btn" data-tab="quantum"><span class="icon">⚛️</span> Hybrid QAOA Loop</button></li>
         <li><button class="nav-btn" data-tab="circuit"><span class="icon">🔌</span> Circuit Explorer</button></li>
@@ -35,7 +33,6 @@
 
       <div class="nav-section-title">Research & Deliverables</div>
       <ul class="nav-items">
-        <li><button class="nav-btn" data-tab="knapsack"><span class="icon">🎒</span> Knapsack Explorer (PS-O3)</button></li>
         <li><button class="nav-btn" data-tab="report"><span class="icon">📜</span> Research Report</button></li>
         <li><button class="nav-btn" data-tab="downloads"><span class="icon">📦</span> Pitch Deck & Archive</button></li>
       </ul>
@@ -55,18 +52,24 @@
           <h1 id="current-tab-title">Problem Statement PS-O1: Real-World Scenario & Optimization</h1>
           <div class="status-badge">
             <span class="status-dot"></span>
-            <span>Simulated Qiskit AerBackend (Official Noise)</span>
+            <span>Simulated Qiskit AerBackend (Official Noise Model)</span>
           </div>
         </div>
         <div class="topbar-actions">
-          <a href="../presentation/VARANASI_Pitch_Deck.pdf" target="_blank" class="btn-secondary">📑 Open Slide Deck (PDF)</a>
+          <a href="assets/VARANASI_Pitch_Deck.pdf" target="_blank" class="btn-secondary" id="topbar-pdf-link">📑 Open Slide Deck (PDF)</a>
           <button id="btn-run-tests" class="btn-primary">🧪 Run Verification Tests</button>
         </div>
       </header>
 
       <!-- Content Body -->
       <div class="content-body">
-        
+
+        <!-- Data Loading Error Banner (Hidden by default, shown if data fails) -->
+        <div id="data-error-banner" class="data-error-banner">
+          <h4>⚠️ Benchmark Data Normalization Error</h4>
+          <p id="data-error-message">Unable to load or parse authoritative benchmark data. Please check connection and console logs.</p>
+        </div>
+
         <!-- ==================================================================== -->
         <!-- TAB 1: OVERVIEW & SCENARIO -->
         <!-- ==================================================================== -->
@@ -98,7 +101,7 @@
           <div class="card">
             <div class="card-header">
               <div>
-                <div class="card-title">🗼 Scenario 1: Interference-Aware Frequency Channel Planning</div>
+                <div class="card-title">🗼 Scenario: Interference-Aware Frequency Channel Planning</div>
                 <div class="card-subtitle">Mapping Real-World Wireless Co-Channel Isolation to Binary Network Partitioning</div>
               </div>
               <span class="brand-badge">Official PS-O1 Instance</span>
@@ -111,56 +114,56 @@
               <div style="background: #0d1527; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                 <h4 style="color: var(--cyan-primary); font-size: 0.88rem; margin-bottom: 0.4rem;">1. Physical Entities & Interference Graph</h4>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">
-                  The 6 communication towers form vertices $V=\{0..5\}$. The 9 weighted links represent interference severity $w_{uv}$ incurred if both towers share a frequency band. Total interference penalty = 27.
+                  The 6 communication towers form vertices $V=\{0..5\}$. The 9 weighted links represent interference severity $w_{uv}$ incurred if both towers share a frequency band. Total interference weight = 27.
                 </p>
               </div>
               <div style="background: #0d1527; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                 <h4 style="color: var(--emerald-accent); font-size: 0.88rem; margin-bottom: 0.4rem;">2. Two-Channel Max-Cut Formulation</h4>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">
-                  We allocate Channel $A$ ($x_i=1$) and Channel $B$ ($x_i=0$). Maximizing cut weight isolates neighboring towers onto orthogonal frequencies, eliminating 81.48% (22/27) of mutual interference.
+                  We allocate Channel $A$ ($x_i=1$) and Channel $B$ ($x_i=0$). Maximizing cut weight isolates neighboring towers onto orthogonal frequencies, eliminating 81.48% (22/27) of mutual interference weight.
                 </p>
               </div>
               <div style="background: #0d1527; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                <h4 style="color: var(--coral-accent); font-size: 0.88rem; margin-bottom: 0.4rem;">3. Illustrative Mapping Scope & Caution</h4>
+                <h4 style="color: var(--coral-accent); font-size: 0.88rem; margin-bottom: 0.4rem;">3. Illustrative Mapping Scope & Disclosure</h4>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">
-                  <em>Scientific Disclosure:</em> This scenario provides a conceptual domain interpretation for the locked PS-O1 instance. Commercial radio planning requires multi-channel coloring ($K > 2$) and dynamic power control.
+                  <em>Scientific Disclosure:</em> This scenario provides an illustrative domain interpretation for the locked synthetic PS-O1 instance. Commercial radio planning requires multi-channel coloring ($K > 2$), power control, and dynamic scheduling.
                 </p>
               </div>
             </div>
           </div>
-
-          <div class="card">
-            <div class="card-title">🎒 Scenario 2 (Exploratory): Resource-Constrained Emergency Knapsack (PS-O3)</div>
-            <div class="card-subtitle">Secondary Demonstration Showing Constrained Combinatorial Optimization Under Vehicle Payload Limits</div>
-            <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0.75rem 0;">
-              In emergency logistics, selecting high-priority medical and relief supplies subject to strict vehicle payload limits represents a 0-1 Knapsack problem. In accordance with the challenge guidelines, this exploratory problem is provided in a dedicated station to demonstrate how QUBO slack variables encode capacity constraints without altering the primary PS-O1 benchmark.
-            </p>
-            <button class="btn-secondary" onclick="document.querySelector('[data-tab=\'knapsack\']').click()">Explore Knapsack Station →</button>
-          </div>
         </section>
 
         <!-- ==================================================================== -->
-        <!-- TAB 2: 3D GRAPH LAB -->
+        <!-- TAB 2: GRAPH LAB (3D / 2D / MATRIX) -->
         <!-- ==================================================================== -->
         <section id="pane-graph3d" class="tab-pane">
           <div class="card">
             <div class="card-header">
               <div>
-                <div class="card-title">🔮 Interactive 3D Network Partitioning Lab</div>
-                <div class="card-subtitle">Rotate, Orbit, Zoom, and Inspect the Locked 6-Vertex PS-O1 Problem Graph</div>
+                <div class="card-title">🔮 Interactive Network Partitioning Graph Lab</div>
+                <div class="card-subtitle">Three Synchronized Representations of the Locked 6-Vertex, 9-Edge PS-O1 Graph</div>
               </div>
-              <div style="display: flex; gap: 0.5rem;">
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <button id="btn-mode-3d" class="btn-secondary active">🔮 3D View</button>
+                <button id="btn-mode-2d" class="btn-secondary">📐 2D SVG View</button>
+                <button id="btn-mode-matrix" class="btn-secondary">🔢 Adjacency Matrix</button>
                 <button id="btn-toggle-partition" class="btn-primary">Toggle Optimal Partition Cut</button>
                 <button id="btn-reset-view" class="btn-secondary">Reset View</button>
-                <button id="btn-toggle-2d" class="btn-secondary">2D / 3D Mode</button>
               </div>
             </div>
 
             <div class="canvas-container">
+              <!-- 3D Three.js View -->
               <div id="graph3d-canvas"></div>
-              
+
+              <!-- 2D SVG View -->
+              <div id="graph2d-view"></div>
+
+              <!-- Weighted Adjacency Matrix View -->
+              <div id="matrix-view"></div>
+
               <div class="canvas-overlay-controls">
-                <span class="status-badge" id="lbl-partition-status">Viewing: Optimal Partition Cut ($C^* = 22$)</span>
+                <span class="status-badge" id="lbl-partition-status">Viewing: Optimal Partition Cut (C* = 22)</span>
               </div>
 
               <div class="canvas-inspect-panel" id="graph-inspect-card">
@@ -210,8 +213,8 @@
               </div>
               <div style="display: flex; gap: 0.5rem;">
                 <input type="text" id="state-search-box" placeholder="Filter bitstring (e.g. 110100)..." style="background: #0f172a; border: 1px solid var(--border-subtle); color: #fff; padding: 0.35rem 0.65rem; border-radius: 4px; font-size: 0.8rem;" />
-                <button class="btn-secondary" onclick="filterStates('optimal')">Show Optimal Only</button>
-                <button class="btn-secondary" onclick="filterStates('all')">Show All 64</button>
+                <button id="btn-filter-optimal" class="btn-secondary">Show Optimal Only</button>
+                <button id="btn-filter-all" class="btn-secondary">Show All 64</button>
               </div>
             </div>
 
@@ -240,8 +243,8 @@
                   <div class="stat-value emerald">$C^* = 22$</div>
                   <div class="stat-subtext">Exactly 2 complementary states reach $C^* = 22$:</div>
                   <div style="font-family: var(--font-mono); font-size: 0.82rem; margin-top: 0.5rem; color: var(--text-main);">
-                    • State 52: (1, 1, 0, 1, 0, 0) -> S={0,1,3}, S'={2,4,5}<br/>
-                    • State 11: (0, 0, 1, 0, 1, 1) -> S={2,4,5}, S'={0,1,3}
+                    • State 52: (1, 1, 0, 1, 0, 0) -> S={0,1,3}, S'={2,4,5} (Qiskit: <code>001011</code>)<br/>
+                    • State 11: (0, 0, 1, 0, 1, 1) -> S={2,4,5}, S'={0,1,3} (Qiskit: <code>110100</code>)
                   </div>
                 </div>
 
@@ -256,7 +259,7 @@
 
                 <div style="background: #0d1527; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle); font-size: 0.82rem; color: var(--text-muted);">
                   <strong style="color: var(--cyan-primary);">Why Classical Enumeration Matters:</strong><br/>
-                  On a 6-variable problem, classical search requires only 64 evaluations (&lt; 1 ms). This confirms the ground truth reference with zero mathematical doubt before deploying quantum circuits.
+                  On a 6-variable problem, classical search requires only 64 evaluations (&lt; 1 ms). This establishes immutable ground truth before evaluating quantum variational approximations.
                 </div>
               </div>
             </div>
@@ -271,7 +274,7 @@
             <div class="card-header">
               <div>
                 <div class="card-title">⚛️ Hybrid Quantum Approximate Optimization Algorithm (QAOA) Station</div>
-                <div class="card-subtitle">Statevector Parameter Landscape $\langle C \rangle(\gamma, \beta)$ and Multi-Seed Convergence</div>
+                <div class="card-subtitle">Statevector Energy Landscape $\langle C \rangle(\gamma, \beta)$ and Multi-Seed Convergence</div>
               </div>
               <span class="status-badge">Depth p = 1 Locked</span>
             </div>
@@ -299,22 +302,27 @@
                   <div class="stat-box">
                     <div class="stat-label">Theoretical Expectation $\langle C \rangle$</div>
                     <div class="stat-value cyan" id="dyn-expected-cut">17.7128</div>
-                    <div class="stat-subtext">Max possible = 22.0000</div>
+                    <div class="stat-subtext" id="dyn-expected-subtext">Max possible = 22.0000</div>
                   </div>
                   <div class="stat-box">
                     <div class="stat-label">Theoretical Approx Ratio</div>
                     <div class="stat-value emerald" id="dyn-approx-ratio">0.8051</div>
-                    <div class="stat-subtext">Surpasses random (0.6136) by +31.2%</div>
+                    <div class="stat-subtext" id="dyn-ratio-subtext">Surpasses random (0.6136) by +31.2%</div>
                   </div>
+                </div>
+
+                <div style="margin-top: 0.5rem;">
+                  <span class="status-badge" id="dyn-provenance-tag" style="font-size: 0.75rem;">Selected: Raw Optimizer Result (Seed 3)</span>
                 </div>
 
                 <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
                   <button id="btn-snap-opt" class="btn-primary" title="COBYLA multi-start best result">Raw Optimizer (Seed 3: γ=-0.168, β=0.333)</button>
                   <button id="btn-snap-canon" class="btn-secondary" title="Equivalent in-domain point via symmetry F(-γ, π-β) = F(γ, β)">In-Domain Canonical (γ=+0.168, β=2.809)</button>
+                  <button id="btn-snap-grid" class="btn-secondary" title="Best point sampled on discrete 25x25 grid">Best Finite Grid Point (γ=0.131, β=1.178)</button>
                   <button id="btn-snap-rand" class="btn-secondary">Reset to Zero</button>
                 </div>
-                <div style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4;">
-                  <strong>Symmetry &amp; Provenance Note:</strong> COBYLA multi-start (5 seeds) converged at raw parameters $\gamma = -0.1680, \beta = +0.3327$ ($E[C] = 17.7128, r = 0.8051$). Under QAOA's reflection symmetry $F(-\gamma, \pi - \beta) = F(\gamma, \beta)$, this is mathematically identical to canonical in-domain coordinates $\gamma = +0.1680, \beta = +2.8089 \in [0, \pi]$. The 25x25 discrete grid maximum is at $(0.1309, 2.8798)$ ($E[C] = 17.7021$).
+                <div style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.4;">
+                  <strong>Symmetry &amp; Provenance Note:</strong> COBYLA multi-start across 5 initializations identified Seed 3 as the best result ($\gamma = -0.1680, \beta = +0.3327$ yielding $\langle C \rangle = 17.7128, r = 0.8051$). Under QAOA reflection symmetry $F(-\gamma, \pi - \beta) = F(\gamma, \beta)$, this is mathematically identical to canonical in-domain coordinates $\gamma = +0.1680, \beta = +2.8089 \in [0, \pi]$. Discrete grid lookup retrieves precomputed statevector evaluations; adjusting sliders queries the lookup surface and does not dispatch a physical quantum job.
                 </div>
               </div>
 
@@ -324,7 +332,7 @@
                   <img src="../results/figures/qaoa_parameter_landscape.png" alt="QAOA Landscape" style="width: 100%; max-height: 320px; object-fit: contain;" />
                 </div>
                 <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.4rem; text-align: center;">
-                  Exact 2D surface computed via statevector expectation. Red star marks global optimum ($\gamma^* = -0.1680, \beta^* = 0.3327$).
+                  Exact 2D surface computed via statevector expectation. Red star marks optimizer best point ($\gamma^* = -0.1680, \beta^* = 0.3327$).
                 </div>
               </div>
             </div>
@@ -372,7 +380,7 @@
             <div id="circuit-trace-panel" style="margin-top: 1rem; background: #0f1628; border: 1px solid var(--border-subtle); padding: 1rem; border-radius: 6px;">
               <h4 style="color: var(--cyan-primary); font-size: 0.9rem;" id="trace-title">Traced Interaction: Edge (0, 2) [Weight = 1]</h4>
               <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;" id="trace-desc">
-                Hamiltonian Operator Term: $\frac{1}{2}(I - Z_0 Z_2)$. Gate Unitary Block: $\text{CX}(0, 2) \to R_Z(1 \cdot \gamma) \to \text{CX}(0, 2)$. Directly embedded on Processor D with zero SWAP routing overhead.
+                Minimized Hamiltonian Term: $\frac{1}{2} Z_0 Z_2$. Gate Unitary Block: $\text{CX}(0, 2) \to R_Z(1 \cdot \gamma) \to \text{CX}(0, 2)$. Directly embedded on Processor D with zero SWAP routing overhead.
               </p>
             </div>
           </div>
@@ -533,7 +541,7 @@
             <div class="card-header">
               <div>
                 <div class="card-title">📊 Sampled Cut Distribution & Complementary CDF ($P(C \ge c)$)</div>
-                <div class="card-subtitle">Stochastic Dominance Over Classical Uniform Random Baseline Across All High-Value Thresholds</div>
+                <div class="card-subtitle">Stochastic Dominance Over Classical Uniform Random Baseline for High-Value Thresholds (14 through 22)</div>
               </div>
             </div>
 
@@ -568,53 +576,7 @@
         </section>
 
         <!-- ==================================================================== -->
-        <!-- TAB 9: KNAPSACK EXPLORER -->
-        <!-- ==================================================================== -->
-        <section id="pane-knapsack" class="tab-pane">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-title">🎒 Exploratory Station: Resource-Constrained Knapsack (PS-O3)</div>
-                <div class="card-subtitle">Interactive Relief Payload Optimization Under Vehicle Capacity ($W_{\text{cap}} = 15$)</div>
-              </div>
-              <span class="brand-badge">QUBO Slack Formulation</span>
-            </div>
-
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-              Click items below to toggle them into the payload. The panel calculates total weight, value, and constraint feasibility in real time, comparing with the exact classical optimum:
-            </p>
-
-            <div class="knapsack-item-grid" id="knapsack-grid">
-              <!-- Dynamically populated from benchmark_data.json -->
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1.25rem;">
-              <div class="stat-box">
-                <div class="stat-label">Current Weight / Capacity</div>
-                <div class="stat-value" id="ks-curr-weight">0 / 15</div>
-                <div class="stat-subtext" id="ks-feasibility-status">Feasible</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-label">Current Value</div>
-                <div class="stat-value cyan" id="ks-curr-value">0</div>
-                <div class="stat-subtext">Exact Max Value = 26</div>
-              </div>
-              <div class="stat-box highlight">
-                <div class="stat-label">Classical Exact Optimum</div>
-                <div class="stat-value emerald">Value 26 (Weight 14)</div>
-                <div class="stat-subtext">Subset: Items {0, 1, 2, 3} (93.3% capacity)</div>
-              </div>
-            </div>
-
-            <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
-              <button class="btn-primary" onclick="setKnapsackOptimal()">Select Exact Optimal Subset</button>
-              <button class="btn-secondary" onclick="resetKnapsack()">Clear Selection</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- TAB 10: RESEARCH REPORT -->
+        <!-- TAB 9: RESEARCH REPORT -->
         <!-- ==================================================================== -->
         <section id="pane-report" class="tab-pane">
           <div class="card">
@@ -623,7 +585,7 @@
                 <div class="card-title">📜 VARANASI Research & Implementation Report</div>
                 <div class="card-subtitle">Comprehensive Technical Document with Mathematical Derivations and Benchmark Evidence</div>
               </div>
-              <a href="../docs/VARANASI_RESEARCH_AND_IMPLEMENTATION_REPORT.md" target="_blank" class="btn-secondary">Open Raw Markdown</a>
+              <a href="assets/VARANASI_RESEARCH_AND_IMPLEMENTATION_REPORT.md" target="_blank" class="btn-secondary">Open Raw Markdown</a>
             </div>
 
             <div class="report-prose" id="report-rendered-container">
@@ -633,7 +595,7 @@
         </section>
 
         <!-- ==================================================================== -->
-        <!-- TAB 11: DOWNLOADS & DELIVERABLES -->
+        <!-- TAB 10: DOWNLOADS & DELIVERABLES -->
         <!-- ==================================================================== -->
         <section id="pane-downloads" class="tab-pane">
           <div class="card">
@@ -647,17 +609,17 @@
                   16:9 dark-slate publication pitch deck with embedded high-res scientific figures and backup defense slides.
                 </p>
                 <div style="display: flex; gap: 0.5rem;">
-                  <a href="../presentation/VARANASI_Pitch_Deck.pptx" download class="btn-primary">Download PPTX</a>
-                  <a href="../presentation/VARANASI_Pitch_Deck.pdf" target="_blank" class="btn-secondary">View PDF</a>
+                  <a href="assets/VARANASI_Pitch_Deck.pptx" download="VARANASI_Pitch_Deck.pptx" class="btn-secondary">Download PPTX</a>
+                  <a href="assets/VARANASI_Pitch_Deck.pdf" target="_blank" class="btn-primary">View PDF</a>
                 </div>
               </div>
 
               <div class="stat-box">
                 <h4 style="color: var(--emerald-accent); margin-bottom: 0.5rem;">📦 Submission ZIP Package</h4>
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-                  Audited clean package with top-level <code>VARANASI_PROJECTQ/</code> root, SHA-256 manifests, and 0 bytecode.
+                  Audited clean package with top-level <code>VARANASI_PROJECTQ/</code> root, SHA-256 manifests, and 0 bytecode. The standalone ZIP is preserved locally for portal submission.
                 </p>
-                <a href="../dist/VARANASI_PS-O1_Phase2_Submission.zip" download class="btn-primary">Download ZIP Archive (8.1 MB)</a>
+                <a href="https://github.com/ganesh-pirinti/VARANASI_PROJECTQ/tree/main/Phase%202" target="_blank" class="btn-primary">Browse Release on GitHub →</a>
               </div>
 
               <div class="stat-box">
@@ -666,8 +628,8 @@
                   Validated CSV tables containing QAOA cross-processor metrics and Bell state tomography fidelities.
                 </p>
                 <div style="display: flex; gap: 0.5rem;">
-                  <a href="../results/tables/results.csv" download class="btn-secondary">results.csv</a>
-                  <a href="../results/tables/bell.csv" download class="btn-secondary">bell.csv</a>
+                  <a href="assets/results.csv" download="results.csv" class="btn-secondary">results.csv</a>
+                  <a href="assets/bell.csv" download="bell.csv" class="btn-secondary">bell.csv</a>
                 </div>
               </div>
             </div>
@@ -676,6 +638,32 @@
 
       </div>
     </main>
+  </div>
+
+  <!-- Verification Results Modal -->
+  <div id="verification-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 style="color: var(--text-main); font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🧪</span> Browser Data-Integrity Verification Suite
+          </h3>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Real-time client validation against authoritative PS-O1 benchmark schemas</span>
+        </div>
+        <button id="btn-close-modal" class="btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;">✕ Close</button>
+      </div>
+
+      <div class="modal-body" id="modal-checks-container">
+        <!-- Populated dynamically -->
+      </div>
+
+      <div class="modal-footer">
+        <div style="font-size: 0.78rem; color: var(--text-muted);">
+          <em>Notice:</em> Client data-integrity checks confirm browser synchronization; they do not replace Python unit tests or complete notebook execution.
+        </div>
+        <span class="status-badge" id="modal-summary-badge" style="font-size: 0.82rem; font-weight: 700;">12 / 12 Verified</span>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="app.js"></script>

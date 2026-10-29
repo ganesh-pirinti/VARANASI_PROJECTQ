@@ -17,11 +17,26 @@ QUBO formulation to MINIMIZE:
 Ising spin mapping (x_i = (I - Z_i)/2):
   x_i + x_j - 2*x_i*x_j = 1/2 * (I - Z_i*Z_j)
 
-Cost Hamiltonian:
+Max-Cut Hamiltonian:
   H_C = sum_{(i,j) in E} (w_ij / 2) * (I - Z_i*Z_j)
-  
-Since constant identity shifts do not affect the eigenstate ordering:
-  H_C_diag = - sum_{(i,j) in E} (w_ij / 2) * Z_i*Z_j   (up to energy offset sum w_ij/2 = 13.5)
+
+Minimized Cost Hamiltonian:
+  H_min = -C = sum_{(i,j) in E} (w_ij / 2) * Z_i*Z_j - sum_{(i,j) in E} (w_ij / 2) * I
+
+Dropping the constant energy offset -sum w_ij/2 = -13.5 (which acts as an irrelevant
+global phase and does not alter the eigenstate ordering or measurement probabilities),
+the non-constant part of the minimized Hamiltonian is:
+  H_min_nonconstant = sum_{(i,j) in E} (w_ij / 2) * Z_i*Z_j
+
+Unitary evolution:
+  U(H_min, gamma) = exp(-i * gamma * H_min_nonconstant)
+                  = prod_{(i,j) in E} exp(-i * (gamma * w_ij / 2) * Z_i*Z_j)
+
+In standard gate decomposition with Rz(theta) = exp(-i * (theta / 2) * Z):
+  CX(i, j) -> Rz(gamma * w_ij) on j -> CX(i, j)
+implements exactly exp(-i * (gamma * w_ij / 2) * Z_i*Z_j) with positive angle theta = gamma * w_ij.
+Thus, the implemented circuit corresponds directly to the non-constant part of the
+minimized cost Hamiltonian H_min = -C.
 """
 from __future__ import annotations
 import json
@@ -101,30 +116,21 @@ class NetworkPartitionModel:
             terms.append({
                 "edge": [u, v],
                 "weight": w,
-                "pauli_term": f"Z_{u} * Z_{v}",
-                "coefficient": -float(w) / 2.0,
-                "constant_offset": float(w) / 2.0,
+                "pauli_term": f"({w}/2)*(I - Z_{u}*Z_{v})",
+                "nonconstant_min_term": f"({w}/2)*Z_{u}*Z_{v}",
+                "circuit_gate_block": f"CX({u},{v}) -> Rz({w}*gamma) -> CX({u},{v})",
+                "rz_angle_formula": f"{w} * gamma",
             })
         return terms
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Export comprehensive model metadata."""
+    def export_summary(self) -> Dict[str, Any]:
+        """Summary of graph, QUBO matrix, and Hamiltonian specs."""
         return {
             "num_vertices": self.num_vertices,
-            "weighted_edges": self.weighted_edges,
+            "num_edges": len(self.weighted_edges),
             "total_weight": self.total_weight,
+            "weighted_edges": self.weighted_edges,
             "max_cut_theoretical": LOCKED_MAX_CUT,
-            "qubo_matrix": self.qubo_matrix.tolist(),
-            "adjacency_matrix": self.adjacency_matrix.tolist(),
+            "qubo_diagonal": [float(self.qubo_matrix[i, i]) for i in range(self.num_vertices)],
             "hamiltonian_terms": self.get_hamiltonian_terms(),
         }
-
-if __name__ == "__main__":
-    model = NetworkPartitionModel()
-    print("QUBO Matrix Q:")
-    print(model.qubo_matrix)
-    print("\nSample optimal cut (1, 1, 0, 1, 0, 0):")
-    p = [1, 1, 0, 1, 0, 0]
-    cut = model.evaluate_cut(p)
-    qubo_e = model.evaluate_qubo_energy(p)
-    print(f"Cut weight: {cut}, QUBO energy: {qubo_e} (Check: cut == -energy: {cut == -qubo_e})")
