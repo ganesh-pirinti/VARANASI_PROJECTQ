@@ -21,7 +21,7 @@
 
       <div class="nav-section-title">Core Stations</div>
       <ul class="nav-items">
-        <li><a href="mission22.html" class="nav-btn" style="text-decoration: none; color: #00e5ff; display: flex; align-items: center; border-left: 3px solid #00e5ff;"><span class="icon">🎮</span> Mission 22 (3D Game)</a></li>
+        <li><button class="nav-btn" data-tab="games"><span class="icon">🎮</span> Interactive Labs (2 Games)</button></li>
         <li><button class="nav-btn active" data-tab="overview"><span class="icon">🌐</span> Problem & Scenario</button></li>
         <li><button class="nav-btn" data-tab="graph3d"><span class="icon">🔮</span> Graph Lab (3D / 2D / Matrix)</button></li>
         <li><button class="nav-btn" data-tab="classical"><span class="icon">⚡</span> Classical Ground Truth</button></li>
@@ -58,7 +58,7 @@
         </div>
         <div class="topbar-actions">
           <a href="assets/VARANASI_Pitch_Deck.pdf" target="_blank" class="btn-secondary" id="topbar-pdf-link">📑 Open Slide Deck (PDF)</a>
-          <a href="mission22.html" class="btn-primary" style="background: linear-gradient(135deg, #00e5ff 0%, #0077b6 100%); color: #050a17; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">🎮 Mission 22 (3D Prototype)</a>
+          <button id="topbar-games-btn" class="btn-primary" style="background: linear-gradient(135deg, #00e5ff 0%, #0077b6 100%); color: #050a17; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">🎮 Interactive Labs</button>
           <button id="btn-run-tests" class="btn-primary">🧪 Run Verification Tests</button>
         </div>
       </header>
@@ -132,6 +132,158 @@
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- TAB: INTERACTIVE LABS & GAME SESSIONS (2 SESSIONS) -->
+        <!-- ==================================================================== -->
+        <section id="pane-games" class="tab-pane">
+          <!-- Hub View: Two Session Cards -->
+          <div id="games-hub-view">
+            <div class="games-header-banner">
+              <div>
+                <h2>🎮 Interactive Labs & Educational Game Sessions</h2>
+                <p>Explore the PS-O1 6-node weighted network partitioning problem through two distinct interactive learning experiences. Both environments use the official benchmark graph (6 nodes, 9 edges, total weight 27, optimal cut 22).</p>
+              </div>
+              <div class="games-status-badge">
+                <span class="status-dot"></span>
+                <span>Simulated Benchmark Environments • Pure Classical WebGL & Algorithmic Engines</span>
+              </div>
+            </div>
+
+            <div class="games-grid">
+              <!-- Card 1: Session 01 — Network Architect: 3D Explorer -->
+              <div class="game-card">
+                <div class="game-card-header">
+                  <span class="game-badge badge-cyan">SESSION 01 • 3D SPATIAL EXPLORER</span>
+                  <span class="game-tech-pill">Three.js WebGL</span>
+                </div>
+                <h3>Network Architect: 3D Concept Explorer</h3>
+                <p class="game-card-desc">
+                  A high-fidelity spatial exploration of the 6-node network arena, the 6-qubit logical QAOA p=1 circuit workbench (H, UC(γ), UM(β), M), and the simulated 9-qubit Processor D coupling topology.
+                </p>
+
+                <div class="game-features-list">
+                  <div class="game-feature-item">
+                    <span class="feature-icon">🌐</span>
+                    <div>
+                      <strong>6 Spherical Nodes & 9 Weighted Edges:</strong>
+                      <span>node_0 .. node_5 connected by edge_0_2 .. edge_3_5 with real-time billboarded weight badges.</span>
+                    </div>
+                  </div>
+                  <div class="game-feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <div>
+                      <strong>Partition Geometry & Severed Edges:</strong>
+                      <span>Group S (Cyan) vs Group S̄ (Blue/Gray), with severed cut edges glowing orange (22 / 27 capacity).</span>
+                    </div>
+                  </div>
+                  <div class="game-feature-item">
+                    <span class="feature-icon">⚛️</span>
+                    <div>
+                      <strong>Quantum Circuit & Hardware Stations:</strong>
+                      <span>Adjacent 6-wire QAOA circuit and simulated Processor D topology showing zero-SWAP direct embedding.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="game-card-actions">
+                  <button id="btn-open-session01" class="btn-primary" style="flex: 1;">
+                    <span>🔭 Launch 3D Explorer</span>
+                  </button>
+                  <a href="mission22.html" target="_blank" class="btn-secondary" title="Open full page in new window">
+                    <span>↗ Fullscreen</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Card 2: Session 02 — Mission 22: Playable Challenge -->
+              <div class="game-card game-card-orange">
+                <div class="game-card-header">
+                  <span class="game-badge badge-orange">SESSION 02 • PLAYABLE CHALLENGE</span>
+                  <span class="game-tech-pill">Interactive Puzzle</span>
+                </div>
+                <h3>Mission 22: Playable Network Challenge</h3>
+                <p class="game-card-desc">
+                  An active educational puzzle challenge. Toggle nodes between Group A and Group B, watch live cut scores update, request intelligent hints to escape local plateaus, and explore 5 in-depth learning stations.
+                </p>
+
+                <div class="game-features-list">
+                  <div class="game-feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <div>
+                      <strong>Playable Optimization Objective:</strong>
+                      <span>Move nodes to maximize severed capacity from 20 to the mathematical maximum of 22 out of 27.</span>
+                    </div>
+                  </div>
+                  <div class="game-feature-item">
+                    <span class="feature-icon">💡</span>
+                    <div>
+                      <strong>Intelligent Search Hint:</strong>
+                      <span>Computes the shortest improving multi-node coordinated move to escape suboptimal local traps.</span>
+                    </div>
+                  </div>
+                  <div class="game-feature-item">
+                    <span class="feature-icon">📚</span>
+                    <div>
+                      <strong>5 Learning Stations:</strong>
+                      <span>Network Lab, Random Baseline (mean 13.5), QAOA Circuit Synthesis, Processor Routing, and Noise Models.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="game-card-actions">
+                  <button id="btn-open-session02" class="btn-primary" style="flex: 1; background: linear-gradient(135deg, #ffa45c 0%, #ff5722 100%);">
+                    <span>⚡ Play Mission 22 Challenge</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scientific Guidelines Banner -->
+            <div class="games-guidelines-banner">
+              <strong>🔬 Scientific Rigor & Benchmark Notice:</strong>
+              <span>
+                Both game sessions adhere strictly to Problem Statement <strong>PS-O1</strong> (Quantum Optimization of Network Partitioning Using QAOA) on the locked 6-vertex, 9-edge benchmark. All cut scores, bitstrings, and metrics reflect verified classical and simulated quantum benchmarks. Processor topologies represent simulated connectivity and noise models without claiming unverified physical hardware runs.
+              </span>
+            </div>
+          </div>
+
+          <!-- Session 01 Embedded Container (Initially Hidden) -->
+          <div id="session01-container" class="session-view-container" style="display: none;">
+            <div class="session-nav-bar">
+              <button id="btn-back-hub-1" class="btn-secondary">
+                <span>← Back to Interactive Labs</span>
+              </button>
+              <div class="session-title-block">
+                <h3>Session 01: Network Architect — 3D Concept Explorer</h3>
+                <span class="status-badge"><span class="status-dot"></span> Three.js WebGL Spatial Environment</span>
+              </div>
+              <a href="mission22.html" target="_blank" class="btn-secondary">
+                <span>↗ Open Standalone Window</span>
+              </a>
+            </div>
+            <div class="session-frame-wrap">
+              <iframe id="session01-iframe" src="mission22.html" title="Session 01: 3D Network Architect Explorer" class="session-iframe"></iframe>
+            </div>
+          </div>
+
+          <!-- Session 02 Playable Mount Point (Initially Hidden) -->
+          <div id="session02-container" class="session-view-container" style="display: none;">
+            <div class="session-nav-bar">
+              <button id="btn-back-hub-2" class="btn-secondary">
+                <span>← Back to Interactive Labs</span>
+              </button>
+              <div class="session-title-block">
+                <h3>Session 02: Mission 22 — Playable Network Challenge</h3>
+                <span class="status-badge" style="border-color: rgba(255, 164, 92, 0.4); color: #ffa45c;"><span class="status-dot" style="background: #ffa45c;"></span> Playable Module Active</span>
+              </div>
+              <button id="btn-session02-restart" class="btn-secondary">
+                <span>↺ Restart Mission</span>
+              </button>
+            </div>
+            <div id="mission22-game-mount" class="session-game-mount"></div>
           </div>
         </section>
 

@@ -6,6 +6,11 @@
  */
 
 import * as THREE from 'three';
+import { mountMission22Game } from './game/main.js';
+import './game/game.css';
+
+// Educational Game Modules state
+let mission22Unmount = null;
 
 // Application state globals
 let rawData = null;
@@ -45,13 +50,103 @@ function setupNavigation() {
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const targetTab = btn.getAttribute("data-tab");
-      switchTab(targetTab);
+      if (targetTab) switchTab(targetTab);
     });
   });
+
+  // Topbar Games Button
+  const topbarGamesBtn = document.getElementById("topbar-games-btn");
+  if (topbarGamesBtn) {
+    topbarGamesBtn.addEventListener("click", () => {
+      switchTab("games");
+    });
+  }
+
+  // Session 01: 3D Explorer Buttons
+  const btnOpenS1 = document.getElementById("btn-open-session01");
+  const hubView = document.getElementById("games-hub-view");
+  const s1Container = document.getElementById("session01-container");
+  const s2Container = document.getElementById("session02-container");
+
+  if (btnOpenS1 && hubView && s1Container) {
+    btnOpenS1.addEventListener("click", () => {
+      hubView.style.display = "none";
+      if (s2Container) s2Container.style.display = "none";
+      s1Container.style.display = "flex";
+    });
+  }
+
+  const btnBackHub1 = document.getElementById("btn-back-hub-1");
+  if (btnBackHub1 && hubView && s1Container) {
+    btnBackHub1.addEventListener("click", () => {
+      s1Container.style.display = "none";
+      hubView.style.display = "block";
+    });
+  }
+
+  // Session 02: Playable Challenge Buttons
+  const btnOpenS2 = document.getElementById("btn-open-session02");
+  const gameMount = document.getElementById("mission22-game-mount");
+
+  if (btnOpenS2 && hubView && s2Container) {
+    btnOpenS2.addEventListener("click", () => {
+      hubView.style.display = "none";
+      if (s1Container) s1Container.style.display = "none";
+      s2Container.style.display = "flex";
+
+      if (gameMount && !mission22Unmount) {
+        try {
+          mission22Unmount = mountMission22Game(gameMount);
+        } catch (err) {
+          console.error("Error mounting Mission 22 game:", err);
+        }
+      }
+    });
+  }
+
+  const btnBackHub2 = document.getElementById("btn-back-hub-2");
+  if (btnBackHub2 && hubView && s2Container) {
+    btnBackHub2.addEventListener("click", () => {
+      if (mission22Unmount) {
+        try {
+          mission22Unmount();
+        } catch (e) {
+          console.warn("Mission 22 cleanup error:", e);
+        }
+        mission22Unmount = null;
+      }
+      s2Container.style.display = "none";
+      hubView.style.display = "block";
+    });
+  }
+
+  const btnRestartS2 = document.getElementById("btn-session02-restart");
+  if (btnRestartS2) {
+    btnRestartS2.addEventListener("click", () => {
+      const resetBtn = document.querySelector('.mission22 [data-action="reset"]');
+      if (resetBtn) resetBtn.click();
+    });
+  }
 }
 
 function switchTab(tabId) {
   currentTab = tabId;
+
+  // Cleanup active game if switching away from games tab
+  if (tabId !== 'games' && mission22Unmount) {
+    try {
+      mission22Unmount();
+    } catch (e) {
+      console.warn("Mission 22 cleanup warning:", e);
+    }
+    mission22Unmount = null;
+    const hub = document.getElementById('games-hub-view');
+    if (hub) hub.style.display = 'block';
+    const s1 = document.getElementById('session01-container');
+    if (s1) s1.style.display = 'none';
+    const s2 = document.getElementById('session02-container');
+    if (s2) s2.style.display = 'none';
+  }
   document.querySelectorAll(".nav-btn").forEach((b) => b.classList.remove("active"));
   document.querySelectorAll(".tab-pane").forEach((p) => p.classList.remove("active"));
 
@@ -70,6 +165,7 @@ function switchTab(tabId) {
     duallane: "Dual-Lane Studio: Software Lane vs Quantum Execution Lane",
     results: "Results & Stochastic Dominance: Cut PMF & Complementary CDF",
     report: "Research & Implementation Report: Comprehensive Technical Analysis",
+    games: "Interactive Labs: 3D Network Architect & Playable Challenge",
     downloads: "Submission Assets, Pitch Presentation & Verification Archive",
   };
   const titleEl = document.getElementById("current-tab-title");
