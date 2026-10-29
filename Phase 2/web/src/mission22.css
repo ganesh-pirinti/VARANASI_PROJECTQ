@@ -1,0 +1,665 @@
+/* ==========================================================================
+   VARANASI: Mission 22 — Quantum Network Architect
+   Premium Scientific-Engineering Aesthetic (Deep Navy / Cyan / Orange)
+   ========================================================================== */
+
+:root {
+  --bg-deep-navy: #050a17;
+  --bg-panel: rgba(10, 19, 38, 0.88);
+  --bg-panel-border: rgba(0, 229, 255, 0.22);
+  --bg-panel-hover: rgba(16, 29, 58, 0.95);
+  
+  --cyan-bright: #00e5ff;
+  --cyan-glow: rgba(0, 229, 255, 0.35);
+  --cyan-muted: #008ba3;
+  
+  --orange-cut: #ff7043;
+  --orange-bright: #ff5722;
+  --orange-glow: rgba(255, 112, 67, 0.4);
+  
+  --blue-gray: #546e7a;
+  --blue-gray-light: #78909c;
+  --blue-gray-glow: rgba(120, 144, 156, 0.25);
+  
+  --text-primary: #f0f4f8;
+  --text-secondary: #90a4ae;
+  --text-cyan: #80deea;
+  --text-orange: #ffab91;
+  
+  --accent-gold: #ffd54f;
+  --card-radius: 10px;
+  --mono-font: 'JetBrains Mono', 'SF Mono', 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-deep-navy);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+#canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   HUD Layout & Glassmorphism Panels
+   ========================================================================== */
+
+.hud-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.interactive-panel {
+  pointer-events: auto;
+  background: var(--bg-panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--bg-panel-border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* --- Top Header HUD --- */
+.hud-header {
+  margin: 16px 20px 0 20px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00e5ff 0%, #0077b6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  color: #050a17;
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(0, 229, 255, 0.15);
+  color: var(--cyan-bright);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  text-transform: uppercase;
+}
+
+.mission-objective-banner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.stat-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-family: var(--mono-font);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.stat-value.highlight-cyan {
+  color: var(--cyan-bright);
+  text-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.stat-value.highlight-orange {
+  color: var(--orange-cut);
+  text-shadow: 0 0 10px var(--orange-glow);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-icon {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.btn-icon:hover {
+  background: rgba(0, 229, 255, 0.15);
+  border-color: var(--cyan-bright);
+  color: var(--cyan-bright);
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.btn-link {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: var(--cyan-bright);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-link:hover {
+  background: rgba(0, 229, 255, 0.22);
+  box-shadow: 0 0 14px var(--cyan-glow);
+}
+
+/* --- Main Middle Area (Floating Side Panels) --- */
+.hud-middle {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 20px;
+  pointer-events: none;
+}
+
+.hud-dock-left, .hud-dock-right {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+}
+
+.hud-dock-left::-webkit-scrollbar, .hud-dock-right::-webkit-scrollbar {
+  width: 4px;
+}
+.hud-dock-left::-webkit-scrollbar-thumb, .hud-dock-right::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.2);
+  border-radius: 2px;
+}
+
+.panel-section {
+  padding: 14px;
+}
+
+.panel-header {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cyan-bright);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-subtext {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Node List Chips */
+.node-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.node-chip {
+  padding: 8px 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.node-chip:hover {
+  border-color: var(--cyan-bright);
+  background: rgba(0, 229, 255, 0.1);
+}
+
+.node-chip.group-s {
+  border-color: var(--cyan-bright);
+  background: rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.node-chip.group-sbar {
+  border-color: var(--blue-gray-light);
+  background: rgba(84, 110, 122, 0.25);
+}
+
+.node-chip-name {
+  font-family: var(--mono-font);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.node-chip-group {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 2px;
+  color: var(--text-secondary);
+}
+
+.node-chip.group-s .node-chip-group {
+  color: var(--cyan-bright);
+}
+.node-chip.group-sbar .node-chip-group {
+  color: var(--text-secondary);
+}
+
+/* Quick Control Buttons */
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-action {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-action-primary {
+  background: linear-gradient(135deg, rgba(255, 112, 67, 0.25) 0%, rgba(255, 87, 34, 0.4) 100%);
+  border-color: var(--orange-cut);
+  color: #ffffff;
+}
+
+.btn-action-primary:hover {
+  background: linear-gradient(135deg, rgba(255, 112, 67, 0.4) 0%, rgba(255, 87, 34, 0.6) 100%);
+  box-shadow: 0 0 14px var(--orange-glow);
+}
+
+.btn-action-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}
+
+.btn-action-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Edge Status List */
+.edge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.edge-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: var(--mono-font);
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid var(--blue-gray);
+}
+
+.edge-item.is-cut {
+  border-left-color: var(--orange-cut);
+  background: rgba(255, 112, 67, 0.08);
+}
+
+.edge-badge-cut {
+  color: var(--orange-cut);
+  font-weight: 700;
+}
+.edge-badge-uncut {
+  color: var(--text-secondary);
+}
+
+/* Slider Controls */
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.slider-input {
+  width: 100%;
+  accent-color: var(--cyan-bright);
+  cursor: pointer;
+}
+
+/* Step Bar */
+.circuit-stepper {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.step-chip {
+  flex: 1;
+  padding: 6px 2px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.step-chip.active {
+  background: rgba(0, 229, 255, 0.2);
+  border-color: var(--cyan-bright);
+  color: var(--cyan-bright);
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+/* --- Bottom Action Bar HUD --- */
+.hud-footer {
+  margin: 0 20px 16px 20px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.camera-preset-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preset-btn {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preset-btn:hover, .preset-btn.active {
+  background: rgba(0, 229, 255, 0.15);
+  border-color: var(--cyan-bright);
+  color: var(--text-primary);
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-pill {
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+.btn-pill:hover {
+  background: rgba(0, 229, 255, 0.15);
+  border-color: var(--cyan-bright);
+  color: var(--cyan-bright);
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+.btn-pill.pill-orange {
+  border-color: var(--orange-cut);
+  color: var(--text-orange);
+}
+.btn-pill.pill-orange:hover {
+  background: rgba(255, 112, 67, 0.2);
+  box-shadow: 0 0 12px var(--orange-glow);
+}
+
+/* ==========================================================================
+   Victory / Target 22 Modal Banner
+   ========================================================================== */
+.victory-banner {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  padding: 12px 28px;
+  background: linear-gradient(135deg, rgba(255, 112, 67, 0.95) 0%, rgba(229, 57, 53, 0.95) 100%);
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 30px var(--orange-glow);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.victory-banner.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   Modal Dialogs (Hint / Explain Why)
+   ========================================================================== */
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 10, 23, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--bg-panel);
+  border: 1px solid var(--bg-panel-border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cyan-bright);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.modal-body p {
+  margin-bottom: 12px;
+}
+
+.modal-body code {
+  font-family: var(--mono-font);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--cyan-bright);
+}
+
+.modal-body ul {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.modal-body li {
+  margin-bottom: 6px;
+}
+
+.formula-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px 0;
+  font-family: var(--mono-font);
+  font-size: 12px;
+  color: var(--cyan-bright);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Notice Callout
+   ========================================================================== */
+.disclaimer-banner {
+  font-size: 9px;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  margin-top: 6px;
+}

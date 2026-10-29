@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VARANASI: Mission 22 — Quantum Network Architect (3D Concept Prototype)</title>
+  <link rel="stylesheet" href="mission22.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚛️</text></svg>">
+</head>
+<body>
+  <!-- 3D Canvas Rendering Container -->
+  <div id="canvas-container"></div>
+
+  <!-- Victory / Target 22 Toast Banner -->
+  <div id="victory-banner" class="victory-banner">
+    <span>🏆</span>
+    <span>TARGET 22 ACHIEVED! GLOBAL MAX-CUT OPTIMUM REACHED (81.48% CAPACITY SEVERED)</span>
+  </div>
+
+  <!-- Interactive HUD Overlay Layer -->
+  <div class="hud-layer">
+    
+    <!-- Top Header HUD -->
+    <header class="hud-header interactive-panel">
+      <div class="brand-section">
+        <div class="brand-logo">V</div>
+        <div class="brand-title">
+          <span>VARANASI</span>
+          <span class="brand-badge">Mission 22</span>
+        </div>
+      </div>
+
+      <div class="mission-objective-banner">
+        <div class="stat-metric">
+          <span class="stat-label">Current Cut Weight</span>
+          <span id="stat-cut-weight" class="stat-value highlight-orange">22 / 27</span>
+        </div>
+        <div class="stat-metric">
+          <span class="stat-label">Approximation Ratio</span>
+          <span id="stat-ratio" class="stat-value highlight-cyan">0.8148</span>
+        </div>
+        <div class="stat-metric">
+          <span class="stat-label">Best In Session</span>
+          <span id="stat-best-cut" class="stat-value">22 / 22</span>
+        </div>
+        <div class="stat-metric">
+          <span class="stat-label">Player Attempts</span>
+          <span id="stat-attempts" class="stat-value">0</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="btn-toggle-audio" class="btn-icon" title="Toggle Audio Feedback">🔊</button>
+        <a href="index.html" class="btn-link">
+          <span>← Back to Quantum Studio</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Middle Area with Floating Docks -->
+    <main class="hud-middle">
+      
+      <!-- Left Dock: Network Arena Partition Controller -->
+      <aside class="hud-dock-left">
+        <div class="interactive-panel panel-section">
+          <div class="panel-header">
+            <span>Network Arena</span>
+            <span style="font-size: 10px; color: var(--text-secondary);">6 Nodes / 9 Edges</span>
+          </div>
+          <p class="panel-subtext">
+            Click any spherical node in 3D space (or tap below) to toggle partition group:
+            <span style="color: var(--cyan-bright); font-weight: 600;">Group S (Cyan)</span> vs 
+            <span style="color: var(--blue-gray-light); font-weight: 600;">Group S̄ (Muted Blue/Gray)</span>.
+          </p>
+
+          <!-- Node Chips Grid -->
+          <div class="node-grid">
+            <div class="node-chip group-s" data-node-id="0">
+              <span class="node-chip-name">Node 0</span>
+              <span class="node-chip-group">Group S</span>
+            </div>
+            <div class="node-chip group-s" data-node-id="1">
+              <span class="node-chip-name">Node 1</span>
+              <span class="node-chip-group">Group S</span>
+            </div>
+            <div class="node-chip group-sbar" data-node-id="2">
+              <span class="node-chip-name">Node 2</span>
+              <span class="node-chip-group">Group S̄</span>
+            </div>
+            <div class="node-chip group-s" data-node-id="3">
+              <span class="node-chip-name">Node 3</span>
+              <span class="node-chip-group">Group S</span>
+            </div>
+            <div class="node-chip group-sbar" data-node-id="4">
+              <span class="node-chip-name">Node 4</span>
+              <span class="node-chip-group">Group S̄</span>
+            </div>
+            <div class="node-chip group-sbar" data-node-id="5">
+              <span class="node-chip-name">Node 5</span>
+              <span class="node-chip-group">Group S̄</span>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="btn-grid">
+            <button id="btn-snap-optimal" class="btn-action btn-action-primary">
+              <span>⚡</span> Target 22: Optimal
+            </button>
+            <button id="btn-reset-neutral" class="btn-action btn-action-secondary">
+              <span>↺</span> Reset Neutral
+            </button>
+            <button id="btn-snap-complement" class="btn-action btn-action-secondary">
+              <span>⇄</span> Complement S̄
+            </button>
+            <button id="btn-random-partition" class="btn-action btn-action-secondary">
+              <span>🎲</span> Random Guess
+            </button>
+          </div>
+          
+          <div class="disclaimer-banner">
+            Synthetic benchmark graph inspired by network planning; not a telecommunications deployment.
+          </div>
+        </div>
+
+        <!-- Edge Status List Panel -->
+        <div class="interactive-panel panel-section">
+          <div class="panel-header">
+            <span>Cut Edge Telemetry</span>
+            <span style="font-size: 10px; color: var(--orange-cut); font-weight: 700;">Orange = Severed</span>
+          </div>
+          <div id="edge-status-list" class="edge-list">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Dock: Quantum Workbench & Hardware Station -->
+      <aside class="hud-dock-right">
+        
+        <!-- QAOA Quantum Workbench -->
+        <div class="interactive-panel panel-section">
+          <div class="panel-header">
+            <span>Quantum Workbench</span>
+            <span style="font-size: 10px; color: var(--cyan-bright);">QAOA p=1 Ansatz</span>
+          </div>
+          <p class="panel-subtext">
+            Ansatz: |γ, β⟩ = e<sup>-i β H<sub>M</sub></sup> e<sup>-i γ H<sub>C</sub></sup> |+⟩<sup>⊗6</sup>.
+            Inspect the 6 horizontal logical qubit wires and interactive gate modules.
+          </p>
+
+          <!-- Circuit Stepper -->
+          <div class="circuit-stepper">
+            <div class="step-chip active" data-step="0">Init (H)</div>
+            <div class="step-chip" data-step="1">Cost (UC)</div>
+            <div class="step-chip" data-step="2">Mixer (UM)</div>
+            <div class="step-chip" data-step="3">Measure</div>
+          </div>
+
+          <!-- QAOA Sliders -->
+          <div class="slider-container">
+            <div class="slider-label-row">
+              <span>Cost Angle (γ)</span>
+              <span id="val-gamma" style="font-family: var(--mono-font); color: var(--orange-cut);">-0.168</span>
+            </div>
+            <input id="slider-gamma" type="range" class="slider-input" min="-1.571" max="1.571" step="0.001" value="-0.168">
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-label-row">
+              <span>Mixer Angle (β)</span>
+              <span id="val-beta" style="font-family: var(--mono-font); color: var(--cyan-bright);">0.333</span>
+            </div>
+            <input id="slider-beta" type="range" class="slider-input" min="0" max="3.142" step="0.001" value="0.333">
+          </div>
+
+          <button id="btn-apply-qaoa-opt" class="btn-action btn-action-primary" style="width: 100%;">
+            Apply Optimal (γ = -0.168, β = 0.333)
+          </button>
+        </div>
+
+        <!-- Hardware Station Summary -->
+        <div class="interactive-panel panel-section">
+          <div class="panel-header">
+            <span>Hardware Station</span>
+            <span style="font-size: 10px; color: #90caf9;">Processor D (9Q)</span>
+          </div>
+          <p class="panel-subtext">
+            Direct 1-to-1 hardware embedding: Logical qubits q<sub>0</sub>..q<sub>5</sub> map natively to physical qubits Q<sub>0</sub>..Q<sub>5</sub> with <strong>zero SWAP overhead</strong>. Q<sub>6</sub>, Q<sub>7</sub>, Q<sub>8</sub> form an ancillary routing ring.
+          </p>
+          <div class="disclaimer-banner">
+            Simulated processor topology; not real physical quantum hardware.
+          </div>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- Bottom Action Bar HUD -->
+    <footer class="hud-footer interactive-panel">
+      
+      <!-- Camera Presets -->
+      <div class="camera-preset-group">
+        <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary); margin-right: 6px;">CAMERA:</span>
+        <button class="preset-btn active" data-preset="arena">[1] Network Arena</button>
+        <button class="preset-btn" data-preset="workbench">[2] Quantum Workbench</button>
+        <button class="preset-btn" data-preset="hardware">[3] Hardware Station</button>
+        <button class="preset-btn" data-preset="wide">[4] Wide Overview</button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="footer-actions">
+        <button id="btn-hint" class="btn-pill">
+          <span>💡</span> Hint
+        </button>
+        <button id="btn-explain" class="btn-pill">
+          <span>🔬</span> Explain Why
+        </button>
+        <button id="btn-snap-optimal-footer" class="btn-pill pill-orange" onclick="document.getElementById('btn-snap-optimal').click()">
+          <span>🎯</span> Solution Reveal (22)
+        </button>
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- Modal: Hint -->
+  <div id="modal-hint" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>💡</span> Structural Hint: Bottleneck Analysis
+        </div>
+        <button class="btn-icon modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>To reach the maximum cut weight of <strong>22 out of 27</strong>, examine the heaviest edges in the 9-edge benchmark network:</p>
+        <ul>
+          <li><strong>Edge (2, 3) [weight 5]</strong> is the single heaviest edge in the entire network. Any candidate partition that fails to cut edge (2, 3) immediately surrenders 5 capacity units, capping maximum possible cut at 22 only if <em>all</em> other 8 edges are cut (which is topologically impossible). Therefore, nodes 2 and 3 must belong to opposite partitions!</li>
+          <li><strong>Edges (0, 3), (0, 4), and (3, 4) [all weight 4]</strong> form a triangle with nodes 0, 3, and 4. In any graph, an odd cycle (triangle) cannot have all 3 edges severed simultaneously. At least one edge in every triangle must remain internal!</li>
+          <li>By leaving edge (0, 3) [w=4] internal to Group S and edge (2, 4) [w=1] internal to Group S̄, you sever all other 7 edges, including the massive (2, 3) [w=5] and (0, 4), (3, 4) [w=4], yielding exactly <strong>1 + 4 + 3 + 3 + 5 + 4 + 2 = 22</strong>!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Explain Why -->
+  <div id="modal-explain" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🔬</span> Scientific Deep-Dive: Max-Cut & QAOA Mapping
+        </div>
+        <button class="btn-icon modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>1. The Computational Challenge:</strong></p>
+        <p>Weighted Network Partitioning (Max-Cut) is an NP-hard combinatorial optimization problem. For an <em>n</em>-node graph, there are 2<sup><em>n</em></sup> possible binary partition assignments. On our 6-node network (2<sup>6</sup> = 64 states), exhaustive brute-force search proves that exactly <strong>2 out of 64 states</strong> achieve the global maximum cut of 22:</p>
+        <div class="formula-card">
+          Global Optima: (1, 1, 0, 1, 0, 0) and its bit-flipped complement (0, 0, 1, 0, 1, 1)<br>
+          Cut Weight = 22.0 / 27.0 (81.48% total network capacity)
+        </div>
+
+        <p><strong>2. Quantum Mapping via QAOA:</strong></p>
+        <p>QAOA maps each classical binary decision variable x<sub>i</sub> ∈ {0, 1} to a Pauli-Z operator Z<sub>i</sub> via the transformation x<sub>i</sub> = (I - Z<sub>i</sub>) / 2. The cut cost function C(x) translates to the Ising Hamiltonian:</p>
+        <div class="formula-card">
+          H<sub>C</sub> = Σ<sub>(u,v)∈E</sub> (w<sub>uv</sub> / 2) (I - Z<sub>u</sub> Z<sub>v</sub>) = (W / 2) I - Σ<sub>(u,v)∈E</sub> (w<sub>uv</sub> / 2) Z<sub>u</sub> Z<sub>v</sub>
+        </div>
+        <p>To minimize energy (standard in physics and optimization), we minimize H<sub>min</sub> = -C(x). The constant identity term W/2 is an unobservable global phase, leaving the non-constant cost operator:</p>
+        <div class="formula-card">
+          H<sub>opt</sub> = Σ<sub>(u,v)∈E</sub> (w<sub>uv</sub> / 2) Z<sub>u</sub> Z<sub>v</sub>
+        </div>
+        <p>Each edge unitary e<sup>-i γ (w<sub>uv</sub> / 2) Z<sub>u</sub> Z<sub>v</sub></sup> is synthesized on quantum hardware using standard <code>CX – RZ(γ · w<sub>uv</sub>) – CX</code> gate sequences.</p>
+
+        <p><strong>3. Processor D Hardware Advantage:</strong></p>
+        <p>On generic quantum architectures (e.g. linear chain or heavy-hex grids with low connectivity), non-adjacent two-qubit interactions require inserting SWAP gates (each costing 3 CX gates), multiplying circuit depth and error rates. In <strong>Processor D</strong>, the 6 core physical qubits directly mirror the 9 benchmark edges, achieving <strong>ZERO SWAP overhead</strong> and optimal two-qubit gate depth!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entry Script -->
+  <script type="module" src="mission22.js"></script>
+</body>
+</html>
