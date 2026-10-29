@@ -1,6 +1,6 @@
-# Exact lockfile for VARANASI Phase 2 PS-O1 execution environment
-# Generated on 2026-10-29 under Python 3.14.6
-# Verified reproducible environment for all benchmarks, tests, and notebook outputs
+# Pinned Core Environment Specification for VARANASI Phase 2 PS-O1
+# Note: Pins the 9 primary direct dependencies genuinely verified and executed under Python 3.14.6.
+# Transitive sub-dependencies (e.g. rustworkx, dill) are resolved automatically by pip.
 qiskit==2.5.2
 qiskit-aer==0.17.2
 numpy==2.5.2

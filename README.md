@@ -37,7 +37,7 @@ We evaluate performance against the exact classical ground truth ($C^* = 22$) an
 | **PS-O1** | **D** | Ideal | `true` | 18 | **18** | **29** | **14** | **0** | **0** | `approx_ratio` | 0.8052 | 0.1384 | 22 | 0.6136 |
 | **PS-O1** | **D** | Noisy | `true` | 18 | **18** | **29** | **14** | **0** | **0** | `approx_ratio` | 0.7862 | 0.1250 | 22 | 0.6136 |
 
-> **Key Finding:** Processor D completely eliminates Processor B's SWAP routing bottleneck (0 SWAPs vs 1 SWAP, 0 CX overhead), compressing two-qubit depth by 17.6% (14 vs 17) and total depth by 21.6% (29 vs 37). On Processor D under official noise, QAOA samples the optimal cut ($C^*=22$) with $P_{\text{opt}} = 12.50\%$, outperforming random guessing by **$4.0\times$**.
+> **Key Finding:** Processor D completely eliminates Processor B's SWAP routing bottleneck (0 SWAPs vs 1 SWAP, 0 CX overhead), compressing two-qubit depth by 17.6% (14 vs 17) and total depth by 21.6% (29 vs 37). On Processor D under official noise, QAOA samples the optimal cut ($C^*=22$) with $P_{\text{opt}} = 12.50\%$, achieving a **$4.0\times$ enhancement in optimal-solution sampling probability** over uniform random guessing ($3.125\%$). Mean solution quality remains numerically similar in these simulated runs ($r = 0.7862$ on D vs. $0.7874$ on B, a delta of -0.0012 or -0.15% relative), with D providing a significant reduction in compiled circuit resources (0 SWAPs, -14.29% physical CX, -17.65% two-qubit depth).
 
 ---
 
@@ -113,6 +113,13 @@ VARANASI_PROJECTQ/
 │   ├── bell_evaluator.py     # Bell-state tomography and fidelity verification
 │   ├── visualizations.py     # High-resolution figure generation
 │   └── benchmark_runner.py   # Automated benchmark pipeline
+├── presentation/             # Professional research communication & pitch assets
+│   ├── VARANASI_Pitch_Deck.pptx # Editable 16:9 PowerPoint pitch deck
+│   ├── VARANASI_Pitch_Deck.pdf  # Publication-grade vector PDF pitch deck
+│   ├── speaker_notes.md      # Slide-by-slide notes, quantitative evidence & timing
+│   ├── pitch_script_3min.md  # 3-minute spoken pitch script (~410 words)
+│   ├── pitch_script_60sec.md # 60-second elevator pitch script (~140 words)
+│   └── judge_qa.md           # 16 comprehensive judge defense Q&As
 ├── results/
 │   ├── tables/
 │   │   ├── results.csv       # Section 9 official benchmark results
@@ -120,12 +127,14 @@ VARANASI_PROJECTQ/
 │   ├── raw/
 │   │   ├── qaoa_counts.json  # Complete 64-bitstring histograms and per-bitstring metrics
 │   │   └── benchmark_metadata.json # Complete provenance, environment, seeds, and hashes
-│   └── figures/
-│       ├── network_partitioning_graph.png
-│       ├── processor_topologies.png
-│       ├── bell_fidelity_comparison.png
-│       ├── qaoa_cut_distribution.png
-│       └── processor_resource_comparison.png
+│   └── figures/              # Publication figures in 300 DPI PNG and scalable SVG
+│       ├── network_partitioning_graph.png (.svg)
+│       ├── processor_topologies.png (.svg)
+│       ├── bell_fidelity_comparison.png (.svg)
+│       ├── qaoa_cut_distribution.png (.svg)
+│       ├── processor_resource_comparison.png (.svg)
+│       ├── qaoa_parameter_landscape.png (.svg)
+│       └── architecture_tradeoff_map.png (.svg)
 ├── scripts/
 │   └── create_submission_zip.py # Deterministic delivery zip packager and manifest auditor
 ├── requirements-lock.txt     # Exact pinned reproducible environment specification
@@ -168,6 +177,15 @@ python -c "from qff_phase2 import load_processor, validate_processor_d; D = load
 ```bash
 # Execute full benchmark suite and regenerate all tables and figures
 python -c "from src.benchmark_runner import run_all_benchmarks; run_all_benchmarks()"
+
+# Regenerate all 7 publication figures (PNG + SVG)
+python -m src.visualizations
+
+# Rebuild PowerPoint (.pptx) and Publication PDF (.pdf) pitch decks
+python scripts/generate_pitch_deck.py
+
+# Run consolidated verification suite (8/8 PASS)
+python tests/consolidated_test_suite.py
 
 # Or open and run the notebook from top to bottom
 jupyter notebook main.ipynb

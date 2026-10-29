@@ -6,3 +6,5 @@ venv/
 opt-env/
 dist/
 .backups/
+node_modules/
+web/node_modules/

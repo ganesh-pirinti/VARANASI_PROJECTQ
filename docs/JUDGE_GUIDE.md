@@ -15,7 +15,19 @@
 
 VARANASI implements an end-to-end, reproducible QAOA ($p=1$) solver for the locked 6-vertex, 9-edge PS-O1 network partitioning benchmark ($W=27$). We establish exact classical ground truth ($C^*=22$) via exhaustive 64-state enumeration and benchmark quantum compilation across reference **Processor A** (5 qubits), **Processor B** (9 qubits), and our co-designed **Processor D** (9 qubits). 
 
-By directly embedding the 9 problem interaction edges into hardware connectivity, **Processor D completely eliminates the SWAP routing bottleneck** observed on Processor B (0 SWAPs vs. 1 SWAP, 0 CX overhead vs. +3 CX), reducing two-qubit depth by **17.65%** and total circuit depth by **21.62%**, while maintaining comparable noisy solution quality ($r=0.7862$, $P_{\text{opt}}=12.50\%$ vs. uniform random $3.125\%$, a **$4.0\times$** sampling enhancement).
+By directly embedding the 9 problem interaction edges into hardware connectivity, **Processor D completely eliminates the SWAP routing bottleneck** observed on Processor B (0 SWAPs vs. 1 SWAP, 0 CX overhead vs. +3 CX), reducing two-qubit depth by **17.65%** and total circuit depth by **21.62%**, while maintaining numerically similar noisy solution quality in these simulated runs ($r=0.7862$, $P_{\text{opt}}=12.50\%$ on D vs. $r=0.7874$, $P_{\text{opt}}=12.60\%$ on B), providing a **$4.0\times$** optimal-state sampling probability enhancement over uniform random guessing ($3.125\%$).
+
+---
+
+### 1.1 Presentation & Communication Suite
+- **Editable PowerPoint Deck:** [presentation/VARANASI_Pitch_Deck.pptx](../presentation/VARANASI_Pitch_Deck.pptx) (16:9 dark-slate publication aesthetic)
+- **Universal Publication PDF:** [presentation/VARANASI_Pitch_Deck.pdf](../presentation/VARANASI_Pitch_Deck.pdf) (High-resolution vector slide deck)
+- **Speaker Notes & Timing:** [presentation/speaker_notes.md](../presentation/speaker_notes.md) (Slide-by-slide quantitative cues)
+- **3-Minute Timed Pitch:** [presentation/pitch_script_3min.md](../presentation/pitch_script_3min.md) (~410 words calibrated script)
+- **60-Second Elevator Pitch:** [presentation/pitch_script_60sec.md](../presentation/pitch_script_60sec.md) (~140 words fast-track pitch)
+- **Adversarial Judge Q&A:** [presentation/judge_qa.md](../presentation/judge_qa.md) (16 evidence-grounded defense answers)
+- **Visualizations Package:** 7 figures in both 300 DPI PNG and scalable vector SVG under [
+esults/figures/](../results/figures/)
 
 ---
 
@@ -52,7 +64,7 @@ The core contribution is **hardware-software co-design for quantum optimization 
 | **CX Routing Overhead** | — | +3 | **0** | **-100.0%** |
 | **Total Circuit Depth** | — | 37 | **29** | **-21.62%** (-8 layers) |
 | **Two-Qubit Depth** | — | 17 | **14** | **-17.65%** (-3 layers) |
-| **Noisy Approx Ratio ($r$)** | — | 0.7874 | 0.7862 | -0.15% (comparable) |
+| **Noisy Approx Ratio ($r$)** | — | 0.7874 | 0.7862 | -0.15% relative (-0.12 percentage points, numerically similar in these simulated runs) |
 | **Noisy $P_{\text{opt}}$ (4096 shots)** | — | 12.60% (516/4096) | **12.50% (512/4096)** | $4.0\times$ random baseline |
 
 ---

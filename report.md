@@ -24,7 +24,7 @@ We perform an exhaustive classical ground-truth enumeration over all $2^6 = 64$ 
 Under official benchmark settings (optimization level 1, SABRE layout/routing, seed 42, 4096 shots, official noise model $p_1=0.001, p_2=0.005, p_{\text{readout}}=0.01$), we implement the Quantum Approximate Optimization Algorithm (QAOA) at depth $p=1$ with multi-start classical parameter optimization across mandatory seeds $[0, 1, 2, 3, 4]$. We rigorously benchmark execution across reference Processors A and B, and our novel co-designed **Processor D**:
 1. **Processor A (5 Qubits):** Correctly classified as **infeasible / not executable** under the official capacity rule ($6 > 5$ qubits).
 2. **Processor B (9 Qubits):** Suffers from a routing bottleneck requiring **1 SWAP gate** (+3 CX gates, 16.7% two-qubit overhead), yielding depth 37 and two-qubit depth 17.
-3. **Processor D (9 Qubits, VARANASI Co-Design):** Directly embeds the six-vertex interaction graph with a peripheral degree-$\le 4$ routing ring, achieving **0 SWAPs (0 CX overhead)**, reducing two-qubit depth to 14 (-17.6%) and circuit depth to 29 (-21.6%). Under noisy simulation, Processor D delivers an approximation ratio of $r = 0.7862$ and an optimal partition sampling probability of $P_{\text{opt}} = 12.50\%$, an algorithmic enhancement of **$4.0\times$** over random guessing.
+3. **Processor D (9 Qubits, VARANASI Co-Design):** Directly embeds the six-vertex interaction graph with a peripheral degree-$\le 4$ routing ring, achieving **0 SWAPs (0 CX overhead)**, reducing two-qubit depth to 14 (-17.6%) and circuit depth to 29 (-21.6%). Under noisy simulation, Processor D delivers an approximation ratio of $r = 0.7862$ and an optimal partition sampling probability of $P_{\text{opt}} = 12.50\%$, achieving numerically similar solution quality to Processor B ($r = 0.7874$, $\Delta r = -0.0012$ or $-0.15\%$ relative) while reducing compiled physical CX gates by $14.29\%$ and two-qubit depth by $17.65\%$, and providing a **$4.0\times$** optimal-state sampling probability enhancement over the classical uniform random baseline ($3.125\%$).
 
 All deliverables, including results/tables/results.csv, results/tables/bell.csv, results/raw/qaoa_counts.json, results/raw/benchmark_metadata.json, figures, and main.ipynb, are fully reproducible and verified. A concise evaluator summary and answers to 14 defense questions are documented in [docs/JUDGE_GUIDE.md](docs/JUDGE_GUIDE.md).
 
@@ -210,21 +210,31 @@ Sampling the bound optimal circuit with 4096 shots on Processors A, B, and D:
 ### 4.3 Detailed Performance Analysis
 1. **Resource Efficiency:** Processor D achieves **zero CX overhead** ($18$ CX gates vs $21$ on Processor B) and reduces two-qubit circuit depth from 17 to 14 (-17.6%). Total circuit depth is reduced from 37 to 29 (-21.6%).
 2. **Algorithmic Quality vs Random Baseline:** 
-   - On Processor D under official noise, QAOA samples an optimal cut with probability $P_{\text{opt}} = 12.50\%$ (512 out of 4096 shots landing on the ground-state cuts), compared to the classical uniform random probability of $3.125\%$. This represents a **$4.0\times$ algorithmic speedup** in sampling ground truth.
+   - On Processor D under official noise, QAOA samples an optimal cut with probability $P_{\text{opt}} = 12.50\%$ (512 out of 4096 shots landing on the ground-state cuts), compared to the classical uniform random probability of $3.125\%$. This represents a **$4.0\times$ enhancement in sampling probability** ($12.50\%$ vs. the classical uniform random baseline of $3.125\%$) per shot.
    - The primary approximation ratio is $r = 0.7862$, surpassing the random expectation ($0.6136$) by $+28.1\%$.
    - The maximum sampled cut reached $C = 22$ on every execution ($r_{\text{best}} = 1.0000$).
 3. **Noisy Degradation:** Depolarizing noise induces a slight reduction in approximation ratio (from $0.8052$ ideal to $0.7862$ noisy on D), but the structural advantage of Processor D ensures minimal decoherence exposure due to its compacted circuit depth.
 
 ---
 
-## 5. Visualizations Summary
+## 5. Visualizations & Research Communication Package
 
-All figures were generated programmatically and saved in `results/figures/`:
-1. `results/figures/network_partitioning_graph.png`: Visualizes the 6-vertex graph with edge weights, highlighting the optimal cut partition $S = \{0, 1, 3\}$ and $\bar{S} = \{2, 4, 5\}$ and the 7 cut edges.
-2. `results/figures/processor_topologies.png`: Side-by-side architectural layout of Processors A, B, and D, contrasting Processor A's capacity limit, Processor B's routing bottleneck, and Processor D's problem-matched topology.
-3. `results/figures/bell_fidelity_comparison.png`: Bar chart displaying Bell-state fidelities and standard errors across ideal and noisy conditions for adjacent ($d=1$) versus distant ($d=4$) qubit pairs.
-4. `results/figures/qaoa_cut_distribution.png`: Probability histogram contrasting sampled QAOA cut distributions against the exact classical uniform random baseline, illustrating probability concentration at $C^* = 22$.
-5. `results/figures/processor_resource_comparison.png`: Quantitative comparison of CX gate count, circuit depth, two-qubit depth, and SWAPs inserted.
+All figures were programmatically generated in both publication-grade 300 DPI raster (`.png`) and scalable vector graphics (`.svg`) formats under `results/figures/`:
+1. `results/figures/network_partitioning_graph.png` (.svg): Visualizes the 6-vertex graph with edge weights, highlighting the optimal cut partition $S = \{0, 1, 3\}$ and $\bar{S} = \{2, 4, 5\}$, the 7 dashed cut edges ($W_{\text{cut}} = 22$), and 2 internal edges ($W_{\text{internal}} = 5$).
+2. `results/figures/processor_topologies.png` (.svg): Side-by-side architectural layout of Processors A, B, and D, contrasting Processor A's capacity limit, Processor B's routing bottleneck (1 SWAP), and Processor D's problem-matched co-design topology (0 SWAPs, max degree $\le 4$).
+3. `results/figures/bell_fidelity_comparison.png` (.svg): Point-and-whisker plot displaying Bell-state fidelities with exact standard errors across ideal and noisy conditions, accompanied by a Pauli expectation breakdown ($\langle XX \rangle, \langle YY \rangle, \langle ZZ \rangle$) demonstrating error accumulation over distance.
+4. `results/figures/qaoa_cut_distribution.png` (.svg): Dual-panel visualization presenting the sampled cut probability mass function (PMF) and the staircase Complementary CDF ($P(C \ge c)$), illustrating probability concentration at $C^* = 22$ ($12.50\%$ vs $3.125\%$) and strict stochastic dominance.
+5. `results/figures/processor_resource_comparison.png` (.svg): Connected-dot / dumbbell plot demonstrating quantitative hardware resource savings (CX: -14.29%, depth: -21.62%, 2Q depth: -17.65%, SWAPs: -100%).
+6. `results/figures/qaoa_parameter_landscape.png` (.svg): Exact statevector expectation landscape $\langle C \rangle(\gamma, \beta)$ showing the global optimum $(\gamma^*, \beta^*) = (-0.1680, 0.3327)$ with expectation $17.7128$ ($r = 0.8051$) and the random baseline boundary (13.5).
+7. `results/figures/architecture_tradeoff_map.png` (.svg): Hardware co-design Pareto frontier contrasting physical CX gate count against noisy solution quality, showing that Processor D provides hardware efficiency gains without compromising approximation quality.
+
+### 5.1 Presentation Materials (`presentation/`)
+- `presentation/VARANASI_Pitch_Deck.pptx`: Comprehensive 9-slide editable 16:9 PowerPoint pitch deck utilizing dark-slate scientific styling, high-resolution embedded figures, metric callouts, and backup defense slides.
+- `presentation/VARANASI_Pitch_Deck.pdf`: High-resolution 16:9 publication PDF export of the complete deck for universal viewing.
+- `presentation/speaker_notes.md`: Detailed slide-by-slide speaker notes with timing cues and key quantitative evidence.
+- `presentation/pitch_script_3min.md`: Calibrated 3-minute timed spoken pitch script (~410 words).
+- `presentation/pitch_script_60sec.md`: Calibrated 60-second elevator pitch script (~140 words).
+- `presentation/judge_qa.md`: 16 comprehensive defense questions and evidence-backed answers addressing potential evaluator inquiries.
 
 ---
 
@@ -280,3 +290,57 @@ While the formal Phase 2 benchmark is grounded in the locked **PS-O1: Quantum Op
 In compliance with hackathon regulations:
 - **AI Tools Used:** Anthropic Claude (via Claude Sonnet 4.6), Google Antigravity Agentic Assistant.
 - **Role:** Assisted in automating codebase restructuring, verifying mathematical equations, formatting figures, and drafting technical documentation. All algorithmic logic, quantum formulations, simulation executions, and numerical benchmarks were computed directly in the local Python environment using official Qiskit libraries.
+
+
+---
+
+## 9. Official Challenge Specification Compliance Appendix
+
+This appendix documents the governing requirements from the official Phase 2 documentation distributed by the organizers:
+- **Primary Source File:** `QFF2026_Optimization_Challenge_Kit.docx` (Last Modified: 29-Oct-2026 14:26:18, Size: 17,093 bytes)
+- **Problem Statement Source File:** `OPTIMISATION_PS.docx` (Last Modified: 29-Oct-2026 14:26:18, Size: 17,777 bytes)
+- **Judging Rubric:** `QFF_2026_Phase2_Optimization_Judging_Rubric_2page.pdf` (Last Modified: 29-Oct-2026 14:26:18, Size: 91,383 bytes)
+- **Official Instructions:** `START_HERE.txt` (Last Modified: 29-Oct-2026 14:26:18, Size: 737 bytes)
+
+### 9.1 Verification of Governing Rules
+
+1. **Processors Benchmarked (Processors A, B, and D):**
+   - *Official Citation:* `QFF2026_Optimization_Challenge_Kit.docx`, Section 12 (Frequently Asked Questions):
+     > **Question:** *"Is Processor C part of Phase 2?"*
+     > **Official Answer:** *"No. Phase 2 uses Processors A, B and D only."*
+   - *Confirmation:* Processor C was present in certain Phase 1 general materials but is **explicitly ruled out** for Phase 2. The required benchmark uses only Processors A, B, and D.
+
+2. **QAOA Circuit Depth ($p=1$ Required; $p=2$ Optional):**
+   - *Official Citation:* `OPTIMISATION_PS.docx`, Section "PS-O1 Challenge requirements":
+     > *"Implement QAOA with circuit depth parameter p = 1 (required; p = 2 optional), using a classical optimizer."*
+   - *Confirmation:* Our primary published benchmark executes depth $p=1$ with multi-restart classical parameter optimization (seeds 0..4), adhering strictly to the mandatory requirement.
+
+3. **Simulator Interface (`AerSimulator`):**
+   - *Official Citation:* `QFF2026_Optimization_Challenge_Kit.docx`, Section 3 ("Official benchmark settings") and Section 12:
+     > *"Simulator: AerSimulator, seed_simulator = 42"*
+     > *"Do we need real IBM hardware or an IBM Quantum account? No. Everything runs on the local Aer simulator. No external data or account is needed."*
+     > *"Can we use Qiskit's QAOAAnsatz, qiskit-optimization or our own QAOA code? Yes, any of these. The metrics must still come from the official transpilation in qff_phase2.py."*
+   - *Confirmation:* Direct use of `AerSimulator` (with the official noise model) is the required reference execution mode. SamplerV2 is not required; the official metrics and simulator calls in `qff_phase2.py` govern all evaluations.
+
+4. **Hardware Capacity Constraint & Infeasibility Handling:**
+   - *Official Citation:* `QFF2026_Optimization_Challenge_Kit.docx`, Section 3 ("Capacity rule"):
+     > *"A circuit that needs more qubits than a processor has is not run on it. PS-O1 needs 6 qubits... neither fits Processor A (5 qubits). For these problems, enter Processor A in your results table as 'not executable: needs N qubits, has 5'."*
+   - *Confirmation:* Processor A is recorded as `executable: false` in `results/tables/results.csv`, preserving scientific integrity without modifying the graph.
+
+5. **Processor D Architectural Design Constraints:**
+   - *Official Citation:* `QFF2026_Optimization_Challenge_Kit.docx`, Section 5 ("Objective 2 — Processor D design rules"):
+     - Rule 1: Number of qubits $\in [	ext{required}, 12]$ (PS-O1 needs 6, max 12). Processor D uses 9 qubits.
+     - Rule 2: Connectivity must be a connected undirected graph. Verified (diameter 4).
+     - Rule 3: Maximum node degree $\le 4$. Verified (nodes 3 and 4 have degree 4; all others $\le 3$).
+     - Rule 4: Basis gate set must be exactly `['rz', 'sx', 'x', 'cx']`. Verified.
+     - Rule 5: Noise rates $\ge$ official noise ($p_1 \ge 0.001, p_2 \ge 0.005, p_{	ext{readout}} \ge 0.01$). Verified.
+     - Rule 6: Frozen at final commit. Verified.
+   - *Confirmation:* Automated verification via `validate_processor_d(D, required_qubits=6)` returns 0 violations.
+
+6. **Transpilation Settings, Noise Model, and Shots:**
+   - *Official Citation:* `QFF2026_Optimization_Challenge_Kit.docx`, Section 3:
+     - Optimization level: 1 (SABRE layout and routing, seed 42).
+     - Shots: exactly 4096 per reported sampled result.
+     - Noise: $p_1 = 0.001$, $p_2 = 0.005$, $p_{	ext{readout}} = 0.01$.
+     - Bit ordering: Little-endian (qubit 0 is rightmost; decoded via `counts_to_x()`).
+   - *Confirmation:* Exactly matches parameters in `results/raw/benchmark_metadata.json`.

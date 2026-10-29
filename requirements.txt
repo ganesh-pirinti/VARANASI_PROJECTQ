@@ -12,3 +12,4 @@ pandas>=2.0.0
 jupyter
 nbclient>=0.10.0
 nbformat>=5.9.0
+python-pptx>=1.0.0

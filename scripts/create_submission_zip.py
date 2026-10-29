@@ -27,6 +27,7 @@ EXCLUDED_PATTERNS = [
     ".venv",
     "venv",
     "dist",
+    "node_modules",
     ".pytest_cache",
     ".mypy_cache",
     ".coverage",
