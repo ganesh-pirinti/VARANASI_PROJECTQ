@@ -15,14 +15,13 @@
 
 ## Repository Overview
 
-This repository houses the complete, end-to-end research, simulation code, co-designed quantum architectures, interactive web tools, and submission deliverables for **Team VARANASI** in **Qiskit Fall Fest 2026 (PS-O1: Quantum Optimization of Network Partitioning Using QAOA)**.
+This repository houses the complete, end-to-end research, simulation code, co-designed quantum architectures, presentation materials, and submission deliverables for **Team VARANASI** in **Qiskit Fall Fest 2026 (PS-O1: Quantum Optimization of Network Partitioning Using QAOA)**.
 
-The project is structured into distinct, self-contained directories for each phase of the hackathon, alongside presentation materials and web demonstrators:
+The project is structured into distinct, self-contained directories for each phase of the hackathon, alongside presentation materials:
 
 ```
 PROJECTQ_VARANASI/
 ├── README.md                         # Master root documentation & navigation guide
-├── vercel.json                       # Deployment configuration for web UI
 ├── .gitignore                        # Git ignore rules for Python, virtual environments, and caches
 │
 ├── PHASE_1/                          # Complete original Phase 1 qualification project
@@ -58,19 +57,13 @@ PROJECTQ_VARANASI/
 │   │   └── figures/                  # 20 unique publication-grade figure designs (40 PNG + SVG)
 │   └── docs/                         # In-depth mathematical derivations & architecture reports
 │
-├── presentation/                     # Final pitch deck and presentation assets
-│   ├── VARANASI_Pitch_Deck.pdf       # 10-slide final presentation deck (PDF)
-│   ├── VARANASI_Pitch_Deck.pptx      # Editable PowerPoint presentation deck
-│   ├── speaker_notes.md              # Slide-by-slide speaker notes
-│   ├── pitch_script_60sec.md         # 60-second elevator pitch script
-│   ├── pitch_script_3min.md          # 3-minute technical pitch script
-│   └── judge_qa.md                   # 14 defense answers for judging panels
-│
-└── web/                              # Interactive 3D Quantum Studio & Mission 22 web application
-    ├── index.html                    # Single-page web dashboard
-    ├── app.js                        # UI logic and graph visualizer
-    ├── styles.css                    # Responsive dark-mode styling
-    └── ...
+└── presentation/                     # Final pitch deck and presentation assets
+    ├── VARANASI_Pitch_Deck.pdf       # 10-slide final presentation deck (PDF)
+    ├── VARANASI_Pitch_Deck.pptx      # Editable PowerPoint presentation deck
+    ├── speaker_notes.md              # Slide-by-slide speaker notes
+    ├── pitch_script_60sec.md         # 60-second elevator pitch script
+    ├── pitch_script_3min.md          # 3-minute technical pitch script
+    └── judge_qa.md                   # 14 defense answers for judging panels
 ```
 
 ---
