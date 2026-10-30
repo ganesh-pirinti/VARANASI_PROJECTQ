@@ -17,7 +17,7 @@
 
 This repository houses the complete, end-to-end research, simulation code, co-designed quantum architectures, presentation materials, and submission deliverables for **Team VARANASI** in **Qiskit Fall Fest 2026 (PS-O1: Quantum Optimization of Network Partitioning Using QAOA)**.
 
-The project is structured into distinct, self-contained directories for each phase of the hackathon, alongside presentation materials:
+The project is structured into distinct, self-contained directories for each phase of the hackathon, alongside presentation materials and academic supplementary figures:
 
 ```
 PROJECTQ_VARANASI/
@@ -57,6 +57,11 @@ PROJECTQ_VARANASI/
 │   │   └── figures/                  # 20 unique publication-grade figure designs (40 PNG + SVG)
 │   └── docs/                         # In-depth mathematical derivations & architecture reports
 │
+├── SUPPLEMENTARY_WORK/               # Supplementary scientific diagrams for academic review
+│   ├── README.md                     # Descriptions, methodology, and reproduction guide
+│   ├── figures/                      # 7 publication figures in high-res PNG & vector SVG (14 files)
+│   └── source/                       # Standalone figure generator (generate_figures.py)
+│
 └── presentation/                     # Final pitch deck and presentation assets
     ├── VARANASI_Pitch_Deck.pdf       # 10-slide final presentation deck (PDF)
     ├── VARANASI_Pitch_Deck.pptx      # Editable PowerPoint presentation deck
@@ -65,6 +70,8 @@ PROJECTQ_VARANASI/
     ├── pitch_script_3min.md          # 3-minute technical pitch script
     └── judge_qa.md                   # 14 defense answers for judging panels
 ```
+
+> **Faculty & Reviewer Supplementary Visualizations:** See [`SUPPLEMENTARY_WORK/`](SUPPLEMENTARY_WORK/) for a dedicated suite of seven publication-grade 3D, workflow, circuit, and tomography diagrams.
 
 ---
 
