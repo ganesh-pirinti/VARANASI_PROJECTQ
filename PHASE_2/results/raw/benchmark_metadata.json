@@ -1,0 +1,130 @@
+{
+  "timestamp_utc": "2026-10-30T00:34:15.251528+00:00",
+  "elapsed_seconds": 6.6,
+  "environment": {
+    "interpreter": "C:\\QFF\\.qff2026-venv\\Scripts\\python.exe",
+    "qiskit": "2.6.1",
+    "qiskit_aer": "0.18.2",
+    "numpy": "2.4.6"
+  },
+  "hashes": {
+    "qff_phase2.py": "04be4fa610ba60854a2b3b9237891df7e8ade62e2fcd9659076e36e794f077ab",
+    "processor_D.json": "f3f16cf1825f8365e9c0b850f4df73bc5590697c94fa1bdb8925d0801b44c4f9"
+  },
+  "classical_ground_truth": {
+    "exact_maximum_cut": 22,
+    "optimal_assignments": [
+      [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    ],
+    "optimal_bitstrings": [
+      "001011",
+      "110100"
+    ],
+    "random_mean_cut": 13.5,
+    "random_approx_ratio": 0.6136363636363636,
+    "random_p_opt": 0.03125
+  },
+  "best_qaoa_run": {
+    "seed": 3,
+    "initial_gamma": [
+      0.2690747942844946
+    ],
+    "initial_beta": [
+      0.7439621478151841
+    ],
+    "optimized_gamma": [
+      -0.16801984112040994
+    ],
+    "optimized_beta": [
+      0.332661845215259
+    ],
+    "expected_cut": 17.712816894564796,
+    "approx_ratio": 0.8051280406620361,
+    "iterations": 37,
+    "optimizer_success": true
+  },
+  "sampling_statistics": {
+    "B_ideal": {
+      "shots": 4096,
+      "mean_cut": 17.761963,
+      "std_cut": 3.593948,
+      "se_cut": 0.056155,
+      "approx_ratio": 0.807362,
+      "se_approx_ratio": 0.002553,
+      "p_opt": 0.139648,
+      "se_p_opt": 0.005416
+    },
+    "B_noisy": {
+      "shots": 4096,
+      "mean_cut": 17.322021,
+      "std_cut": 3.829334,
+      "se_cut": 0.059833,
+      "approx_ratio": 0.787365,
+      "se_approx_ratio": 0.00272,
+      "p_opt": 0.125977,
+      "se_p_opt": 0.005185
+    },
+    "D_ideal": {
+      "shots": 4096,
+      "mean_cut": 17.713379,
+      "std_cut": 3.706099,
+      "se_cut": 0.057908,
+      "approx_ratio": 0.805154,
+      "se_approx_ratio": 0.002632,
+      "p_opt": 0.138428,
+      "se_p_opt": 0.005396
+    },
+    "D_noisy": {
+      "shots": 4096,
+      "mean_cut": 17.297119,
+      "std_cut": 3.916697,
+      "se_cut": 0.061198,
+      "approx_ratio": 0.786233,
+      "se_approx_ratio": 0.002782,
+      "p_opt": 0.125,
+      "se_p_opt": 0.005167
+    }
+  },
+  "sampling_comparison": {
+    "b_minus_d": {
+      "delta_cut": 0.024902,
+      "se_delta_cut": 0.085587,
+      "delta_approx_ratio": 0.001132,
+      "se_delta_approx_ratio": 0.003891,
+      "z_score": 0.291,
+      "two_sided_p_value": 0.7711,
+      "statistically_significant": false,
+      "interpretation": "Sampled mean cuts and approximation ratios are statistically indistinguishable under 4096 shots (|z| < 2 sigma, p = 0.7711). This lack of significant difference in the sampled mean cut does not prove that the underlying 64-element output probability distributions are identical, as physical routing topologies induce distinct state pathways."
+    }
+  },
+  "benchmark_settings": {
+    "basis_gates": [
+      "rz",
+      "sx",
+      "x",
+      "cx"
+    ],
+    "optimization_level": 1,
+    "seed_transpiler": 42,
+    "seed_simulator": 42,
+    "shots": 4096,
+    "p1_depol": 0.001,
+    "p2_depol": 0.005,
+    "p_readout": 0.01
+  }
+}

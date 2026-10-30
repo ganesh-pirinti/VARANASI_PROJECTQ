@@ -1,6 +1,0 @@
-seed,init_gamma,init_beta,opt_gamma,opt_beta,metric_type,expected_cut,approx_ratio,iterations,is_best
-0,2.001074,0.847560,2.960425,-0.407051,statevector_expectation,15.5515,0.7069,43,False
-1,1.607935,2.985970,2.960673,4.299710,statevector_expectation,15.5510,0.7069,80,False
-2,0.821879,0.937738,2.960452,-0.407161,statevector_expectation,15.5515,0.7069,36,False
-3,0.269075,0.743962,-0.168020,0.332662,statevector_expectation,17.7128,0.8051,37,True
-4,2.962698,1.606383,4.708001,0.849399,statevector_expectation,15.5324,0.7060,49,False

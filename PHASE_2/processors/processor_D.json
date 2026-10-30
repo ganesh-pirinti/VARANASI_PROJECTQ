@@ -1,0 +1,34 @@
+{
+  "basis_gates": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "design_rationale": "Directly embeds the 6-vertex PS-O1 network partitioning interaction graph on qubits 0-5 to eliminate all SWAP routing overhead and minimize CX depth, connected with an ancillary routing ring (qubits 5-8, 1) of maximum degree 4.",
+  "edges": [
+    [0, 2],
+    [0, 3],
+    [0, 4],
+    [1, 4],
+    [1, 5],
+    [2, 3],
+    [2, 4],
+    [3, 4],
+    [3, 5],
+    [5, 6],
+    [6, 7],
+    [7, 8],
+    [8, 1]
+  ],
+  "name": "Processor D",
+  "noise": {
+    "model": "official",
+    "p1": 0.001,
+    "p2": 0.005,
+    "p_readout": 0.01
+  },
+  "num_qubits": 9,
+  "problem_statement": "PS-O1",
+  "team": "QFF2026_RESEARCH_TEAM"
+}

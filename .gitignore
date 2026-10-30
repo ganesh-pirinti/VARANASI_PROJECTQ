@@ -1,10 +1,36 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-.ipynb_checkpoints/
+*$py.class
+
+# Virtual environments
 .venv/
 venv/
+ENV/
+env/
 opt-env/
-dist/
-.backups/
+.qff2026-venv/
+
+# Testing & code coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Node / Web dependencies
 node_modules/
 web/node_modules/
+.backups/
+
+# Distribution and packaging archives
+dist/
+build/
+*.egg-info/
+
+# Temporary and log files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

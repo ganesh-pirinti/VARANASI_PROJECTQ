@@ -1,0 +1,13 @@
+circuit_id,circuit_key,pair_type,qubit_pair,distance,condition,measurement_basis,cx_gates,shots,correlator_value,correlator_se
+1,near_0_2_ideal_XX,near,"(0,2)",1,ideal,XX,1,4096,1.0,0.0
+2,near_0_2_ideal_YY,near,"(0,2)",1,ideal,YY,1,4096,-1.0,0.0
+3,near_0_2_ideal_ZZ,near,"(0,2)",1,ideal,ZZ,1,4096,1.0,0.0
+4,near_0_2_noisy_XX,near,"(0,2)",1,noisy,XX,1,4096,0.945801,0.005074
+5,near_0_2_noisy_YY,near,"(0,2)",1,noisy,YY,1,4096,-0.952148,0.004776
+6,near_0_2_noisy_ZZ,near,"(0,2)",1,noisy,ZZ,1,4096,0.955078,0.004631
+7,far_0_7_ideal_XX,far,"(0,7)",4,ideal,XX,10,4096,1.0,0.0
+8,far_0_7_ideal_YY,far,"(0,7)",4,ideal,YY,10,4096,-1.0,0.0
+9,far_0_7_ideal_ZZ,far,"(0,7)",4,ideal,ZZ,10,4096,1.0,0.0
+10,far_0_7_noisy_XX,far,"(0,7)",4,noisy,XX,10,4096,0.924316,0.005963
+11,far_0_7_noisy_YY,far,"(0,7)",4,noisy,YY,10,4096,-0.903809,0.006687
+12,far_0_7_noisy_ZZ,far,"(0,7)",4,noisy,ZZ,10,4096,0.939941,0.005333
